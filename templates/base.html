@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+{% load inplace_edit %}
+
+<html>
+
+<head>
+
+    <title>{% block page-title %}Welcome{% endblock %}</title>
+
+    <!-- META -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='description' content='{% block meta_description %}{% endblock %}'>
+    <meta name="keywords" content='{% block meta_tags %}{% endblock %}'>
+    <meta name='robots' content='index, follow'>
+    <meta name='Revisit-after' content='15 Days'>
+
+    <!-- FAV/SOCIAL ICONS -->
+    <link rel="SHORTCUT ICON" href="/static/images/favicon.ico">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+    <link type='text/css' rel='stylesheet' href='/static/css/base.css'>
+    <link type='text/css' rel='stylesheet' href='/static/css/front_overrides.css'>
+
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'>
+
+    <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script type='text/javascript' src="/static/js/menu.js"></script>
+    <script type='text/javascript' src="/static/js/user_actions.js"></script>
+
+    <script type='text/javascript'>
+
+
+    </script>
+
+    {% block extra-head %}
+
+    {% endblock %}
+
+</head>
+
+<body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %}>
+
+<!-- HEADER -->
+<div id='header-wrapper'>
+
+    <div id='header' class='navbar site-color-bg' role='navigation'>
+
+        <div id='login-bar'></div>
+
+        <div id='header-nav'>
+
+            <div class='container'>
+
+                <div id='logo'>
+
+                    <a href='/'>
+                        <img src='{{ current_site.logo.image_desktop }}' >
+                    </a>
+
+                </div>
+
+                {% include 'snippets/desktop_nav.html' %}
+
+            </div>
+
+        </div>
+
+        <div class='clear-both'></div>
+
+    </div>
+
+    <div class='hamburger visible-xs visible-sm' onclick='toggleMobileMenu();'>
+
+        <span class='first'></span>
+        <span class='second'></span>
+        <span class='third last'></span>
+
+    </div>
+
+</div>
+
+{% include 'snippets/mobile_nav.html' %}
+<!-- END HEADER -->
+
+<!-- CONTENT -->
+<div id='content-wrapper'>
+
+    {% block content %}
+
+
+    {% endblock %}
+
+</div>
+<!-- END CONTENT -->
+
+<!-- AREA FOR ADDING ANY EXTRA CONTENT I.E. DIALOG BOXES -->
+{% block extra-content %}
+
+
+{% endblock %}
+<!-- END EXTRA CONTENT -->
+
+<!-- FOOTER -->
+<div id='footer-wrapper'>
+
+    <div class='container'>
+
+        <div class='row'>
+
+
+            <div class='col-xs-12'>
+                {% if footer %}
+                <h2>{% inplace_edit 'footer.heading' %}</h2>
+                {% endif %}
+            </div>
+
+            <div class='left-col col-md-6 col-lg-8'>
+                {% if footer %}
+                {% inplace_edit 'footer.content|safe' adaptor='tiny' %}
+                {% endif %}
+            </div>
+
+
+            <div class='right-col hidden-xs col-sm-3 col-lg-2'>
+
+                <ul>
+
+                    {% for link in header_links %}
+                        <li class='top-level{% if forloop.last %} last{% endif %}{% if link.links %} dropdown{% endif %}'>
+
+                            <a class='top-level' href='{{ link.url }}'>
+                                {{ link.title }}
+                            </a>
+
+                        </li>
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+            <div class='right-col col-sm-3 col-lg-2'>
+
+                <div class='social-icons'>
+
+                    {% for item in social_links %}
+                        <a href='{{ item.link }}' target='_blank'>
+                            <img{% if forloop.last %} class='last'{% endif %} src='{{ item.image }}'>
+                        </a>
+                    {% endfor %}
+
+                </div>
+
+                <ul class='hidden-xs'>
+
+                    {% for link in footer_links %}
+                        <li class='top-level{% if forloop.last %} last{% endif %}{% if link.links %} dropdown{% endif %}'>
+
+                            <a class='top-level' href='{{ link.url }}'>
+                                {{ link.title }}
+                            </a>
+
+                        </li>
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class='row copyright left-col'>
+
+            <div class='col-xs-12 col-md-6 left-col'>
+
+                <span>©2016 Mill Creek Software Inc.</span>
+                <span class='bullet'>•</span>
+                <span>All Rights Reserved</span>
+                <span class='bullet'>•</span>
+                <span>Design by <a href='http://www.doc4design.com' target='_blank'>DOC4</a></span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- END FOOTER -->
+
+<!-- USER ACTIONS -->
+{% if active_user %}
+    <div id='user-actions-menu' class='wrapper hidden-xs hidden-sm'>
+
+        <div id='user-actions-wrapper'>
+
+            <div id='user-hamburger' onclick='toggleUserActions()'>
+                <span></span>
+                <span></span>
+                <span class='last'></span>
+            </div>
+
+            <div class='user-actions'>
+
+                <span class='left'>
+                    Welcome back, <a href='/admin/'>{{ active_user.username }}</a>
+                </span>
+
+                <span class='left break'></span>
+
+                <span class='left logout'>
+                    <a href='/admin/logout/'>logout</a>
+                </span>
+
+            </div>
+
+            <div class='more-actions'>
+
+                <span class='left'>
+                    <a onclick='displayManageWindow("/admin/navigation/")'>navigation</a>
+                </span>
+
+                <span class='left'>
+                    <a onclick='displayManageWindow("/admin/page_content/webpage/")'>pages</a>
+                </span>
+
+                <span class='left break'></span>
+
+                {% block user-actions %}{% endblock %}
+
+            </div>
+
+        </div>
+
+        <div id='all-apps'>
+
+            <ul class='no-list'>
+
+                <li><a onclick='displayManageWindow("/admin/auth/")'>users</a></li>
+                <li><a onclick='displayManageWindow("/admin/site_content/")'>site content</a></li>
+                <li><a onclick='displayManageWindow("/admin/navigation/")'>navigation</a></li>
+                <li><a onclick='displayManageWindow("/admin/page_content/")'>pages</a></li>
+                <li><a onclick='displayManageWindow("/admin/home_content/")'>home content</a></li>
+                <li><a onclick='displayManageWindow("/admin/contact/")'>contact</a></li>
+                <li class='last'><a onclick='displayManageWindow("/admin/filebrowser/browse/")'>your media</a></li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div id='user-manage-wrapper'>
+
+        <div id='mask' onclick='hideManageWindow()'></div>
+
+        <div id='user-manage-dialog'>
+
+            <div id='user-manage-content'></div>
+
+            <div class='clear-both'></div>
+
+            <div id='user-manage-buttons'>
+
+                <span class='btn action left' onclick='hideManageWindow()'>Close</span>
+                <span class='btn info left' onclick='saveManageWindow()'>Refresh Page</span>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endif %}
+<!-- END USER ACTIONS -->
+
+</body>
+
+</html>

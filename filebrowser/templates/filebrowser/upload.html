@@ -1,0 +1,113 @@
+{% extends "admin/base_site.html" %}
+
+<!-- LOADING -->
+{% load i18n admin_static fb_tags %}
+
+<!-- STYLESHEETS -->
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{{ settings_var.URL_FILEBROWSER_MEDIA }}uploadify/uploadifive.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ settings_var.URL_FILEBROWSER_MEDIA }}css/filebrowser.css" />
+{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script type="text/javascript" src="../../jsi18n/"></script>
+    <script type="text/javascript" src="{% static "admin/js/core.js" %}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="{{ settings_var.URL_FILEBROWSER_MEDIA }}uploadify/jquery.uploadifive.min.js"></script>
+
+{% endblock %}
+
+<!-- COLTYPE/BODYCLASS -->
+{% block bodyclass %}change-form filebrowser{% if query.pop %} popup{% endif %}{% endblock %}
+{% block content-class %}content-flexible{% endblock %}
+
+<!-- BREADCRUMBS -->
+{% block breadcrumbs %}{% include "filebrowser/include/breadcrumbs.html" %}{% endblock %}
+
+<!-- CONTENT -->
+{% block content %}
+<div id="content-main">
+
+    <form>
+
+        <fieldset class="module aligned">
+
+            <div class="form-row">
+                <input id="file_upload" name="file_upload" type="file" multiple="true" class="col-md-12">
+            </div>
+
+        </fieldset>
+
+        <div class="submit-row upload">
+
+            <div class="btn btn-primary" onclick="$('#file_upload').uploadifive('upload');">
+                Upload Selected File(s)
+            </div>
+
+            <p class="deletelink-box">
+                <a class="deletelink cancel-link" href="javascript://">{% trans "Clear Queue" %}</a>
+            </p>
+
+        </div>
+
+        <div style='clear: both;'></div>
+
+        <div class="controls">
+            <label>Queued Files</label>
+            <hr>
+            <div id="queue" style="width:300px"></div>
+        </div>
+
+        <div style='clear: both;'></div>
+
+        <fieldset class="module aligned collapse closed">
+
+            <h2>{% trans "Help" %}</h2>
+
+            <div class='help-box' style='width: 100%; background-color: ##f6f6f6; padding: 20px;'>
+
+                <label class="required">{% trans "Allowed File Types" %}:</label>
+                <div style='clear: both;'></div>
+
+                <ul>
+                    {% for extension in settings_var.EXTENSIONS.items %}
+                        {% ifnotequal extension.0 'Folder' %}
+                            <li><p>{{ extension.0|safe }} ({{ extension.1|join:", "|safe }})</p></li>
+                        {% endifnotequal %}
+                    {% endfor %}
+                </ul>
+
+                <div style='clear: both;'></div>
+
+                <label class="required">{% trans "Max. Filesize" %}: &nbsp;{{ settings_var.MAX_UPLOAD_SIZE|filesizeformat }}</label>
+                <div style='clear: both;'></div>
+                <label class="required">{% trans "The Name will be converted to lowercase. Spaces will be replaced with underscores." %}</label>
+
+            </div>
+
+        </fieldset>
+
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#file_upload').uploadifive({
+            'auto': false,
+            'formData': {'session_key': '{{session_key}}', 'folder': '{{ query.dir }}'},
+            'simUploadLimit'  : 1,                  // The maximum number of files to upload at once
+            'buttonClass': 'btn btn-success addlink ',
+            'width': 300,
+            'height': 'auto',
+            'checkScript': '{% url "fb_check" %}',
+            'queueID': 'queue',
+            'uploadScript': '{% url "fb_do_upload" %}',
+            'onQueueComplete': function(){var newpath='../browse/{% query_string %}';window.location=newpath;}
+        });
+    });
+</script>
+
+{% endblock %}
