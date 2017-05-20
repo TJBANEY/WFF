@@ -9,14 +9,10 @@ from django.template import RequestContext
 
 def view_home(request):
 
-
     context = {}
     template = 'home.html'
 
-    return HttpResponse('This works')
-
-    # return render_to_response(template, context, context_instance=RequestContext(request))
-
+    return render_to_response(template, context, context_instance=RequestContext(request))
 
 class StaticViewSitemap(sitemaps.Sitemap):
     priority = 1

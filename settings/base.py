@@ -118,6 +118,9 @@ TEMPLATES = [
     },
 ]
 
+print(os.path.join(BASE_DIR, 'templates'))
+# /Users/timothybaney/Levi/Wall_Flower_Farm/templates
+
 FILE_UPLOAD_PERMISSIONS = 0o644
 
 SESSION_COOKIE_AGE = 3600
