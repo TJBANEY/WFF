@@ -1,0 +1,25 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "Cron Setup for cron tasks 30 2 * * * python2.7 $HOME/webapps/djangowebsite/abc-jesus-loves-me/cron_tasks.py 2>&1 >> $HOME/logs/user/cron_tasks.log",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TJBANEY/WFF.git"
+  },
+  "author": "Levi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TJBANEY/WFF/issues"
+  },
+  "homepage": "https://github.com/TJBANEY/WFF#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "skeleton-plus": "^2.0.1"
+  }
+}

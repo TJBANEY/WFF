@@ -1,5 +1,6 @@
 .DS_Store
 design_docs/
+node_modules
 
 # Ignore Python Compiled/Object files.
 *.pyc
@@ -23,4 +24,3 @@ media/
 # Sublime Text Related
 *.sublime-project
 *.sublime-workspace
-
