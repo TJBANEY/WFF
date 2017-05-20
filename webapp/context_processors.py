@@ -1,7 +1,5 @@
 import logging
 from django.contrib.sites.models import Site
-from navigation.models import PrimaryNavigation
-
 
 def detail_context(request):
 
@@ -22,11 +20,11 @@ def detail_context(request):
     a_context['active_user'] = active_user
 
     # NAV LINKS
-    desktop_links = PrimaryNavigation.get_published_objects()
-    a_context['desktop_links'] = desktop_links
+    # desktop_links = PrimaryNavigation.get_published_objects()
+    # a_context['desktop_links'] = desktop_links
 
-    nav_links = PrimaryNavigation.get_published_objects()
-    a_context['nav_links'] = nav_links
+    # nav_links = PrimaryNavigation.get_published_objects()
+    # a_context['nav_links'] = nav_links
 
     try:
         # GET CURRENT SITE
