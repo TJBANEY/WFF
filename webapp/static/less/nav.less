@@ -1,0 +1,276 @@
+// main: ./main.less
+
+
+@import "variables.less";
+@import "mixins.less";
+
+
+/*========== DESKTOP NAV ==========*/
+#desktop-nav {
+    float: right;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        float: left;
+        .font-styling('Lato', 13px, 700, #FFFFFF);
+        text-transform: uppercase;
+        margin-right: 30px;
+
+        &.last {
+            margin: 0;
+        }
+
+        a {
+            display: block;
+            text-decoration: none !important;
+            color: #FFFFFF;
+            .fade-transition(color);
+
+            &.top-level {
+                height: @desktop-header-ht;
+                line-height: @desktop-header-ht;
+            }
+        }
+
+        &.top-level {
+            height: @desktop-header-ht;
+
+            .sub-nav {
+                display: none;
+                position: absolute;
+                top: @desktop-header-ht;
+                left: 50%;
+                min-width: 100%;
+                text-align: center;
+                padding: 10px 0;
+                background-color: darken(@blue, 10%);
+                border: none;
+                border-radius: 0;
+                border-bottom-right-radius: 3px;
+                border-bottom-left-radius: 3px;
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                box-shadow: none;
+                overflow: hidden;
+                .translate(-50%, 0);
+
+                li {
+                    float: none;
+                    width: 100%;
+
+                    a {
+                        width: 100%;
+                        white-space: nowrap;
+                        padding: 15px 10px;
+                        .fade-transition(background-color);
+
+                        &:hover {
+                            background-color: @blue;
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                a.top-level {
+                    color: @light-grey;
+                }
+
+                .sub-nav {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+/*========== END DESKTOP NAV ==========*/
+
+
+/*========== MOBILE NAV ==========*/
+.hamburger {
+    position: absolute;
+    z-index: 3;
+    left: 15px;
+    width: 23px;
+    height: 20px;
+    cursor: pointer;
+
+    span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        margin-bottom: 6px;
+        background-color: #FFFFFF;
+
+        &.last {
+            margin-bottom: 0;
+        }
+
+        &.first,
+        &.second,
+        &.third {
+          transition: all 0.35s linear;
+          transform: rotate(0deg);
+          transform-origin: 0% 50%;
+        }
+    }
+
+    &.open {
+        span {
+            &.first {
+              transform: rotate(45deg);
+            }
+
+            &.third {
+              transform: rotate(-45deg);
+            }
+
+            &.second {
+              width: 0;
+              opacity: 0;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 991px) {
+        bottom: 45px;
+    }
+
+    @media only screen and (max-width: 767px) {
+        bottom: 22px;
+    }
+}
+
+#mobile-nav-wrapper {
+    position: fixed;
+    z-index: 150;
+    top: @tablet-header-ht + 35;
+    left: -320px;
+    width: 320px;
+    height: 100%;
+    height: calc(~'100% - @{tablet-header-ht}');
+    padding: 0;
+
+    #mobile-nav-transparency {
+        position: absolute;
+        z-index: 900;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: darken(@blue, 10%);
+        opacity: 0.92;
+    }
+
+    #mobile-nav-scroll-buffer {
+        position: absolute;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+
+        #mobile-nav {
+            float: left;
+            width: 100%;
+            list-style: none;
+            padding: 0 0 20px 0;
+
+            li {
+                float: left;
+                width: 100%;
+                padding: 0 15px;
+                .fade-transition(background);
+
+                &:hover {
+                    background: darken(@blue, 10%);
+                }
+
+                a {
+                    float: left;
+                    width: 100%;
+                    .font-styling('Lato', 18px, 700, #FFFFFF);
+                    text-transform: uppercase;
+                    padding: 15px 0;
+                    border-bottom: 1px solid #FFFFFF;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+
+                    &.last {
+                        border-bottom: none;
+                    }
+                }
+
+                &.links {
+                    a.top-level {
+                        width: calc(~'100% - 51px');
+                    }
+
+                    &.open {
+                        a.top-level,
+                        span.drop-arrow {
+                            border-bottom: none !important;
+                        }
+                    }
+                }
+
+                span.drop-arrow {
+                    float: right;
+                    width: 51px;
+                    height: 51px;
+                    background: url('/static/images/nav/down_arrow.png') center no-repeat;
+                    border-bottom: 1px solid #8A6592;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: darken(@blue, 10%);
+                    }
+                }
+
+                .sub-level-wrapper {
+                    float: left;
+                    width: 100%;
+                    height: 0;
+                    overflow: hidden;
+
+                    ul.sub-level {
+                        float: left;
+                        list-style: none;
+                        padding: 0;
+                    }
+
+                    a.sub-level {
+                        float: left;
+
+                        .last {
+                            width: 100%;
+                            margin-left: 0;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        top: @phone-header-ht + 20;
+        height: calc(~'100% - @{phone-header-ht}');
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    body {
+        overflow: visible !important;
+    }
+
+    #mobile-nav-wrapper {
+        display: none !important;
+    }
+}
+/*========== END MOBILE NAV ==========*/
