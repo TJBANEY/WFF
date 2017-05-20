@@ -85,6 +85,7 @@
 
     {% block content %}
 
+        This is a block content waka waka  kjdl;afkjsdlkfj lksdj
 
     {% endblock %}
 
@@ -185,91 +186,6 @@
 
 </div>
 <!-- END FOOTER -->
-
-<!-- USER ACTIONS -->
-{% if active_user %}
-    <div id='user-actions-menu' class='wrapper hidden-xs hidden-sm'>
-
-        <div id='user-actions-wrapper'>
-
-            <div id='user-hamburger' onclick='toggleUserActions()'>
-                <span></span>
-                <span></span>
-                <span class='last'></span>
-            </div>
-
-            <div class='user-actions'>
-
-                <span class='left'>
-                    Welcome back, <a href='/admin/'>{{ active_user.username }}</a>
-                </span>
-
-                <span class='left break'></span>
-
-                <span class='left logout'>
-                    <a href='/admin/logout/'>logout</a>
-                </span>
-
-            </div>
-
-            <div class='more-actions'>
-
-                <span class='left'>
-                    <a onclick='displayManageWindow("/admin/navigation/")'>navigation</a>
-                </span>
-
-                <span class='left'>
-                    <a onclick='displayManageWindow("/admin/page_content/webpage/")'>pages</a>
-                </span>
-
-                <span class='left break'></span>
-
-                {% block user-actions %}{% endblock %}
-
-            </div>
-
-        </div>
-
-        <div id='all-apps'>
-
-            <ul class='no-list'>
-
-                <li><a onclick='displayManageWindow("/admin/auth/")'>users</a></li>
-                <li><a onclick='displayManageWindow("/admin/site_content/")'>site content</a></li>
-                <li><a onclick='displayManageWindow("/admin/navigation/")'>navigation</a></li>
-                <li><a onclick='displayManageWindow("/admin/page_content/")'>pages</a></li>
-                <li><a onclick='displayManageWindow("/admin/home_content/")'>home content</a></li>
-                <li><a onclick='displayManageWindow("/admin/contact/")'>contact</a></li>
-                <li class='last'><a onclick='displayManageWindow("/admin/filebrowser/browse/")'>your media</a></li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-    <div id='user-manage-wrapper'>
-
-        <div id='mask' onclick='hideManageWindow()'></div>
-
-        <div id='user-manage-dialog'>
-
-            <div id='user-manage-content'></div>
-
-            <div class='clear-both'></div>
-
-            <div id='user-manage-buttons'>
-
-                <span class='btn action left' onclick='hideManageWindow()'>Close</span>
-                <span class='btn info left' onclick='saveManageWindow()'>Refresh Page</span>
-
-            </div>
-
-        </div>
-
-    </div>
-{% endif %}
-<!-- END USER ACTIONS -->
 
 </body>
 
