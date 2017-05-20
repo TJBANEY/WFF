@@ -18,19 +18,24 @@
     <link rel="SHORTCUT ICON" href="/static/images/favicon.ico">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+
+    <link type='text/css' rel='stylesheet' href='/static/css/skeleton-plus.css'>
     <link type='text/css' rel='stylesheet' href='/static/css/base.css'>
     <link type='text/css' rel='stylesheet' href='/static/css/front_overrides.css'>
 
+   <!-- Tachyons -->
+   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
+   <link rel="stylesheet" href="http://unpkg.com/tachyons-flexbox@2.0.5/css/tachyons-flexbox.min.css"/>
+
     <!-- FONTS -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'>
 
     <!-- SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script type='text/javascript' src="/static/js/menu.js"></script>
     <script type='text/javascript' src="/static/js/user_actions.js"></script>
 
@@ -50,43 +55,29 @@
 <!-- HEADER -->
 <div id='header-wrapper'>
 
-    <div id='header' class='navbar site-color-bg' role='navigation'>
-
-        <div id='login-bar'></div>
-
-        <div id='header-nav'>
-
-            <div class='container'>
-
-                <div id='logo'>
-
-                    <a href='/'>
-                        <img src='{{ current_site.logo.image_desktop }}' >
-                    </a>
-
-                </div>
-
-                {% include 'snippets/desktop_nav.html' %}
-
-            </div>
-
-        </div>
-
-        <div class='clear-both'></div>
-
-    </div>
-
-    <div class='hamburger visible-xs visible-sm' onclick='toggleMobileMenu();'>
-
+  <div id="navbar-container" class="nav">
+    <header class="navbar pb3 pt4 tc">
+      <!-- <a class="mobile_menu">
+        <hr class="menu_bars one w-60">
+        <hr class="menu_bars two w-60">
+        <hr class="menu_bars three w-60">
+      </a> -->
+      <div class='hamburger'>
         <span class='first'></span>
         <span class='second'></span>
         <span class='third last'></span>
+      </div>
 
-    </div>
+      <div class="home_link">
+        <img src="images/favicon.png" class="home_img" alt=""><a href="/" class=""></a></img>
+      </div>
+    </header>
+  </div>
+
+
 
 </div>
 
-{% include 'snippets/mobile_nav.html' %}
 <!-- END HEADER -->
 
 <!-- CONTENT -->
