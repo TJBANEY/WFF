@@ -16,10 +16,6 @@ media/
 !third_party/**/media/
 
 # Ignore static file directory at the top level of the project since it is built dynamically
-static/
-!/**/static
-!third_party/**/static
-
 
 # Ignore Pycharm folder
 .idea/

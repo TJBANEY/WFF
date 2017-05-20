@@ -1,0 +1,46 @@
+// main: ./main.less
+
+
+@import "variables.less";
+@import "mixins.less";
+
+
+/*---------- BILLBOARDS ----------*/
+#billboard {
+    z-index: 10;
+    .wrapper();
+    margin: 0;
+    border: none;
+    box-shadow: none;
+
+    .slide {
+        position: relative;
+        height: 445px;
+        background-position: center;
+        background-size: cover;
+
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            max-width: 620px;
+            text-align: center;
+            .translate(-50%, -50%);
+
+            h1 {
+                .font-styling(@playfair, 45px, 700, #FFFFFF);
+            }
+
+            @media only screen and (max-width: 767px) {
+                width: 90%;
+                max-width: 100%;
+                .translate(-50%, -80%);
+
+                h1 {
+                    font-size: 32px;
+                }
+            }
+        }
+    }
+}
+/*---------- END BILLBOARDS ----------*/

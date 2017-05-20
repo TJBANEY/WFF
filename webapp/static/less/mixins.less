@@ -1,0 +1,48 @@
+// main: ./main.less
+
+.translate (@x:0, @y:0) {
+    -webkit-transform: translate(@x, @y);
+    -moz-transform: translate(@x, @y);
+    -ms-transform: translate(@x, @y);
+    -o-transform: translate(@x, @y);
+}
+
+.vertical-align (@top: 0, @x: 0, @y: 0) {
+    position: relative;
+    top: @top;
+    .translate(@x, @y);
+}
+
+.wrapper() {
+    float: left;
+    clear: both;
+    width: 100%;
+}
+
+.font-styling(@style, @size, @weight, @color) {
+    font-family: @style;
+    font-size: @size;
+    font-weight: @weight;
+    color: @color;
+}
+
+.rule(@width, @height, @color) {
+    display: block;
+    width: @width;
+    height: @height;
+    background: @color;
+}
+
+.background-details(@position, @size, @repeat) {
+    background-position: @position;
+    background-size: @size;
+    background-repeat: @repeat;
+}
+
+.fade-transition(@property) {
+    -webkit-transition: @property 250ms linear;
+    -moz-transition: @property 250ms linear;
+    -o-transition: @property 250ms linear;
+    -ms-transition: @property 250ms linear;
+    transition: @property 250ms linear;
+}
