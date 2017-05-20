@@ -13,9 +13,12 @@
 #
 # You should have received a copy of the GNU Lesser General Public License
 # along with this programe.  If not, see <http://www.gnu.org/licenses/>.
+import logging
 
 try:
     from django.conf.urls import patterns, url
+except Exception as e:
+    logging.error(e)
 except ImportError:  # Django < 1.4
     from django.conf.urls.defaults import patterns, url
 
