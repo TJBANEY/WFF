@@ -458,16 +458,19 @@ legend {
 
 fieldset {
   padding: 0;
-  border-width: 0; }
+  border-width: 0;
+}
 
 input[type="checkbox"],
 input[type="radio"] {
-  display: inline; }
+  display: inline;
+}
 
 label > .label-body {
   display: inline-block;
   margin-left: .5rem;
-  font-weight: normal; }
+  font-weight: normal;
+}
 
 input[type="email"]:focus.has-error,
 input[type="email"].has-error,
@@ -545,35 +548,43 @@ tr.info {
 td.primary,
 tr.primary {
   background-color: #0277BD;
-  color: #FFF; }
+  color: #FFF;
+}
 
 @media screen and (max-width: 640px) {
-  table {
-    overflow-x: auto;
-    display: block; } }
+    table {
+      overflow-x: auto;
+      display: block;
+    }
+  }
 
 /*
 List
 */
 ul {
-  list-style: circle outside; }
+  list-style: circle outside;
+}
 
 ol {
-  list-style: decimal outside; }
+  list-style: decimal outside;
+}
 
 ol, ul {
   padding-left: 0;
-  margin-top: 0; }
+  margin-top: 0;
+}
 
 ul ul,
 ul ol,
 ol ol,
 ol ul {
   margin: 1.5rem 0 1.5rem 3rem;
-  font-size: 90%; }
+  font-size: 90%;
+}
 
 li {
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+}
 
 /*
 Code
@@ -586,31 +597,42 @@ code {
   overflow-x: scroll;
   background: #eeeeee;
   border: 1px solid #d5d5d5;
-  border-radius: 4px; }
+  border-radius: 4px;
+}
 
 pre > code {
   display: block;
-  white-space: pre; }
+  white-space: pre;
+}
 
 /*
 Navigation
 */
 nav {
-  margin-top: 20px !important; }
+  margin-top: 20px !important;
+}
   nav a.brand {
-    font-weight: 600; }
+    font-weight: 600;
+  }
   nav * {
-    display: inline-block; }
+    display: inline-block;
+  }
   nav ul {
-    float: right; }
+    float: right;
+  }
     nav ul li {
-      padding: 0 15px; }
+      padding: 0 15px;
+    }
     @media (max-width: 550px) {
       nav ul {
-        width: 100%; } }
+        width: 100%;
+      }
+    }
   @media (max-width: 550px) {
     nav {
-      text-align: center; } }
+      text-align: center;
+    }
+  }
 
 /*
 Utilities
@@ -632,11 +654,12 @@ Utilities
 /*
 Misc
 */
-hr {
+
+/*hr {
   margin-top: 3rem;
   margin-bottom: 3.5rem;
   border-width: 0;
-  border-top: 1px solid #bbb; }
+  border-top: 1px solid #bbb; }*/
 
 /*
 Clearing
@@ -755,4 +778,5 @@ Other Elements
   background-color: #f3f3f3;
   border-radius: 3px;
   margin-top: 10px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+}
