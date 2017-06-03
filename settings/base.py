@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     # My Applications
     'webapp',
     'webapp_admin',
+    'plants'
 )
 
 MIDDLEWARE_CLASSES = (
