@@ -9,6 +9,12 @@
 */
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
 
+:root {
+  --primaryColor: #8CD4BA;
+}
+
+
+
 /*
 Base
 */
@@ -207,7 +213,7 @@ Grid
 
     .column:first-child,
     .columns:first-child {
-        margin-left: 0;
+        /*margin-left: 0;*/ /* why would anyone do this? */
     }
 
     .one.column,
@@ -644,18 +650,14 @@ legend {
 }
 
 fieldset {
-<<<<<<< HEAD
   padding: 0;
   border-width: 0;
-=======
     padding: 0;
     border-width: 0;
->>>>>>> a157d98938b2165af0f956c35723e98477afd424
 }
 
 input[type="checkbox"],
 input[type="radio"] {
-<<<<<<< HEAD
   display: inline;
 }
 
@@ -663,7 +665,6 @@ label > .label-body {
   display: inline-block;
   margin-left: .5rem;
   font-weight: normal;
-=======
     display: inline;
 }
 
@@ -671,7 +672,6 @@ label > .label-body {
     display: inline-block;
     margin-left: .5rem;
     font-weight: normal;
->>>>>>> a157d98938b2165af0f956c35723e98477afd424
 }
 
 input[type="email"]:focus.has-error,
@@ -757,34 +757,21 @@ tr.info {
 
 td.primary,
 tr.primary {
-<<<<<<< HEAD
   background-color: #0277BD;
   color: #FFF;
-=======
-    background-color: #0277BD;
-    color: #FFF;
->>>>>>> a157d98938b2165af0f956c35723e98477afd424
 }
 
 @media screen and (max-width: 640px) {
     table {
-<<<<<<< HEAD
       overflow-x: auto;
       display: block;
     }
-  }
-=======
-        overflow-x: auto;
-        display: block;
-    }
 }
->>>>>>> a157d98938b2165af0f956c35723e98477afd424
 
 /*
 List
 */
 ul {
-<<<<<<< HEAD
   list-style: circle outside;
 }
 
@@ -795,46 +782,22 @@ ol {
 ol, ul {
   padding-left: 0;
   margin-top: 0;
-=======
-    list-style: circle outside;
-}
-
-ol {
-    list-style: decimal outside;
-}
-
-ol, ul {
-    padding-left: 0;
-    margin-top: 0;
->>>>>>> a157d98938b2165af0f956c35723e98477afd424
+  list-style: circle outside;
 }
 
 ul ul,
 ul ol,
 ol ol,
 ol ul {
-<<<<<<< HEAD
   margin: 1.5rem 0 1.5rem 3rem;
   font-size: 90%;
 }
 
-li {
-  margin-bottom: 1rem;
-=======
-    margin: 1.5rem 0 1.5rem 3rem;
-    font-size: 90%;
-}
-
-li {
-    margin-bottom: 1rem;
->>>>>>> a157d98938b2165af0f956c35723e98477afd424
-}
 
 /*
 Code
 */
 code {
-<<<<<<< HEAD
   padding: .2rem .5rem;
   margin: 0 .2rem;
   font-size: 90%;
@@ -848,84 +811,74 @@ code {
 pre > code {
   display: block;
   white-space: pre;
-=======
-    padding: .2rem .5rem;
-    margin: 0 .2rem;
-    font-size: 90%;
-    white-space: nowrap;
-    overflow-x: scroll;
-    background: #eeeeee;
-    border: 1px solid #d5d5d5;
-    border-radius: 4px;
+  padding: .2rem .5rem;
+  margin: 0 .2rem;
+  font-size: 90%;
+  white-space: nowrap;
+  overflow-x: scroll;
+  background: #eeeeee;
+  border: 1px solid #d5d5d5;
+  border-radius: 4px;
 }
 
-pre > code {
-    display: block;
-    white-space: pre;
->>>>>>> a157d98938b2165af0f956c35723e98477afd424
-}
 
 /*
 Navigation
 */
 nav {
-<<<<<<< HEAD
   margin-top: 20px !important;
 }
-  nav a.brand {
-    font-weight: 600;
-  }
-  nav * {
-    display: inline-block;
-  }
+nav a.brand {
+  font-weight: 600;
+}
+nav * {
+  display: inline-block;
+}
+nav ul {
+  float: right;
+}
+nav ul li {
+  padding: 0 15px;
+}
+@media (max-width: 550px) {
   nav ul {
-    float: right;
+    width: 100%;
   }
-    nav ul li {
-      padding: 0 15px;
-    }
-    @media (max-width: 550px) {
-      nav ul {
-        width: 100%;
-      }
-    }
-  @media (max-width: 550px) {
-    nav {
-      text-align: center;
-    }
+}
+@media (max-width: 550px) {
+  nav {
+    text-align: center;
   }
-=======
-    margin-top: 20px !important;
 }
 
+
 nav a.brand {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 nav * {
-    display: inline-block;
+  display: inline-block;
 }
 
 nav ul {
-    float: right;
+  float: right;
 }
 
 nav ul li {
-    padding: 0 15px;
+  padding: 0 15px;
 }
 
 @media (max-width: 550px) {
-    nav ul {
-        width: 100%;
-    }
+  nav ul {
+    width: 100%;
+  }
 }
 
 @media (max-width: 550px) {
-    nav {
-        text-align: center;
-    }
+  nav {
+    text-align: center;
+  }
 }
->>>>>>> a157d98938b2165af0f956c35723e98477afd424
 
 /*
 Utilities
@@ -951,21 +904,13 @@ Utilities
 /*
 Misc
 */
-<<<<<<< HEAD
 
-/*hr {
-  margin-top: 3rem;
-  margin-bottom: 3.5rem;
-  border-width: 0;
-  border-top: 1px solid #bbb; }*/
-=======
+
 hr {
-    margin-top: 3rem;
-    margin-bottom: 3.5rem;
+    margin: 0.3rem auto;
     border-width: 0;
-    border-top: 1px solid #bbb;
+    border-top: 1px solid #FFF;
 }
->>>>>>> a157d98938b2165af0f956c35723e98477afd424
 
 /*
 Clearing
@@ -1128,19 +1073,55 @@ Media Queries
 Other Elements
 */
 .well {
-<<<<<<< HEAD
   padding: 10px;
   padding-top: 15px;
   background-color: #f3f3f3;
   border-radius: 3px;
   margin-top: 10px;
   margin-bottom: 10px;
-=======
-    padding: 10px;
-    padding-top: 15px;
-    background-color: #f3f3f3;
-    border-radius: 3px;
-    margin-top: 10px;
-    margin-bottom: 10px;
->>>>>>> a157d98938b2165af0f956c35723e98477afd424
+}
+
+/* Nav
+___________________________________________________*/
+
+.navbar {
+  background-color: var(--primaryColor);
+}
+
+.mobile_menu {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.8rem;
+
+  height: 2rem;
+  width: 2rem;
+  /*margin: -1rem 0 0 1rem;*/
+}
+
+.menu_bars {
+  height: 0.2rem;
+  background-color: #FFF;
+  border: none;
+}
+/* Footer
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.footer {
+  min-height: 4em;
+  background-color: #8CD4BA;
+  color: #FFFFFF;
+}
+
+.footer_text {
+  flex: 1;
+  margin: 0.5rem 0 0 0;
+}
+
+.footer_items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer p {
+  font-size: 10pt;
 }

@@ -19,7 +19,7 @@
 
     <!-- CSS -->
     <link type='text/css' rel='stylesheet' href='/static/css/skeleton-plus.css'>
-    <link type='text/css' rel='stylesheet' href='/static/css/base.css'>
+    <!-- <link type='text/css' rel='stylesheet' href='/static/css/base.css'> -->
     <link type='text/css' rel='stylesheet' href='/static/css/front_overrides.css'>
 
    <!-- Tachyons -->
@@ -34,7 +34,8 @@
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'>
 
     <!-- SCRIPTS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type='text/javascript' src="/static/js/menu.js"></script>
     <script type='text/javascript' src="/static/js/user_actions.js"></script>
 
@@ -52,26 +53,22 @@
 <body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %}>
 
 <!-- HEADER -->
-<div id='header-wrapper'>
-  <div id="navbar-container" class="nav">
-    <header class="navbar pb3 pt4 tc">
-      <!-- <a class="mobile_menu">
-        <hr class="menu_bars one w-60">
-        <hr class="menu_bars two w-60">
-        <hr class="menu_bars three w-60">
-      </a> -->
-      <div class='hamburger'>
-        <span class='first'></span>
-        <span class='second'></span>
-        <span class='third last'></span>
-      </div>
+<!-- <div id='header-wrapper'> -->
+  <!-- <div id="navbar-container" class="nav"> -->
+    <header class="navbar w-100 pv2 tc fixed">
+      <a class="mobile_menu">
+        <hr class="menu_bars one">
+        <hr class="menu_bars two">
+        <hr class="menu_bars three">
+      </a>
 
-      <div class="home_link">
+
+      <div class="home_link w-10 ma0">
         <img src="/static/images/favicon.png" class="home_img" alt=""><a href="/" class=""></a></img>
       </div>
     </header>
-  </div>
-</div>
+  <!-- </div> -->
+<!-- </div> -->
 <!-- END HEADER -->
 
 <!-- CONTENT -->
@@ -79,7 +76,7 @@
 
     {% block content %}
 
-        This is a block content waka waka  kjdl;afkjsdlkfj lksdj
+        This is a block content
 
     {% endblock %}
 

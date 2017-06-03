@@ -10,7 +10,6 @@
     <script type='text/javascript'>
 
         $(document).ready(function () {
-
             $('.flexslider').flexslider({
                 animation: 'fade',
                 prevText: '',
@@ -30,16 +29,15 @@
 
 
 {% block content %}
-<<<<<<< HEAD
 <div class="main_content">
   <div class="row">
-    <div class="hero twelve columns pv5 green">
-      <h1 class="tc">Wall Flower Farms</h1>
+    <div class="hero twelve columns pt5 pb1 green">
+      <h1 class="mt2 mb0 tc">Wall Flower Farms</h1>
     </div>
   </div>
 
-  <div class="row home_page_content ">
-    <div class="third columns primary pa5 u-cf">
+  <div class="row home_page_content">
+    <div class="third columns primary pa3 u-cf">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         Tempore sit mollitia eum non, atque repudiandae voluptatibus,
@@ -47,7 +45,7 @@
         ipsum perspiciatis saepe, adipisci iusto reprehenderit?
       </p>
     </div>
-    <div class="third columns secondary pa5 u-cf">
+    <div class="third columns secondary pa3 u-cf">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         Ut expedita velit molestias iure asperiores quidem est esse
@@ -55,7 +53,7 @@
         assumenda, perferendis voluptate cum sapiente vel!
       </p>
     </div>
-    <div class="third columns tertiary pa5 u-cf">
+    <div class="third columns tertiary pa3 u-cf">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         Labore, officia asperiores voluptate laborum deserunt quos
@@ -65,56 +63,54 @@
     </div>
   </div>
 </div>
-=======
 
-{#    <div id='billboard' class='flexslider billboards'>#}
-{##}
-{#        <ul class='slides'>#}
-{##}
-{#            {% for billboard in billboards %}#}
-{#                <li class='slide' style="background-image: url('{{ billboard.image }}');">#}
-{##}
-{#                    <div class='transparent-overlay'></div>#}
-{##}
-{#                    <div class='container'>#}
-{##}
-{#                        <div class='slide-content'>#}
-{##}
-{#                            <h1>{% inplace_edit "billboard.header" %}</h1>#}
-{##}
-{#                        </div>#}
-{##}
-{#                    </div>#}
-{##}
-{#                </li>#}
-{#            {% endfor %}#}
-{##}
-{#        </ul>#}
-{##}
-{#    </div>#}
-{##}
-{#    <div id='sections' class='home-sections'>#}
-{##}
-{#        {% for section in sections %}#}
-{#            <div class='section-wrapper {% cycle "white" "dark" %}'>#}
-{##}
-{#                <div class='container'>#}
-{##}
-{#                    <div class='row'>#}
-{##}
-{#                        {% inplace_edit 'section.content|safe' adaptor='tiny' %}#}
-{#                        <div class='clear-both'></div>#}
-{##}
-{#                    </div>#}
-{##}
-{#                </div>#}
-{##}
-{#            </div>#}
-{#        {% endfor %}#}
-{##}
-{#        <div class='clear-both'></div>#}
-{##}
-{#    </div>#}
->>>>>>> a157d98938b2165af0f956c35723e98477afd424
+<!-- <div id='billboard' class='flexslider billboards'>
 
-{% endblock %}
+    <ul class='slides'>
+
+        {% for billboard in billboards %}
+            <li class='slide' style="background-image: url('{{ billboard.image }}');">
+
+                <div class='transparent-overlay'></div>
+
+                <div class='container'>
+
+                    <div class='slide-content'>
+
+                        <h1>{% inplace_edit "billboard.header" %}</h1>
+
+                    </div>
+
+                </div>
+
+            </li>
+        {% endfor %}
+
+    </ul>
+
+</div>
+
+<div id='sections' class='home-sections'>
+
+    {% for section in sections %}
+        <div class='section-wrapper {% cycle "white" "dark" %}'>
+
+            <div class='container'>
+
+                <div class='row'>
+
+                    {% inplace_edit 'section.content|safe' adaptor='tiny' %}
+                    <div class='clear-both'></div>
+
+                </div>
+
+            </div>
+
+        </div>
+    {% endfor %}
+
+    <div class='clear-both'></div>
+
+</div>
+
+{% endblock %} -->
