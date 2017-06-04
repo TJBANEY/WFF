@@ -1101,15 +1101,6 @@ ___________________________________________________*/
   color: var(--secondaryColor);
 }
 
-/*.login {
-  display: inline;
-  font-size: 12pt;
-}
-
-.register {
-  display: inline;
-  font-size: 12pt;
-}*/
 
 .navbar {
   background-color: var(--primaryColor);
