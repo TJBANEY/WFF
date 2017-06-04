@@ -11,6 +11,8 @@
 
 :root {
   --primaryColor: #8CD4BA;
+  --secondaryColor: #AADFCC;
+  /*#bce0d3*/
 }
 
 
@@ -825,7 +827,7 @@ pre > code {
 /*
 Navigation
 */
-nav {
+/*nav {
   margin-top: 20px !important;
 }
 nav a.brand {
@@ -878,7 +880,7 @@ nav ul li {
   nav {
     text-align: center;
   }
-}
+}*/
 
 /*
 Utilities
@@ -1088,14 +1090,13 @@ ___________________________________________________*/
   background-color: var(--primaryColor);
 }
 
-.mobile_menu {
+.hamburger {
   position: absolute;
-  top: 0.5rem;
+  top: 1rem;
   right: 0.8rem;
 
   height: 2rem;
   width: 2rem;
-  /*margin: -1rem 0 0 1rem;*/
 }
 
 .menu_bars {
@@ -1103,6 +1104,17 @@ ___________________________________________________*/
   background-color: #FFF;
   border: none;
 }
+
+.mobile_nav {
+  background-color: var(--secondaryColor);
+  width: 100%;
+  display: none;
+}
+
+.link:hover {
+  color: #86cab1;
+}
+
 /* Footer
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .footer {
