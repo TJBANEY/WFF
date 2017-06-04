@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% load inplace_edit %}
+
+<html>
+
+<head>
+
+    <title>{% block page-title %}Welcome{% endblock %}</title>
+
+    <!-- META -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='description' content='{% block meta_description %}{% endblock %}'>
+    <meta name="keywords" content='{% block meta_tags %}{% endblock %}'>
+    <meta name='robots' content='index, follow'>
+    <meta name='Revisit-after' content='15 Days'>
+
+    <!-- FAV/SOCIAL ICONS -->
+    <link rel="SHORTCUT ICON" href="/static/images/favicon.ico">
+
+    <!-- CSS -->
+    <link type='text/css' rel='stylesheet' href='/static/css/skeleton-plus.css'>
+    <!-- <link type='text/css' rel='stylesheet' href='/static/css/base.css'> -->
+    <link type='text/css' rel='stylesheet' href='/static/css/front_overrides.css'>
+
+   <!-- Tachyons -->
+   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
+   <link rel="stylesheet" href="http://unpkg.com/tachyons-flexbox@2.0.5/css/tachyons-flexbox.min.css"/>
+
+    <!-- FONTS -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'>
+
+    <!-- SCRIPTS -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type='text/javascript' src="/static/js/menu.js"></script>
+    <script type='text/javascript' src="/static/js/user_actions.js"></script>
+
+    <script type='text/javascript'>
+
+
+    </script>
+
+    {% block extra-head %}
+
+    {% endblock %}
+
+</head>
+
+<body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %}>
+
+<!-- HEADER -->
+<!-- <div id='header-wrapper'> -->
+  <!-- <div id="navbar-container" class="nav"> -->
+    <header class="navbar w-100 pv2 tc fixed">
+      <a class="hamburger" id="menu" onclick="toggleMobileMenu()">
+        <hr class="menu_bars one">
+        <hr class="menu_bars two">
+        <hr class="menu_bars three">
+      </a>
+
+      <div class="home_link w-10 ml2 mt2">
+        <img src="/static/images/cream.jpg" class="home_img" alt=""><a href="/" class=""></a></img>
+      </div>
+    </header>
+  <!-- </div> -->
+<!-- </div> -->
+<!-- END HEADER -->
+
+<!-- CONTENT -->
+<div id='content-wrapper'>
+    {% block content %}
+        This is a block content
+    {% endblock %}
+</div>
+<!-- END CONTENT -->
+
+<!-- AREA FOR ADDING ANY EXTRA CONTENT I.E. DIALOG BOXES -->
+{% block extra-content %}
+
+{% endblock %}
+<!-- END EXTRA CONTENT -->
+
+<!-- FOOTER -->
+<footer class="footer pt3 w-100">
+    <!-- <div class="footer_items container tc"> -->
+      <div class="footer_items container flex tc pv3">
+        <div class="footer_text">
+          <p class="">© 2017 Samaritan Software, LLC</p>
+        </div>
+
+        <div class="footer_text">
+          <img src="/static/images/favicon.png" class="home_link" alt="">
+            <a href="/" class=""></a>
+          </img>
+        </div>
+
+        <div class="footer_text">
+          <p class="">Pea Ridge AR</p>
+        </div>
+      </div>
+    <!-- </div> -->
+</footer>
+
+<!-- END FOOTER -->
+
+</body>
+
+</html>
