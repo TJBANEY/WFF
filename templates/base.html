@@ -22,9 +22,9 @@
     <!-- <link type='text/css' rel='stylesheet' href='/static/css/base.css'> -->
     <link type='text/css' rel='stylesheet' href='/static/css/front_overrides.css'>
 
-   <!-- Tachyons -->
-   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
-   <link rel="stylesheet" href="http://unpkg.com/tachyons-flexbox@2.0.5/css/tachyons-flexbox.min.css"/>
+    <!-- Tachyons -->
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
+    <link rel="stylesheet" href="http://unpkg.com/tachyons-flexbox@2.0.5/css/tachyons-flexbox.min.css"/>
 
     <!-- FONTS -->
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
@@ -41,7 +41,6 @@
 
     <script type='text/javascript'>
 
-
     </script>
 
     {% block extra-head %}
@@ -56,16 +55,26 @@
 <!-- <div id='header-wrapper'> -->
   <!-- <div id="navbar-container" class="nav"> -->
     <header class="navbar w-100 pv2 tc fixed">
-      <a class="hamburger" id="menu" onclick="toggleMobileMenu()">
+      {% if active_user%}
+      <!-- <a class="hamburger" id="menu" onclick="toggleMobileMenu()">
         <hr class="menu_bars one">
         <hr class="menu_bars two">
         <hr class="menu_bars three">
-      </a>
+      </a> -->
+      {% else %}
+      <div class="w-40" id="enter">
+        <a href="" class="login w-10">Login /</a>
+        <a href="" class="register w-10">Register</a>
+      </div>
+      {% endif %}
 
-      <div class="home_link w-10 ml2 mt2">
-        <img src="/static/images/cream.jpg" class="home_img" alt=""><a href="/" class=""></a></img>
+      <div class="home_link w-20 ml2 mt2">
+        <a href="">
+          <img src="/static/images/wff.jpg" class="home_img" alt=""></img>
+        </a>
       </div>
     </header>
+
   <!-- </div> -->
 <!-- </div> -->
 <!-- END HEADER -->
@@ -93,9 +102,9 @@
         </div>
 
         <div class="footer_text">
-          <img src="/static/images/favicon.png" class="home_link" alt="">
-            <a href="/" class=""></a>
-          </img>
+          <a href="" class="">
+            <img src="/static/images/favicon.png" class="home_link" alt=""></img>
+          </a>
         </div>
 
         <div class="footer_text">

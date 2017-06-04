@@ -1085,6 +1085,31 @@ Other Elements
 
 /* Nav
 ___________________________________________________*/
+#enter {
+  position: absolute;
+  top: 1rem;
+  right: 0rem;
+}
+
+#enter a {
+  display: inline;
+  font-size: 12pt;
+  text-decoration: none;
+  color: #fff;
+}
+#enter a:hover {
+  color: var(--secondaryColor);
+}
+
+/*.login {
+  display: inline;
+  font-size: 12pt;
+}
+
+.register {
+  display: inline;
+  font-size: 12pt;
+}*/
 
 .navbar {
   background-color: var(--primaryColor);
@@ -1115,6 +1140,14 @@ ___________________________________________________*/
   color: #86cab1;
 }
 
+.home_link img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--primaryColor);
+  border-radius: 30%;
+}
+
+#drop {padding-top: 4.6rem;}
 /* Footer
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .footer {
