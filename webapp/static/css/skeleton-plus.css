@@ -12,7 +12,7 @@
 :root {
   --primaryColor: #8CD4BA;
   --secondaryColor: #AADFCC;
-  /*#bce0d3*/
+  --navhoverColor: #86CAB1;
 }
 
 
@@ -1128,17 +1128,39 @@ ___________________________________________________*/
 }
 
 .link:hover {
-  color: #86cab1;
+  color: var(--navhoverColor);
 }
 
 .home_link img {
   width: 2.5rem;
   height: 2.5rem;
   border: 1px solid var(--primaryColor);
-  border-radius: 30%;
+  border-radius: 50%;
 }
 
 #drop {padding-top: 4.6rem;}
+
+/* Content
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.hero {
+  /*position: relative;*/
+  min-height: 210px;
+  /*background: radial-gradient(rgba(46, 202, 218, 0.16), rgba(82, 228, 201, 0.93)),  url("http://www.photographyblogger.net/wp-content/uploads/2012/04/tulips1.jpg");*/
+  background: radial-gradient(
+                     rgba(154,154,154, .55),
+                     rgba(0,0,0, 0.7)),
+                     url('http://www.photographyblogger.net/wp-content/uploads/2012/04/tulips1.jpg');
+  /*background-image: url('http://www.photographyblogger.net/wp-content/uploads/2012/04/tulips1.jpg');*/
+  background-size: cover;
+  /*background-attachment: fixed;*/
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.hero h1 {
+  color: white;
+}
+
 /* Footer
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .footer {
