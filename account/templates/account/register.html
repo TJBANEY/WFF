@@ -1,72 +1,74 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div style="height: 500px; border: 1px solid red;">
+    <div class="container">
         <div class="row">
-            <h1 style="padding-top: 70px;">REGISTER HERE</h1>
+            <h1>REGISTER HERE</h1>
             <form method="POST">
                 {% csrf_token %}
-                <div class="six columns">
+                <div class="six columns" style="margin-left: 2%;">
                     <label>
                         First Name
                         {{ form.first_name }}
                     </label>
                 </div>
-                <div class="six columns">
+                <div class="six columns" style="margin-left: 2%;">
                     <label>
                         Last Name
                         {{ form.last_name }}
                     </label>
                 </div>
-                <div style="float: left; width: 50%;">
+                <div class="six columns" style="margin-left: 2%;">
                     <label>
                         Email
                         <input type="text" name="email">
                     </label>
                 </div>
-                <div style="float: left; width: 50%;">
+                <div class="six columns" style="margin-left: 2%;">
                     <label>
                         Password
                         <input type="password" name="password">
                     </label>
                 </div>
-                <div style="float: left; width: 50%;">
+                <div class="six columns" style="margin-left: 2%;">
                     <label>
                         Phone
                         {{ form.phone }}
                     </label>
                 </div>
-                <div style="float: left; width: 50%;">
+                <div class="six columns" style="margin-left: 2%;">
                     <label>
                         Confirm Password
                         <input type="password" name="conf_password">
                     </label>
                 </div>
-                <div style="float: left; width: 50%;">
+                <div class="six columns" style="margin-left: 2%;">
                     <label>
                         Address
                         {{ form.address }}
                     </label>
                 </div>
-                <div style="float: left; width: 50%;">
+                <div class="six columns" style="margin-left: 2%;">
                     <label>
                         Address 2
                         {{ form.address2 }}
                     </label>
                 </div>
-                <div style="float: left; width: 50%;">
+                <div class="six columns" style="margin-left: 2%;">
                     <label>
                         City
                         {{ form.city }}
                     </label>
                 </div>
-                <div style="float: left; width: 50%;">
+                <div class="six columns" style="margin-left: 2%;">
                     <label>
                         State
                         {{ form.state }}
                     </label>
                 </div>
-                <button type="submit">SUBMIT</button>
+                <div class="twelve columns" style="padding-left: 2%; margin: 15px 0px 15px 0;">
+                    <button type="submit">SUBMIT</button>
+                </div>
             </form>
         </div>
     </div>

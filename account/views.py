@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
@@ -7,7 +8,6 @@ from account.models import Account
 
 
 def register(request):
-	x = 5
 
 	if request.method == 'POST':
 		form = RegisterForm(request.POST)
@@ -38,8 +38,7 @@ def register(request):
 
 			account.save()
 
-		else:
-			print(form.errors)
+			return HttpResponseRedirect('register/plants')
 
 	else:
 		form = RegisterForm()
@@ -47,3 +46,8 @@ def register(request):
 	context = {'form': form}
 
 	return render(request, 'account/register.html', context)
+
+def register_plants(request):
+	context = {}
+
+	return render(request, 'account/register_plants.html', context)
