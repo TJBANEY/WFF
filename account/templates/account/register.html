@@ -3,7 +3,8 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            <h1>REGISTER HERE</h1>
+            <h1 style="text-align: center; margin-bottom: 0px;">REGISTER HERE</h1>
+            {% include 'account/snippets/progress_bar.html' %}
             <form method="POST">
                 {% csrf_token %}
                 <div class="six columns" style="margin-left: 2%;">
