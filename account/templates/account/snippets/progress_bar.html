@@ -48,7 +48,6 @@
     }
 
     .progress-bubble .fa {
-        color: black;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -57,6 +56,14 @@
 
     #user-portion .progress-bubble .fa {
         font-weight: bold;
+    }
+    
+    #plant-portion .progress-bubble .fa {
+        color: black;
+    }
+    
+    #financial-portion .progress-bubble .fa {
+        color: black;
     }
 
     .progress-bar .separator {
@@ -71,12 +78,16 @@
         height: 3px;
         background-color: black;
     }
+
+    .active .progress-bubble {
+        border: 3px solid #01cc01 !important;
+    }
 </style>
 
 
 <div class="progress-bar">
 
-    <div class="two columns" id="user-portion">
+    <div class="two columns active" id="user-portion">
         <a href="">
             <div class="progress-bubble">
                 <i class="fa fa-user-o"></i>
@@ -90,7 +101,7 @@
     </div>
 
 
-    <div class="two columns" id="plant-portion">
+    <div class="two columns {% if user_complete %}active{% endif %}" id="plant-portion">
         <a href="">
             <div class="progress-bubble">
                 <i class="fa fa-leaf"></i>
@@ -104,7 +115,7 @@
     </div>
 
 
-    <div class="two columns" id="financial-portion">
+    <div class="two columns {% if plants_complete %}active{% endif %}" id="financial-portion">
         <a href="">
             <div class="progress-bubble">
                 <i class="fa fa-credit-card"></i>
