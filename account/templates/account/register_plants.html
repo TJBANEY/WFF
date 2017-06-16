@@ -15,7 +15,7 @@
                 </div>
                 <form action="" method="POST">
                     <div class="four columns" style="margin-left: 2%;">
-                        <input type="search" style="margin-top: 0; margin-left: 0;">
+                        <input type="search" id="plant-search" style="margin-top: 0; margin-left: 0;">
                     </div>
                 </form>
                 <div class="two columns">
@@ -33,25 +33,9 @@
                         <div style="display: inline-block; float: left; width: 20%;">Bloom Color</div>
                         <div style="display: inline-block; float: left; width: 20%;">Availability</div>
                     </div>
-                    {% for plant in plants %}
-                        <div class="plant-result" style="float: left; width: 100%; display: block;">
-                            <div style="float: left; width: 15%;">
-                                <input type="checkbox">
-                            </div>
-                            <div style="float: left; width: 20%">
-                                {{ plant.botanical_name }}
-                            </div>
-                            <div style="float: left; width: 20%">
-                                {{ plant.get_plant_type_display }}
-                            </div>
-                            <div style="float: left; width: 20%">
-                                {{ plant.bloom_color }}
-                            </div>
-                            <div style="float: left; width: 20%">
-                                {{ plant.get_availability_display }}
-                            </div>
-                        </div>
-                    {% endfor %}
+                    <div id="ajax-plants-container">
+
+                    </div>
                 </div>
 
                 <div class="twelve columns" style="padding-left: 2%; margin: 15px 0px 15px 0;">
@@ -63,13 +47,16 @@
 
     <script>
         function getPlants() {
-            var x = $('.plant-results-container');
+            var plant_name = $('#plant-search').val();
+            console.log(plant_name);
 
             $.ajax({
                 method: 'POST',
                 url: "/plants/get_plants/",
-                success: function (result) {
-                    console.log('WOOHOO')
+                data: {'plant': plant_name},
+                success: function (response) {
+                    console.log(response.results);
+                    $('#ajax-plants-container').html(response.results);
                 }
             });
         }

@@ -1,0 +1,19 @@
+{% for plant in plants %}
+    <div class="plant-result" style="float: left; width: 100%; display: block;">
+        <div style="float: left; width: 15%;">
+            <input type="checkbox">
+        </div>
+        <div style="float: left; width: 20%">
+            {{ plant.botanical_name }}
+        </div>
+        <div style="float: left; width: 20%">
+            {{ plant.get_plant_type_display }}
+        </div>
+        <div style="float: left; width: 20%">
+            {{ plant.bloom_color }}
+        </div>
+        <div style="float: left; width: 20%">
+            {{ plant.get_availability_display }}
+        </div>
+    </div>
+{% endfor %}
