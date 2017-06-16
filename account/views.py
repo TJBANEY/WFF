@@ -5,6 +5,7 @@ from django.shortcuts import render
 # Create your views here.
 from account.forms import RegisterForm
 from account.models import Account
+from plants.models import Plant
 
 
 def register(request):
@@ -48,8 +49,11 @@ def register(request):
 def register_plants(request):
 	user_complete = True
 
+	plants = Plant.objects.all()
+
 	context = {
-		'user_complete': user_complete
+		'user_complete': user_complete,
+		'plants': plants
 	}
 
 	return render(request, 'account/register_plants.html', context)

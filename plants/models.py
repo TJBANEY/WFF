@@ -102,6 +102,9 @@ class Plant(models.Model):
 	cond_methods = models.CharField(max_length=255, help_text='Conditioning Methods', null=True, blank=True)
 	tips_and_tricks = models.TextField(max_length=10000, null=True, blank=True)
 
+	def __str__(self):
+		return self.botanical_name
+
 class Region(models.Model):
 	continent = models.CharField(max_length=255)
 	country = models.CharField(max_length=255, null=True, blank=True)

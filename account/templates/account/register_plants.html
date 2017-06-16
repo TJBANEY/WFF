@@ -7,24 +7,51 @@
             {% include 'account/snippets/progress_bar.html' %}
             <form method="POST">
                 {% csrf_token %}
-                <!-- 1. Pick a plant type "Flower, Veggie, Fruit, Shrub, Tree"
-                     2. -->
+
                 <div class="one columns" style="height: 50px;"></div>
 
                 <div class="four columns">
                     <p>Search for any plant by name</p>
                 </div>
-                <div class="four columns" style="margin-left: 2%;">
-                    <input type="search" style="margin-top: 0; margin-left: 0;">
-                </div>
+                <form action="" method="POST">
+                    <div class="four columns" style="margin-left: 2%;">
+                        <input type="search" style="margin-top: 0; margin-left: 0;">
+                    </div>
+                </form>
                 <div class="two columns">
-                    <button>Search</button>
+                    <button onclick="getPlants()">Search</button>
                 </div>
 
                 <div class="one columns" style="height: 50px;"></div>
 
-                <div class="twelve columns plant-results-container" style="height: 200px; border: 1px solid gray;">
-
+                <div class="twelve columns plant-results-container"
+                     style="padding: 20px; height: 200px; border: 1px solid gray;">
+                    <div style="float: left; width: 100%; display: block; border-bottom: 1px solid black;">
+                        <div style="display: inline-block; float: left; width: 15%;">SELECT</div>
+                        <div style="display: inline-block; float: left; width: 20%;">NAME</div>
+                        <div style="display: inline-block; float: left; width: 20%;">Type</div>
+                        <div style="display: inline-block; float: left; width: 20%;">Bloom Color</div>
+                        <div style="display: inline-block; float: left; width: 20%;">Availability</div>
+                    </div>
+                    {% for plant in plants %}
+                        <div class="plant-result" style="float: left; width: 100%; display: block;">
+                            <div style="float: left; width: 15%;">
+                                <input type="checkbox">
+                            </div>
+                            <div style="float: left; width: 20%">
+                                {{ plant.botanical_name }}
+                            </div>
+                            <div style="float: left; width: 20%">
+                                {{ plant.get_plant_type_display }}
+                            </div>
+                            <div style="float: left; width: 20%">
+                                {{ plant.bloom_color }}
+                            </div>
+                            <div style="float: left; width: 20%">
+                                {{ plant.get_availability_display }}
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
 
                 <div class="twelve columns" style="padding-left: 2%; margin: 15px 0px 15px 0;">
@@ -33,4 +60,19 @@
             </form>
         </div>
     </div>
+
+    <script>
+        function getPlants() {
+            var x = $('.plant-results-container');
+
+            $.ajax({
+                method: 'POST',
+                url: "/plants/get_plants/",
+                success: function (result) {
+                    console.log('WOOHOO')
+                }
+            });
+        }
+    </script>
+
 {% endblock %}

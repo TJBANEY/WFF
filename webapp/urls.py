@@ -14,6 +14,7 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^$', webapp_views.view_home, name='home'),
     url(r'^account/', include('account.urls')),
+    url(r'^plants/', include('plants.ajax_urls')),
     url(r'^inplaceeditform/', include('inplaceeditform.urls')),
     url(r'^admin/filebrowser/', include('filebrowser.urls')),
     url(r'^admin/', include(admin.site.urls)),
