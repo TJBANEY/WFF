@@ -50,7 +50,8 @@ INSTALLED_APPS = (
     'webapp',
     'webapp_admin',
     'plants',
-    'account'
+    'account',
+    'plant_calendar'
 )
 
 MIDDLEWARE_CLASSES = (

@@ -49,11 +49,25 @@ def register(request):
 def register_plants(request):
 	user_complete = True
 
-	plants = Plant.objects.all()
+	if request.method == 'POST':
+		return HttpResponseRedirect('register/payment')
+	else:
+		context = {
+			'user_complete': user_complete,
+		}
+
+		return render(request, 'account/register_plants.html', context)
+
+def register_payment(request):
+	if request.method == 'POST':
+		return HttpResponseRedirect('/calendar')
+
+	plants_complete = True
+	user_complete = True
 
 	context = {
 		'user_complete': user_complete,
-		'plants': plants
+		'plants_complete': plants_complete
 	}
 
-	return render(request, 'account/register_plants.html', context)
+	return render(request, 'account/register_payment.html', context)

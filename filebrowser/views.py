@@ -173,7 +173,7 @@ def browse(request):
 	except (EmptyPage, InvalidPage):
 		page = p.page(p.num_pages)
 
-	template = _template() + 'index.html'
+	template = _template() + 'calendar.html'
 
 	context = {
 	'dir': path,
