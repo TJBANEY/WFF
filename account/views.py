@@ -8,7 +8,6 @@ from account.models import Account
 
 
 def register(request):
-
 	if request.method == 'POST':
 		form = RegisterForm(request.POST)
 
@@ -21,10 +20,8 @@ def register(request):
 			if 'password' in request.POST:
 				password = request.POST['password']
 
-			account_user = User()
-			account_user.email = email
-			account_user.password = password
-			account_user.save()
+			account_user = User.objects.create_user(email[:30], email, password, first_name=cleaned_data['first_name'],
+													last_name=cleaned_data['last_name'])
 
 			account = Account()
 			account.first_name = cleaned_data['first_name']
@@ -47,7 +44,12 @@ def register(request):
 
 	return render(request, 'account/register.html', context)
 
+
 def register_plants(request):
-	context = {}
+	user_complete = True
+
+	context = {
+		'user_complete': user_complete
+	}
 
 	return render(request, 'account/register_plants.html', context)

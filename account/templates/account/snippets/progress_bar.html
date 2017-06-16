@@ -79,6 +79,10 @@
         background-color: black;
     }
 
+    .progress-bar .separator .progress-line.active {
+        background-color: #01cc01 !important;
+    }
+
     .active .progress-bubble {
         border: 3px solid #01cc01 !important;
     }
@@ -97,7 +101,7 @@
 
 
     <div class="separator three columns">
-        <div class="progress-line"></div>
+        <div class="progress-line {% if user_complete %}active{% endif %}"></div>
     </div>
 
 

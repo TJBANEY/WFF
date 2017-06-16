@@ -3,9 +3,34 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            <div class="twelve columns">
-                <h1>Choose Some Plants</h1>
-            </div>
+            <h1 style="text-align: center; margin-bottom: 0px;">REGISTER HERE</h1>
+            {% include 'account/snippets/progress_bar.html' %}
+            <form method="POST">
+                {% csrf_token %}
+                <!-- 1. Pick a plant type "Flower, Veggie, Fruit, Shrub, Tree"
+                     2. -->
+                <div class="one columns" style="height: 50px;"></div>
+
+                <div class="four columns">
+                    <p>Search for any plant by name</p>
+                </div>
+                <div class="four columns" style="margin-left: 2%;">
+                    <input type="search" style="margin-top: 0; margin-left: 0;">
+                </div>
+                <div class="two columns">
+                    <button>Search</button>
+                </div>
+
+                <div class="one columns" style="height: 50px;"></div>
+
+                <div class="twelve columns plant-results-container" style="height: 200px; border: 1px solid gray;">
+
+                </div>
+
+                <div class="twelve columns" style="padding-left: 2%; margin: 15px 0px 15px 0;">
+                    <button type="submit" style="float: right;">NEXT</button>
+                </div>
+            </form>
         </div>
     </div>
 {% endblock %}
