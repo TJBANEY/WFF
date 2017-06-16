@@ -1,12 +1,63 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+    <style>
+        .arrow-right {
+            width: 0;
+            height: 0;
+            border-top: 35px solid transparent;
+            border-bottom: 35px solid transparent;
+            border-left: 35px solid #f5f4f4;
+            z-index: 10;
+            position: absolute;
+            top: 41.2%;
+            left: 30.6%;
+        }
+
+        .arrow-right-border {
+            width: 0;
+            height: 0;
+            border-top: 36px solid transparent;
+            border-bottom: 36px solid transparent;
+            border-left: 36px solid black;
+            position: absolute;
+            top: 41%;
+            left: 30.6%;
+        }
+    </style>
+
     <div class="container">
         <div class="row">
             <h1 style="text-align: center; margin-bottom: 0px;">REGISTER HERE</h1>
             {% include 'account/snippets/progress_bar.html' %}
             <form method="POST" style="text-align: center;">
                 {% csrf_token %}
+                <div style="height: 300px; border: 1px solid black; background-color: #f5f4f4; position: relative;">
+                    <div class="four columns"
+                         style="height: inherit; border-right: 1px solid black; margin: 0; padding: 85px 30px;">
+                        <div class="arrow-right"></div>
+                        <div class="arrow-right-border"></div>
+                        <div style="display: block; border-radius: 4px; font-size: 18px; background-color: #00af6c; color: white; padding: 6px;">
+                            Pay With Card
+                        </div>
+                        <div style="font-size: 18px; color: #9d9ea0; margin: 20px;">Or</div>
+                        <div style="display: block; border-radius: 4px; font-size: 18px; background-color: #197faf; color: white; padding: 6px;">
+                            Pay with PayPal
+                        </div>
+                    </div>
+                    <div class="eight columns" style="height: inherit; text-align: center">
+                        <div style="width: 60%">
+                            <input type="text">
+                            <select name="" id="">
+                                <option value=""></option>
+                            </select>
+                            <select name="" id="">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
                 <button>FINISH</button>
             </form>
         </div>
