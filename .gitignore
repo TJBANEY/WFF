@@ -12,6 +12,7 @@ sqlite/
 
 # Ignore media files, as these will change locally.
 media/
+node_modules/
 !webapp/media/
 !webapp_admin/**/media/
 !third_party/**/media/

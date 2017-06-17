@@ -22,6 +22,8 @@
     <!-- <link type='text/css' rel='stylesheet' href='/static/css/base.css'> -->
     <link type='text/css' rel='stylesheet' href='/static/css/front_overrides.css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='/static/fullcalendar/dist/fullcalendar.css'/>
+
 
     <!-- Tachyons -->
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
@@ -39,9 +41,27 @@
     <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type='text/javascript' src="/static/js/menu.js"></script>
     <script type='text/javascript' src="/static/js/user_actions.js"></script>
+    <script src='/static/moment/min/moment.min.js'></script>
+    <script src='/static/fullcalendar/dist/fullcalendar.js'></script>
 
     <script type='text/javascript'>
+        $(document).ready(function () {
+            console.log('Calendar Initiated');
+            // page is now ready, initialize the calendar...
+            $('#calendar').fullCalendar({
+                // put your options and callbacks here
+                dayClick: function (day) {
+                    console.log('=========');
+                    console.log(day._d);
+                    console.log('=========');
+                }
+            });
 
+            setTimeout(function(){
+                $('#calendar').fullCalendar('next');
+            }, 3000);
+
+        });
     </script>
 
     {% block extra-head %}
@@ -54,32 +74,32 @@
 
 <!-- HEADER -->
 <!-- <div id='header-wrapper'> -->
-  <!-- <div id="navbar-container" class="nav"> -->
-    <header class="navbar w-100 pv2 tc">
-      <!-- PLACE ACTIVE USER HERE -->
-      <a class="hamburger" id="menu" onclick="toggleMobileMenu()">
+<!-- <div id="navbar-container" class="nav"> -->
+<header class="navbar w-100 pv2 tc">
+    <!-- PLACE ACTIVE USER HERE -->
+    <a class="hamburger" id="menu" onclick="toggleMobileMenu()">
         <hr class="menu_bars one">
         <hr class="menu_bars two">
         <hr class="menu_bars three">
-      </a>
-      <!-- PLACE ACTIVE USER ELSE HERE -->
+    </a>
+    <!-- PLACE ACTIVE USER ELSE HERE -->
 
-      <!-- <div class="w-40" id="enter">
-        <a href="" class="login w-10">Login /</a>
-        <a href="" class="register w-10">Register</a>
-      </div> -->
+    <!-- <div class="w-40" id="enter">
+      <a href="" class="login w-10">Login /</a>
+      <a href="" class="register w-10">Register</a>
+    </div> -->
 
-      <!-- PLACE ENDIF HERE -->
+    <!-- PLACE ENDIF HERE -->
 
 
-      <div class="home_link w-20 ml2 mt2">
+    <div class="home_link w-20 ml2 mt2">
         <a href="">
-          <img src="/static/images/wff.jpg" class="home_img" alt=""></img>
+            <img src="/static/images/wff.jpg" class="home_img" alt=""></img>
         </a>
-      </div>
-    </header>
+    </div>
+</header>
 
-  <!-- </div> -->
+<!-- </div> -->
 <!-- </div> -->
 <!-- END HEADER -->
 
@@ -100,21 +120,21 @@
 <!-- FOOTER -->
 <footer class="footer pt3 w-100">
     <!-- <div class="footer_items container tc"> -->
-      <div class="footer_items container flex tc pv3">
+    <div class="footer_items container flex tc pv3">
         <div class="footer_text">
-          <p class="">© 2017 Samaritan Software, LLC</p>
+            <p class="">© 2017 Samaritan Software, LLC</p>
         </div>
 
         <div class="footer_text">
-          <a href="" class="">
-            <img src="/static/images/favicon.png" class="home_link" alt=""></img>
-          </a>
+            <a href="" class="">
+                <img src="/static/images/favicon.png" class="home_link" alt=""></img>
+            </a>
         </div>
 
         <div class="footer_text">
-          <p class="">Pea Ridge AR</p>
+            <p class="">Pea Ridge AR</p>
         </div>
-      </div>
+    </div>
     <!-- </div> -->
 </footer>
 

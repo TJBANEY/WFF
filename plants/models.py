@@ -81,6 +81,14 @@ COND_METHODS = (
 	('HD', 'Hold Dry In Cooler'),
 )
 
+EVENT_TYPES = (
+	('PT', 'Plant Seeds'),
+	('MV', 'Move Plants'),
+	('PR', 'Prune Plants'),
+	('HV', 'Harvest'),
+	('OT', 'Other'),
+)
+
 class Plant(models.Model):
 	botanical_name = models.CharField(max_length=500, null=True, blank=True)
 	plant_type = models.CharField(max_length=255, choices=PLANT_TYPES, default='FL')
@@ -89,7 +97,7 @@ class Plant(models.Model):
 	stem_length = models.FloatField(default=1)
 	stem_length_units = models.CharField(max_length=255, choices=LENGTH_UNITS, default='IN')
 	hardiness_zone = models.CharField(max_length=255, choices=HARD_ZONES, default='1A')
-	bloom_time = models.DateField(auto_now_add=True)
+	bloom_time = models.DateField(auto_now_add=True) #XXXXXXXXX
 	availability = models.CharField(max_length=255, choices=PLANT_AVAILABILITY)
 	source = models.ManyToManyField('MaterialSource')
 	seed_prep = models.CharField(max_length=255, null=True, blank=True)
@@ -97,13 +105,25 @@ class Plant(models.Model):
 	seedling_image = FileBrowseField(max_length=300, null=True, blank=True)
 	light_req = models.TextField(max_length=10000, help_text='Light Requirements Following Germination', null=True, blank=True)
 	temp_req = models.TextField(max_length=10000, help_text='Temperature Requirements for Germination and Root Development', null=True, blank=True)
-	harvest_time_start = models.DateField(auto_now_add=True)
-	harvest_time_end = models.DateField(auto_now_add=True)
+	harvest_time_start = models.DateField(auto_now_add=True)  #XXXXXX
+	harvest_time_end = models.DateField(auto_now_add=True) #XXXXXXX
 	cond_methods = models.CharField(max_length=255, help_text='Conditioning Methods', null=True, blank=True)
 	tips_and_tricks = models.TextField(max_length=10000, null=True, blank=True)
 
 	def __str__(self):
 		return self.botanical_name
+
+class PlantEvent(models.Model):
+	event_type = models.CharField(max_length=255, choices=EVENT_TYPES)
+	name = models.CharField(max_length=255, help_text='e.g. Plant seeds, Move to larger pot, etc.')
+	plant = models.ForeignKey(Plant)
+	event_start = models.DateTimeField(null=True, blank=True)
+	event_end = models.DateTimeField(null=True, blank=True)
+
+	is_published = models.BooleanField(default=False)
+
+	def __str__(self):
+		return self.name
 
 class Region(models.Model):
 	continent = models.CharField(max_length=255)

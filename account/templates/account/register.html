@@ -1,69 +1,76 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+    <style>
+        .error input {
+            border: 1px solid red;
+        }
+    </style>
+
     <div class="container">
         <div class="row">
             <h1 style="text-align: center; margin-bottom: 0px;">REGISTER HERE</h1>
             {% include 'account/snippets/progress_bar.html' %}
             <form method="POST">
                 {% csrf_token %}
-                <div class="six columns" style="margin-left: 2%;">
+                <div class="six columns {% if form.errors.first_name %}error{% endif %}" style="margin-left: 2%;">
                     <label>
-                        First Name
+                        First Name {% if form.errors.first_name %}<span style="margin-left: 15px; color: red">{{ form.errors.first_name.0 }}</span>{% endif %}
                         {{ form.first_name }}
                     </label>
                 </div>
-                <div class="six columns" style="margin-left: 2%;">
+                <div class="six columns {% if form.errors.last_name %}error{% endif %}" style="margin-left: 2%;">
                     <label>
-                        Last Name
+                        Last Name {% if form.errors.last_name %}<span style="margin-left: 15px; color: red">{{ form.errors.last_name.0 }}</span>{% endif %}
                         {{ form.last_name }}
                     </label>
                 </div>
-                <div class="six columns" style="margin-left: 2%;">
+                <div class="six columns {% if form.errors.email %}error{% endif %}" style="margin-left: 2%;">
                     <label>
-                        Email
+                        Email {% if form.errors.email %}<span style="margin-left: 15px; color: red">{{ form.errors.email.0 }}</span>{% endif %}
                         <input type="text" name="email">
                     </label>
                 </div>
-                <div class="six columns" style="margin-left: 2%;">
+                <div class="six columns {% if form.errors.phone %}error{% endif %}" style="margin-left: 2%;">
                     <label>
-                        Phone
+                        Phone {% if form.errors.phone %}<span style="margin-left: 15px; color: red">{{ form.errors.phone.0 }}</span>{% endif %}
                         {{ form.phone }}
                     </label>
                 </div>
-                <div class="six columns" style="margin-left: 2%;">
+                <div class="six columns {% if form.errors.password %}error{% endif %}" style="margin-left: 2%;">
                     <label>
-                        Password
+                        Password {% if form.errors.password %}<span style="margin-left: 15px; color: red">{{ form.errors.password.0 }}</span>{% endif %}
                         <input type="password" name="password">
                     </label>
                 </div>
-                <div class="six columns" style="margin-left: 2%;">
+                <div class="six columns {% if form.errors.conf_password %}error{% endif %}" style="margin-left: 2%;">
                     <label>
-                        Confirm Password
+                        Confirm Password {% if form.errors.password %}<span style="margin-left: 15px; color: red">{{ form.errors.password.0 }}</span>{% endif %}
                         <input type="password" name="conf_password">
                     </label>
                 </div>
-                <div class="six columns" style="margin-left: 2%;">
+                <div class="six columns {% if form.errors.address %}error{% endif %}" style="margin-left: 2%;">
                     <label>
-                        Address
+                        Address {% if form.errors.address %}<span style="margin-left: 15px; color: red">{{ form.errors.address.0 }}</span>{% endif %}
                         {{ form.address }}
                     </label>
                 </div>
-                <div class="six columns" style="margin-left: 2%;">
+                <div class="six columns {% if form.errors.address2 %}error{% endif %}" style="margin-left: 2%;">
                     <label>
-                        Address 2
+                        Address 2 {% if form.errors.address2 %}<span style="margin-left: 15px; color: red">{{ form.errors.address2.0 }}</span>{% endif %}
                         {{ form.address2 }}
                     </label>
                 </div>
-                <div class="six columns" style="margin-left: 2%;">
+                <div class="six columns {% if form.errors.city %}error{% endif %}" style="margin-left: 2%;">
                     <label>
-                        City
+                        City {% if form.errors.city %}<span style="margin-left: 15px; color: red">{{ form.errors.city.0 }}</span>{% endif %}
                         {{ form.city }}
                     </label>
                 </div>
-                <div class="six columns" style="margin-left: 2%;">
+                <div class="six columns {% if form.errors.state %}error{% endif %}" style="margin-left: 2%;">
                     <label>
-                        State
+                        State {% if form.errors.state %}<span style="margin-left: 15px; color: red">{{ form.errors.state.0 }}</span>{% endif %}
                         {{ form.state }}
                     </label>
                 </div>

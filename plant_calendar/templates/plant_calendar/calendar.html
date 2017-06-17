@@ -2,11 +2,25 @@
 {% load static %}
 
 {% block content %}
-    <div style="background-color: lightgray;">
+    <style>
+        #calendar table {
+            margin-top: 0;
+        }
+
+        .fc-toolbar.fc-header-toolbar {
+            margin-bottom: 0;
+        }
+
+        .fc-toolbar .fc-right {
+            margin-top: 25px;
+        }
+    </style>
+
+    <div style="background-color: white; padding: 100px 0;">
         <div class="container">
             <div class="row">
                 <div class="twelve columns">
-                    <img src="/static/images/calendar_example.png" alt="">
+                    <div id="calendar"></div>
                 </div>
             </div>
         </div>
