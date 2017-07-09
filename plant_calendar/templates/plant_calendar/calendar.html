@@ -1,6 +1,36 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extra-head %}
+    <script type='text/javascript'>
+        $(document).ready(function () {
+            console.log('Calendar Initiated');
+            // page is now ready, initialize the calendar...
+            $('#calendar').fullCalendar({
+                // put your options and callbacks here
+                dayClick: function (day) {
+                    console.log('=========');
+                    console.log(day._d);
+                    console.log('=========');
+                },
+                dayRender: function (date, cell) {
+                    var year = date._d.getYear() - 100;
+                    var month = date._d.getMonth() + 1;
+                    var day = date._d.getDate();
+                    var render_date = month + '/' + day + '/' + year;
+                    var event_date = '{{ events.fmt_date }}';
+                    var is_equal = render_date == event_date;
+
+                    if (is_equal){
+                        cell.css('background-color', 'gray');
+                    }
+                }
+            });
+
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
     <style>
         #calendar table {
