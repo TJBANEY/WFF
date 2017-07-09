@@ -6,6 +6,15 @@
         .error input {
             border: 1px solid red;
         }
+        .next {
+          border: 1px solid #bbb;
+          color: #222;
+        }
+        .next:hover {
+          border: 1px solid var(--navhoverColor);
+          background-color: var(--navhoverColor);
+          color: #fff;
+        }
     </style>
 
     <div class="container">
@@ -75,7 +84,7 @@
                     </label>
                 </div>
                 <div class="twelve columns" style="padding-left: 2%; margin: 15px 0px 15px 0;">
-                    <button type="submit" style="float: right;">NEXT</button>
+                    <button class="next" type="submit" style="float: right;">NEXT</button>
                 </div>
             </form>
         </div>
