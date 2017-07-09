@@ -5,6 +5,7 @@
         width: 100%;
         position: relative;
         padding: 29px 0;
+        display: flex;
     }
 
     #user-portion,
@@ -19,32 +20,32 @@
 
     #plant-portion {
         margin: 0;
-        width: 4%; 
+        width: 4%;
         text-align: center;
     }
 
     #financial-portion {
         margin: 0;
     }
-    
+
     .progress-bubble {
-        border: 3px solid black; 
+        border: 3px solid black;
         border-radius: 50%;
         height: 40px;
         width: 40px;
         position: relative;
     }
-    
+
     #plant-portion .progress-bubble {
         display: inline-block;
     }
-    
+
     #user-portion .progress-bubble {
-        float: right;
+        /*float: right;*/
     }
-    
+
     #financial-portion .progress-bubble {
-        float: left;
+        /*float: left;*/
     }
 
     .progress-bubble .fa {
@@ -57,11 +58,11 @@
     #user-portion .progress-bubble .fa {
         font-weight: bold;
     }
-    
+
     #plant-portion .progress-bubble .fa {
         color: black;
     }
-    
+
     #financial-portion .progress-bubble .fa {
         color: black;
     }
@@ -90,8 +91,8 @@
 
 
 <div class="progress-bar">
-
-    <div class="two columns active" id="user-portion">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-2 active" id="user-portion">
         <a href="">
             <div class="progress-bubble">
                 <i class="fa fa-user-o"></i>
@@ -100,12 +101,12 @@
     </div>
 
 
-    <div class="separator three columns">
+    <div class="col-xs-2 separator">
         <div class="progress-line {% if user_complete %}active{% endif %}"></div>
     </div>
 
 
-    <div class="two columns {% if user_complete %}active{% endif %}" id="plant-portion">
+    <div class="col-xs-2 {% if user_complete %}active{% endif %}" id="plant-portion">
         <a href="">
             <div class="progress-bubble">
                 <i class="fa fa-leaf"></i>
@@ -114,12 +115,12 @@
     </div>
 
 
-    <div class="separator three columns">
+    <div class="col-xs-2 separator">
         <div class="progress-line {% if plants_complete %}active{% endif %}"></div>
     </div>
 
 
-    <div class="two columns {% if plants_complete %}active{% endif %}" id="financial-portion">
+    <div class="col-xs-2 {% if plants_complete %}active{% endif %}" id="financial-portion">
         <a href="">
             <div class="progress-bubble">
                 <i class="fa fa-credit-card"></i>
@@ -127,4 +128,5 @@
         </a>
     </div>
 
+    <div class="col-xs-1"></div>
 </div>
