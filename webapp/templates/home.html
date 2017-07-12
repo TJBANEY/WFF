@@ -27,111 +27,126 @@
 
 {% endblock %}
 
-{% block content %}
+{% block header %}
+    <style>
+        .parallax-flowers {
+            background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), url('/static/images/tulips.jpg') no-repeat center;
+            height: 100vh;
 
-<!-- <div class="row">
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-size: cover;
+        }
 
-</div> -->
+        .parallax-seeds {
+            background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .4)), url('/static/images/growing-business.jpg') no-repeat center;
+            height: 90vh;
 
-<div class="main_content">
-  <div class="row" id="drop">
-    <div class="mobile_nav row pv3 fixed">
-      <a href="/account/register" class="link twelve columns tc white">Register</a>
-      <a href="" class="link twelve columns tc white">About Us</a>
-      <a href="" class="link twelve columns tc white">Calendar</a>
-      <a href="" class="link twelve columns tc white">Harvest</a>
-      <a href="" class="link twelve columns tc white">Contact</a>
-    </div>
-  </div>
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
 
-  <div class="row shadow">
-    <div class="hero twelve columns pb1">
-      <h1 class="mt5 mb2 tc">Wall Flower Farms</h1>
-    </div>
-  </div>
-
-  <div class="row home_page_content">
-    <div class="third columns primary pa3 u-cf">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Tempore sit mollitia eum non, atque repudiandae voluptatibus,
-        ab praesentium accusantium ad deleniti doloremque a quaerat
-        ipsum perspiciatis saepe, adipisci iusto reprehenderit?
-      </p>
-    </div>
-    <div class="third columns secondary pa3 u-cf">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Ut expedita velit molestias iure asperiores quidem est esse
-        perspiciatis, assumenda eius cum odio. Illo eligendi
-        assumenda, perferendis voluptate cum sapiente vel!
-      </p>
-    </div>
-    <div class="third columns tertiary pa3 u-cf">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Labore, officia asperiores voluptate laborum deserunt quos
-        nulla voluptatibus, impedit modi soluta autem unde. Sequi,
-        blanditiis aliquam neque nulla at velit molestias!
-      </p>
-    </div>
-    <div class="row w-100">
-      <img src="/static/images/wallflowerlogo.png" class="twelve columns" alt="">
-    </div>
-    <div class="row w-100">
-      <img src="/static/images/blue_backgrnd.png" class="twelve columns" alt="">
-    </div>
-
-  </div>
-</div>
-
-<!-- <div id='billboard' class='flexslider billboards'>
-
-    <ul class='slides'>
-
-        {% for billboard in billboards %}
-            <li class='slide' style="background-image: url('{{ billboard.image }}');">
-
-                <div class='transparent-overlay'></div>
-
-                <div class='container'>
-
-                    <div class='slide-content'>
-
-                        <h1>{% inplace_edit "billboard.header" %}</h1>
-
+    <div class="parallax-flowers">
+        <div class="container">
+            <header class="col-12" style="min-height: 1px; padding-top: 20px; padding-bottom: 20px;">
+                <div class="row">
+                    <div class="col-2">
+                        <img src="/static/images/wallflowerlogo.png" class="twelve columns" alt="" style="width: 100%;">
                     </div>
-
+                    <div class="col-10" style="padding: 25px 15px;">
+                        <a style="margin-right: 10px; font-size: 20px; float: right; color: white;" href=""
+                           class="link">About Us</a>
+                        <a style="margin-right: 10px; font-size: 20px; float: right; color: white;" href=""
+                           class="link">Calendar</a>
+                        <a style="margin-right: 10px; font-size: 20px; float: right; color: white;" href=""
+                           class="link">Harvest</a>
+                        <a style="margin-right: 10px; font-size: 20px; float: right; color: white;" href=""
+                           class="link">Contact</a>
+                        <a style="margin-right: 10px; font-size: 20px; float: right; color: white;" href="/account/register"
+                           class="link twelve columns tc white">Register</a>
+                    </div>
                 </div>
-
-            </li>
-        {% endfor %}
-
-    </ul>
-
-</div>
-
-<div id='sections' class='home-sections'>
-
-    {% for section in sections %}
-        <div class='section-wrapper {% cycle "white" "dark" %}'>
-
-            <div class='container'>
-
-                <div class='row'>
-
-                    {% inplace_edit 'section.content|safe' adaptor='tiny' %}
-                    <div class='clear-both'></div>
-
+            </header>
+            <div class="col-12 hero" style="height: 520px;">
+                <div class="col-7"
+                     style="min-height: 250px; padding-left: 0; padding-top: 60px; color: white; font-family: 'Work san', 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+                    <h2 style="font-size: 38px;">Get Growing!</h2>
+                    <p style="font-size: 20px; padding-right: 50px; line-height: 1.6;">WallFlower Farms will help you
+                        never miss a key moment
+                        in growing your plants, no matter what type it is.</p>
+                    <a href="">
+                        <button style="cursor: pointer; padding: 12px 50px; border-radius: 5px; border: none; background: #42c740; font-weight: 500; color: white;">
+                            Get Started
+                        </button>
+                    </a>
                 </div>
-
             </div>
-
         </div>
-    {% endfor %}
+    </div>
+{% endblock %}
 
-    <div class='clear-both'></div>
 
-</div> -->
-
+{% block content %}
+    <div>
+        <div class="container" style="padding: 80px 15px 80px 15px;">
+            <div class="col-12" style="text-align: center;">
+                <p style="font-size: 38px;">Our Dashboard</p>
+                <div class="row">
+                    <div class="col" style="min-height: 1px; padding-bottom: 20px;">
+                        <div>
+                            <img src="/static/images/calendar-icon.png" alt=""
+                                 style="width: 60%; height: initial; margin-bottom: 15px;">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col" style="min-height: 1px; padding-bottom: 20px;">
+                        <div>
+                            <img src="/static/images/birds-of-paradise.png" alt=""
+                                 style="width: 60%; height: initial; margin-bottom: 15px;">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col" style="min-height: 1px; padding-bottom: 20px; padding-top: 20px;">
+                        <div>
+                            <img src="/static/images/cart.png" alt=""
+                                 style="width: 50%; height: initial; margin-bottom: 15px;">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="parallax-seeds" style="text-align: center;">
+        <div class="container" style="padding: 80px 15px 80px 15px">
+            <p style="color: white; font-size: 38px; margin-bottom: 30px;">From Humble Beginnings</p>
+            <p style="font-size: 24px; line-height: 1.6; margin-bottom: 50px; color: white; padding: 0 150px;">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum
+            </p>
+            <button style="cursor: pointer; padding: 12px 50px; border-radius: 5px; border: none; background: #42c740; font-weight: 500; color: white;">Learn More</button>
+        </div>
+    </div>
 {% endblock %}

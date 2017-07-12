@@ -18,16 +18,10 @@
     <link rel="SHORTCUT ICON" href="/static/images/favicon.ico">
 
     <!-- CSS -->
-    <link type='text/css' rel='stylesheet' href='/static/css/bootstrap/bootstrap.min.css'>
     <!-- <link type='text/css' rel='stylesheet' href='/static/css/base.css'> -->
     <link type='text/css' rel='stylesheet' href='/static/css/front_overrides.css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel='stylesheet' href='/static/fullcalendar/dist/fullcalendar.css'/>
-
-
-    <!-- Tachyons -->
-    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
-    <link rel="stylesheet" href="http://unpkg.com/tachyons-flexbox@2.0.5/css/tachyons-flexbox.min.css"/>
 
     <!-- FONTS -->
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
@@ -35,7 +29,8 @@
     <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css">
 
     <!-- SCRIPTS -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
@@ -54,72 +49,56 @@
 
 <body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %}>
 
-<!-- HEADER -->
-<!-- <div id='header-wrapper'> -->
-<!-- <div id="navbar-container" class="nav"> -->
-<header class="navbar w-100 pv2 tc">
-    <!-- PLACE ACTIVE USER HERE -->
-    <a class="hamburger" id="menu" onclick="toggleMobileMenu()">
-        <hr class="menu_bars one">
-        <hr class="menu_bars two">
-        <hr class="menu_bars three">
-    </a>
-    <!-- PLACE ACTIVE USER ELSE HERE -->
 
-    <!-- <div class="w-40" id="enter">
-      <a href="" class="login w-10">Login /</a>
-      <a href="" class="register w-10">Register</a>
-    </div> -->
-
-    <!-- PLACE ENDIF HERE -->
-
-
-    <div class="home_link w-20 ml2 mt2">
-        <a href="">
-            <img src="/static/images/wff.jpg" class="home_img" alt=""></img>
-        </a>
+{% block header %}
+    <div class="container">
+        <header class="col-12"
+                style="min-height: 1px; padding-top: 20px; padding-bottom: 20px;">
+            <div class="row">
+                <div class="col-2">
+                    <img src="/static/images/wallflowerlogo.png" class="twelve columns" alt="" style="width: 100%;">
+                </div>
+                <div class="col-10" style="padding: 25px 15px;">
+                    <a style="margin-right: 10px; font-size: 20px; float: right;" href=""
+                       class="link twelve columns tc white">About Us</a>
+                    <a style="margin-right: 10px; font-size: 20px; float: right;" href=""
+                       class="link twelve columns tc white">Calendar</a>
+                    <a style="margin-right: 10px; font-size: 20px; float: right;" href=""
+                       class="link twelve columns tc white">Harvest</a>
+                    <a style="margin-right: 10px; font-size: 20px; float: right;" href=""
+                       class="link twelve columns tc white">Contact</a>
+                    <a style="margin-right: 10px; font-size: 20px; float: right;" href="/account/register"
+                       class="link twelve columns tc white">Register</a>
+                </div>
+            </div>
+        </header>
     </div>
-</header>
+{% endblock %}
 
-<!-- </div> -->
-<!-- </div> -->
-<!-- END HEADER -->
 
-<!-- CONTENT -->
 <div id='content-wrapper'>
     {% block content %}
-        This is a block content
+    {% endblock %}
+
+    {% block extra-content %}
     {% endblock %}
 </div>
-<!-- END CONTENT -->
 
-<!-- AREA FOR ADDING ANY EXTRA CONTENT I.E. DIALOG BOXES -->
-{% block extra-content %}
 
-{% endblock %}
-<!-- END EXTRA CONTENT -->
-
-<!-- FOOTER -->
-<footer class="footer pt3 w-100">
-    <!-- <div class="footer_items container tc"> -->
-    <div class="footer_items container flex tc pv3">
-        <div class="footer_text">
-            <p class="">© 2017 Fire Fly Tech Labs</p>
-        </div>
-
-        <div class="footer_text">
-            <a href="" class="">
-                <img src="/static/images/favicon.png" class="home_link" alt=""></img>
-            </a>
-        </div>
-
-        <div class="footer_text">
-            <p class="">Pea Ridge AR</p>
-        </div>
+<footer class="col-12" style="min-height: 1px; text-align: center; padding: 50px 15px;">
+    <div class="col-12">
+        <p class="copyright" style="margin: 0;">&copy; 2017 Fire Fly Tech Labs</p>
     </div>
-    <!-- </div> -->
+    <div class="col-12" style="margin: 10px 0;">
+        <a href="">
+            <img class="home_link" src="/static/images/favicon.png" alt="favicon">
+        </a>
+    </div>
+    <div class="col-12" style="margin: 0;">
+        <p class="location" style="margin: 0;">Pea Ridge, AR</p>
+    </div>
 </footer>
-<!-- END FOOTER -->
+
 
 <!-- SCRIPTS -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
@@ -143,7 +122,7 @@
             }
         });
 
-        setTimeout(function(){
+        setTimeout(function () {
             $('#calendar').fullCalendar('next');
         }, 3000);
 
