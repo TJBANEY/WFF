@@ -1,6 +1,9 @@
 import datetime
+import json
 
+from django.http import HttpResponse, Http404
 from django.shortcuts import render
+from django.template import TemplateDoesNotExist
 
 from plants.models import PlantEvent
 
@@ -19,3 +22,10 @@ def calendar_home(request):
 	}
 
 	return render(request, 'plant_calendar/calendar.html', context)
+
+def angular_views(request, page_name):
+
+	try:
+		return render(request, 'angular/%s' % page_name)
+	except TemplateDoesNotExist:
+		raise Http404

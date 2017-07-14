@@ -20,7 +20,8 @@
     <!-- CSS -->
     <!-- <link type='text/css' rel='stylesheet' href='/static/css/base.css'> -->
     {#    <link type='text/css' rel='stylesheet' href='/static/css/front_overrides.css'>#}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css">
     <link rel='stylesheet' href='/static/fullcalendar/dist/fullcalendar.css'/>
 
     <!-- FONTS -->
@@ -39,13 +40,18 @@
     <script src='/static/fullcalendar/dist/fullcalendar.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
+\
+    <script src="/static/angular/app.js"></script>
+
     {% block extra-head %}
 
     {% endblock %}
 
 </head>
 
-<body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %}>
+<body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %} ng-app="PlantApp" ng-controller="plantHome">
 
 
 {% block header %}
@@ -107,25 +113,8 @@
 <script src='/static/moment/min/moment.min.js'></script>
 <script src='/static/fullcalendar/dist/fullcalendar.js'></script>
 
-<script type='text/javascript'>
-    $(document).ready(function () {
-        console.log('Calendar Initiated');
-        // page is now ready, initialize the calendar...
-        $('#calendar').fullCalendar({
-            // put your options and callbacks here
-            dayClick: function (day) {
-                console.log('=========');
-                console.log(day._d);
-                console.log('=========');
-            }
-        });
-
-        setTimeout(function () {
-            $('#calendar').fullCalendar('next');
-        }, 3000);
-
-    });
-</script>
+{% block extra-js %}
+{% endblock %}
 
 </body>
 

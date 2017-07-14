@@ -9,27 +9,41 @@
     <script type='text/javascript'>
         $(document).ready(function () {
             console.log('Calendar Initiated');
+            var calendar = $('#calendar');
+
             // page is now ready, initialize the calendar...
-            $('#calendar').fullCalendar({
-                // put your options and callbacks here
+            calendar.fullCalendar({
+
                 dayClick: function (day) {
                     console.log('=========');
                     console.log(day._d);
                     console.log('=========');
                 },
-                dayRender: function (date, cell) {
-                    var year = date._d.getYear() - 100;
-                    var month = date._d.getMonth() + 1;
-                    var day = date._d.getDate();
-                    var render_date = month + '/' + day + '/' + year;
-                    var event_date = '{{ events.fmt_date }}';
-                    var is_equal = render_date == event_date;
-
-                    if (is_equal) {
-                        cell.css('background-color', 'gray');
+                events: [
+                    {
+                        title: 'Prune Grapevines',
+                        start: '2017-07-18',
+                        end: '2017-07-21',
+                        color: '#1bc974',
+                        textColor: '#fff'
+                    },
+                    {
+                        title: 'Plant Tomato',
+                        start: '2017-07-10',
+                        end: '2017-07-12',
+                        textColor: '#fff'
                     }
-                }
+                ]
             });
+
+            var myEvent = {
+                title: "my new event",
+                allDay: true,
+                start: '2017-06-14',
+                end: '2017-06-21'
+            };
+
+            calendar.fullCalendar('renderEvent', myEvent);
 
         });
     </script>
@@ -64,55 +78,61 @@
 
     </style>
 
-    <div style="background-color: white; padding: 0 0 100px 0; border-top: 1px solid black;">
-        <div class="container">
-            <div class="row dashboard-actions"
-                 style="margin-bottom: 0; padding: 0 15px; font-size: 18px; color: white; font-weight: 600">
-                <div class="col" style="height: 80px; background: #1bc974; position: relative">
-                    <div style="height: inherit; padding: 28px 0; display: inline-block;">
-                        ADD/EDIT PLANTS
-                        <i class="fa fa-leaf" aria-hidden="true"></i>
+    {% verbatim %}
+        <div style="background-color: white; padding: 0 0 100px 0; border-top: 1px solid black;">
+            <div class="container">
+                <div class="row dashboard-actions"
+                     style="margin-bottom: 0; padding: 0 15px; font-size: 18px; color: white; font-weight: 600">
+                    <div class="col" style="height: 80px; background: #1bc974; position: relative" ng-click="testAngular()">
+                        <div style="height: inherit; padding: 28px 0; display: inline-block;">
+                            ADD/EDIT PLANTS
+                            <i class="fa fa-leaf" aria-hidden="true"></i>
+                        </div>
+                        <i class="fa fa-plus-circle fa-2x" aria-hidden="true"
+                           style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
                     </div>
-                    <i class="fa fa-plus-circle fa-2x" aria-hidden="true" style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
-                </div>
 
-                <div class="col" style="height: 80px; background: #e64759;; position: relative">
-                    <div style="height: inherit; padding: 28px 0; display: inline-block;">
-                        FIND SUPPLIES
-                        <i class="fa fa-wrench" aria-hidden="true"></i>
+                    <div class="col" style="height: 80px; background: #e64759;; position: relative">
+                        <div style="height: inherit; padding: 28px 0; display: inline-block;">
+                            FIND SUPPLIES
+                            <i class="fa fa-wrench" aria-hidden="true"></i>
+                        </div>
+                        <i class="fa fa-plus-circle fa-2x" aria-hidden="true"
+                           style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
                     </div>
-                    <i class="fa fa-plus-circle fa-2x" aria-hidden="true" style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
-                </div>
 
-                <div class="col" style="height: 80px; background: #9f86ff; position: relative">
-                    <div style="height: inherit; padding: 28px 0; display: inline-block;">
-                        SET REMINDER
-                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <div class="col" style="height: 80px; background: #9f86ff; position: relative">
+                        <div style="height: inherit; padding: 28px 0; display: inline-block;">
+                            SET REMINDER
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        </div>
+                        <i class="fa fa-plus-circle fa-2x" aria-hidden="true"
+                           style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
                     </div>
-                    <i class="fa fa-plus-circle fa-2x" aria-hidden="true" style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
-                </div>
 
-                <div class="col" style="height: 80px; background: #efe12d;; position: relative">
-                    <div style="height: inherit; padding: 28px 0; display: inline-block;">
-                        EDIT PROFILE
-                        <i class="fa fa-user" aria-hidden="true"></i>
+                    <div class="col" style="height: 80px; background: #efe12d;; position: relative">
+                        <div style="height: inherit; padding: 28px 0; display: inline-block;">
+                            EDIT PROFILE
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </div>
+                        <i class="fa fa-plus-circle fa-2x" aria-hidden="true"
+                           style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
                     </div>
-                    <i class="fa fa-plus-circle fa-2x" aria-hidden="true" style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
-                </div>
 
-            </div>
-        </div>
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-sm m-b-30">
-                    <div id="calendar"></div>
                 </div>
             </div>
 
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-sm m-b-30">
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+
+
+            </div>
 
         </div>
-
-    </div>
+    {% endverbatim %}
 {% endblock %}
