@@ -46,6 +46,8 @@ INSTALLED_APPS = (
     'mptt',
     'inplaceeditform',
     'inplaceeditform_extra_fields',
+    'rest_framework',
+    'rest_framework.authtoken',
     # My Applications
     'webapp',
     'webapp_admin',
@@ -178,3 +180,14 @@ ADAPTOR_INPLACEEDIT = {'auto_fk': 'inplaceeditform_extra_fields.fields.AdaptorAu
                        'auto_m2m': 'inplaceeditform_extra_fields.fields.AdaptorAutoCompleteManyToManyField',
                        'image_thumb': 'inplaceeditform_extra_fields.fields.AdaptorImageThumbnailField',
                        'tiny': 'inplaceeditform_extra_fields.fields.AdaptorTinyMCEField'}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
