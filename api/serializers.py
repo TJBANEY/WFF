@@ -10,7 +10,8 @@ class PlantEventSerializer(serializers.ModelSerializer):
 			'plant',
 			'event_start',
 			'event_end',
-			'details'
+			'details',
+			'color'
 		)
 		model = PlantEvent
 

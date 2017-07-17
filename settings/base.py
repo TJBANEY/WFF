@@ -47,7 +47,6 @@ INSTALLED_APPS = (
     'inplaceeditform',
     'inplaceeditform_extra_fields',
     'rest_framework',
-    'rest_framework.authtoken',
     # My Applications
     'webapp',
     'webapp_admin',
@@ -183,7 +182,7 @@ ADAPTOR_INPLACEEDIT = {'auto_fk': 'inplaceeditform_extra_fields.fields.AdaptorAu
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',

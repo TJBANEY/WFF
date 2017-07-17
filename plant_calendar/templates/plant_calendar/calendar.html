@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block extra-head %}
+{% block extra-js %}
 
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/blue-dark.css">
@@ -9,41 +9,60 @@
     <script type='text/javascript'>
         $(document).ready(function () {
             console.log('Calendar Initiated');
-            var calendar = $('#calendar');
 
-            // page is now ready, initialize the calendar...
-            calendar.fullCalendar({
+            function getEvents() {
+                var evnts = [];
 
-                dayClick: function (day) {
-                    console.log('=========');
-                    console.log(day._d);
-                    console.log('=========');
-                },
-                events: [
-                    {
-                        title: 'Prune Grapevines',
-                        start: '2017-07-18',
-                        end: '2017-07-21',
-                        color: '#1bc974',
-                        textColor: '#fff'
+                $.ajax({
+                    method: 'GET',
+                    url: '/api/v1/events/',
+                    data: {csrfmiddlewaretoken: '{{ csrf_token }}'},
+                    success: function (response) {
+
+                        for (var item in response.results) {
+                            var event = response.results[item];
+
+                            var event_details = {
+                                title: event.name,
+                                start: event.event_start,
+                                end: event.event_end,
+                                color: '#' + event.color,
+                                textColor: '#ffffff',
+                                info: event.details
+                            };
+
+                            evnts.push(event_details);
+                            console.log(events);
+                        }
+
+                        return evnts;
                     },
-                    {
-                        title: 'Plant Tomato',
-                        start: '2017-07-10',
-                        end: '2017-07-12',
-                        textColor: '#fff'
+                    error: function (response) {
+                        console.log(response)
                     }
-                ]
-            });
+                });
 
-            var myEvent = {
-                title: "my new event",
-                allDay: true,
-                start: '2017-06-14',
-                end: '2017-06-21'
-            };
+                return evnts
+            }
 
-            calendar.fullCalendar('renderEvent', myEvent);
+            var calendar = $('#calendar');
+            var events = getEvents();
+
+            setTimeout(function () {
+                calendar.fullCalendar({
+                    eventClick: function (calEvent, jsEvent, view) {
+                        $('.overlay').show();
+                        $('.plant-popup').show(500);
+                        alert(calEvent.info)
+                    },
+                    dayClick: function (day) {
+                        console.log('=========');
+                        console.log(day._d);
+                        console.log('=========');
+                    },
+                    events: events
+                });
+            }, 1000);
 
         });
     </script>
@@ -79,60 +98,71 @@
     </style>
 
     {% verbatim %}
-        <div style="background-color: white; padding: 0 0 100px 0; border-top: 1px solid black;">
-            <div class="container">
-                <div class="row dashboard-actions"
-                     style="margin-bottom: 0; padding: 0 15px; font-size: 18px; color: white; font-weight: 600">
-                    <div class="col" style="height: 80px; background: #1bc974; position: relative" ng-click="testAngular()">
-                        <div style="height: inherit; padding: 28px 0; display: inline-block;">
-                            ADD/EDIT PLANTS
-                            <i class="fa fa-leaf" aria-hidden="true"></i>
-                        </div>
-                        <i class="fa fa-plus-circle fa-2x" aria-hidden="true"
-                           style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
+    <div style="background-color: white; padding: 0 0 100px 0; border-top: 1px solid black;">
+        <div class="container">
+            <div class="row dashboard-actions"
+                 style="margin-bottom: 0; padding: 0 15px; font-size: 18px; color: white; font-weight: 600">
+                <div class="col" style="height: 80px; background: #1bc974; position: relative" ng-click="testAngular()">
+                    <div style="height: inherit; padding: 28px 0; display: inline-block;">
+                        ADD/EDIT PLANTS
+                        <i class="fa fa-leaf" aria-hidden="true"></i>
                     </div>
+                    <i class="fa fa-plus-circle fa-2x" aria-hidden="true"
+                       style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
+                </div>
 
-                    <div class="col" style="height: 80px; background: #e64759;; position: relative">
-                        <div style="height: inherit; padding: 28px 0; display: inline-block;">
-                            FIND SUPPLIES
-                            <i class="fa fa-wrench" aria-hidden="true"></i>
-                        </div>
-                        <i class="fa fa-plus-circle fa-2x" aria-hidden="true"
-                           style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
+                <div class="col" style="height: 80px; background: #e64759;; position: relative">
+                    <div style="height: inherit; padding: 28px 0; display: inline-block;">
+                        FIND SUPPLIES
+                        <i class="fa fa-wrench" aria-hidden="true"></i>
                     </div>
+                    <i class="fa fa-plus-circle fa-2x" aria-hidden="true"
+                       style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
+                </div>
 
-                    <div class="col" style="height: 80px; background: #9f86ff; position: relative">
-                        <div style="height: inherit; padding: 28px 0; display: inline-block;">
-                            SET REMINDER
-                            <i class="fa fa-clock-o" aria-hidden="true"></i>
-                        </div>
-                        <i class="fa fa-plus-circle fa-2x" aria-hidden="true"
-                           style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
+                <div class="col" style="height: 80px; background: #9f86ff; position: relative">
+                    <div style="height: inherit; padding: 28px 0; display: inline-block;">
+                        SET REMINDER
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
                     </div>
+                    <i class="fa fa-plus-circle fa-2x" aria-hidden="true"
+                       style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
+                </div>
 
-                    <div class="col" style="height: 80px; background: #efe12d;; position: relative">
-                        <div style="height: inherit; padding: 28px 0; display: inline-block;">
-                            EDIT PROFILE
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                        </div>
-                        <i class="fa fa-plus-circle fa-2x" aria-hidden="true"
-                           style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
+                <div class="col" style="height: 80px; background: #efe12d;; position: relative">
+                    <div style="height: inherit; padding: 28px 0; display: inline-block;">
+                        EDIT PROFILE
+                        <i class="fa fa-user" aria-hidden="true"></i>
                     </div>
+                    <i class="fa fa-plus-circle fa-2x" aria-hidden="true"
+                       style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
+                </div>
 
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm m-b-30">
+                    <div id="calendar"></div>
+                    <div dev-calendar="{height: 400, editable: true}" ng-model="events" changed="eventChanged"></div>
                 </div>
             </div>
 
-            <div class="container">
-
-                <div class="row">
-                    <div class="col-sm m-b-30">
-                        <div id="calendar"></div>
-                    </div>
-                </div>
-
-
-            </div>
 
         </div>
+
+    </div>
+
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+
+    <!-- <div class="overlay hidden" style="position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 1; background: black; opacity: .5"></div>
+    <div class="plant-popup hidden" style="width: 60%; height: 500px; background: white; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10;">
+    </div> -->
     {% endverbatim %}
 {% endblock %}

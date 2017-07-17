@@ -114,12 +114,14 @@ class Plant(models.Model):
 		return self.botanical_name
 
 class PlantEvent(models.Model):
-	event_type = models.CharField(max_length=255, choices=EVENT_TYPES)
-	name = models.CharField(max_length=255, help_text='e.g. Plant seeds, Move to larger pot, etc.')
-	plant = models.ForeignKey(Plant, related_name='events')
+	event_type = models.CharField(max_length=255, choices=EVENT_TYPES, null=True, blank=True)
+	name = models.CharField(max_length=255, help_text='e.g. Plant seeds, Move to larger pot, etc.', null=True, blank=True)
+	plant = models.ForeignKey(Plant, related_name='events', null=True, blank=True)
 	event_start = models.DateTimeField(null=True, blank=True)
 	event_end = models.DateTimeField(null=True, blank=True)
 	details = models.TextField(max_length=10000, null=True, blank=True)
+	color = models.CharField(default='1bc974', max_length=10, null=True, blank=True, help_text='This will be the color of the event on the dashboard calendar')
+	text_color = models.CharField(default='fff', max_length=6, null=True, blank=True, help_text='This will be the color the event text on the dashboard calendar')
 
 	is_published = models.BooleanField(default=False)
 
