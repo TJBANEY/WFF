@@ -63,15 +63,18 @@
                            class="link">Harvest</a>
                         <a style="margin-right: 10px; font-size: 20px; float: right; color: white;" href=""
                            class="link">Contact</a>
-                        <a style="margin-right: 10px; font-size: 20px; float: right; color: white;"
-                           href="/account/register"
-                           class="link twelve columns tc white">Register</a>
                         {% if logged_in %}
-                            <a style="margin-right: 10px; font-size: 20px; float: right;" href="/account/sign-out">
+                            <a style="margin-right: 10px; font-size: 20px; float: right; color: white;"
+                               href="/account/sign-out">
                                 Sign Out
                             </a>
                         {% else %}
-                            <a style="margin-right: 10px; font-size: 20px; float: right;" href="/account/sign-in">
+                            <a style="margin-right: 10px; font-size: 20px; float: right; color: white;"
+                               href="/account/register" class="link twelve columns tc white">
+                                Register
+                            </a>
+                            <a style="margin-right: 10px; font-size: 20px; float: right; color: white;"
+                               href="/account/sign-in">
                                 Sign In
                             </a>
                         {% endif %}

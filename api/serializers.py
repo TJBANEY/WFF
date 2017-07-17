@@ -1,5 +1,20 @@
+from account.models import Account
 from rest_framework import serializers
 from plants.models import Plant, PlantEvent
+
+class UserSerializer(serializers.ModelSerializer):
+	class Meta:
+		fields = (
+			'id',
+			'first_name',
+			'last_name',
+			'phone',
+			'address',
+			'address2',
+			'city',
+			'state'
+		)
+		model = Account
 
 class PlantEventSerializer(serializers.ModelSerializer):
 	class Meta:

@@ -1,4 +1,6 @@
 from django.db import models
+
+from account.models import Account
 from filebrowser.fields import FileBrowseField
 
 # Create your models here.
@@ -155,3 +157,13 @@ class PestIssue(models.Model):
 
 	def __str__(self):
 		return self.pest
+
+class UserPlant(models.Model):
+	user = models.ForeignKey(Account)
+	plant = models.ForeignKey(Plant)
+
+	def __str__(self):
+		return '{} {} - {}'.format(self.user.first_name, self.user.last_name, self.plant.botanical_name)
+
+	class Meta:
+		unique_together = ("user", "plant")

@@ -1,12 +1,14 @@
 import datetime
 import json
 
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, Http404
 from django.shortcuts import render
 from django.template import TemplateDoesNotExist
 
 from plants.models import PlantEvent
 
+@login_required(login_url='/account/sign-in')
 def calendar_home(request):
 	all_events = PlantEvent.objects.all()[0]
 	fmt_date = all_events.event_start.strftime("%-m/%d/%y")
