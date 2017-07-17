@@ -1,3 +1,4 @@
+from django.contrib.auth import login
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -36,7 +37,10 @@ def register(request):
 
 			account.save()
 
+			login(request, account_user)
+
 			return HttpResponseRedirect('register/plants')
+
 
 	else:
 		form = RegisterForm()

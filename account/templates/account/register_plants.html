@@ -8,23 +8,23 @@
             <form method="POST">
                 {% csrf_token %}
 
-                <div class="one columns" style="height: 50px;"></div>
+                <div class="col-1" style="height: 50px;"></div>
 
-                <div class="four columns">
+                <div class="col-4">
                     <p>Search for any plant by name</p>
                 </div>
                 <form action="" method="POST">
-                    <div class="four columns" style="margin-left: 2%;">
+                    <div class="col-4" style="margin-left: 2%;">
                         <input type="search" id="plant-search" style="margin-top: 0; margin-left: 0;">
                     </div>
                 </form>
-                <div class="two columns">
+                <div class="col-2">
                     <button onclick="getPlants()">Search</button>
                 </div>
 
-                <div class="one columns" style="height: 50px;"></div>
+                <div class="col-1" style="height: 50px;"></div>
 
-                <div class="twelve columns plant-results-container"
+                <div class="col-12 plant-results-container"
                      style="padding: 20px; height: 200px; border: 1px solid gray;">
                     <div style="float: left; width: 100%; display: block; border-bottom: 1px solid black;">
                         <div style="display: inline-block; float: left; width: 15%;">SELECT</div>
@@ -38,7 +38,7 @@
                     </div>
                 </div>
 
-                <div class="twelve columns" style="padding-left: 2%; margin: 15px 0px 15px 0;">
+                <div class="col-12" style="padding-left: 2%; margin: 15px 0px 15px 0;">
                     <a href="/account/register/payment">
                         <button type="submit" style="float: right;">NEXT</button>
                     </a>
