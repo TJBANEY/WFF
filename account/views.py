@@ -1,6 +1,6 @@
 import logging
 
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
@@ -52,6 +52,11 @@ def register(request):
 
 	context = {'form': form}
 
+	if request.user.is_active:
+		context['logged_in'] = True
+	else:
+		context['logged_in'] = False
+
 	return render(request, 'account/register.html', context)
 
 
@@ -64,6 +69,11 @@ def register_plants(request):
 		context = {
 			'user_complete': user_complete,
 		}
+
+		if request.user.is_active:
+			context['logged_in'] = True
+		else:
+			context['logged_in'] = False
 
 		return render(request, 'account/register_plants.html', context)
 
@@ -78,6 +88,11 @@ def register_payment(request):
 		'user_complete': user_complete,
 		'plants_complete': plants_complete
 	}
+
+	if request.user.is_active:
+		context['logged_in'] = True
+	else:
+		context['logged_in'] = False
 
 	return render(request, 'account/register_payment.html', context)
 
@@ -96,3 +111,7 @@ def sign_in(request):
 
 	return render(request, 'account/sign_in.html', {'form': form})
 
+def sign_out(request):
+	logout(request)
+
+	return HttpResponseRedirect('/')
