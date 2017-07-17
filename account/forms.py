@@ -1,8 +1,48 @@
+import logging
+
 from django import forms
 from django.contrib import messages
+from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 
 from account.models import Account
+
+
+class LoginForm(forms.Form):
+	email = forms.CharField(widget=forms.EmailInput())
+	password = forms.CharField(widget=forms.PasswordInput())
+
+	def __init__(self, request=None, *args, **kwargs):
+		self.cached_user = None
+		self.request = request
+		kwargs.setdefault('label_suffix', '')
+		super(LoginForm, self).__init__(*args, **kwargs)
+
+	def clean(self):
+		cleaned_data = self.cleaned_data
+
+		if len(self._errors) > 0:
+			return cleaned_data
+
+		email = cleaned_data.get('email')
+		password = cleaned_data.get('password')
+		generated_username = email[:30]
+
+		if email is None or password is None:
+			return forms.ValidationError("Please enter an email and password.")
+		else:
+			try:
+				self.cached_user = authenticate(username=generated_username[:30], password=password)
+			except Exception as e:
+				logging.error(e)
+				self.cached_user = None
+
+		if not self.cached_user:
+			self._errors['main'] = self.error_class(["Please enter a correct email and password. Passwords are case sensitive."])
+			# self._errors['email'] = self.error_class(["Please enter a correct email and password. Passwords are case sensitive."])
+
+	def get_user(self):
+		return self.cached_user
 
 
 class RegisterForm(forms.ModelForm):
