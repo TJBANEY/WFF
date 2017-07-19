@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <style>
+        .error input {
+            border: 1px solid red;
+        }
+    </style>
+
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-6" style="height: 500px; border: 1px solid black">
+                <form action="/account/sign-in/" method="POST">
+                    {% csrf_token %}
+                    <h1 class="col-12" style="text-align: center;">Sign In</h1>
+                    {% if form.errors.main %}
+                        <span style="margin-left: 15px; color: red">{{ form.errors.main }}</span>
+                    {% endif %}
+                    <div class="col-12 {% if form.errors.email %}error{% endif %}">
+                        <label class="col-12" for="">
+                            Email {% if form.errors.email %}
+                                <span style="margin-left: 15px; color: red">{{ form.errors.email }}</span>
+                            {% endif %}
+                            {{ form.email }}
+                        </label>
+                    </div>
+                    <div class="col-12 {% if form.errors.password %}error{% endif %}">
+                        <label class="col-12" for="">
+                            Password {% if form.errors.password %}
+                                <span style="margin-left: 15px; color: red">{{ form.errors.password }}</span>
+                            {% endif %}
+                            {{ form.password }}
+                        </label>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit">Sign In</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}

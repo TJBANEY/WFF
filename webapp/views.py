@@ -10,6 +10,12 @@ from django.template import RequestContext
 def view_home(request):
 
     context = {}
+
+    if request.user.is_active:
+        context['logged_in'] = True
+    else:
+        context['logged_in'] = False
+
     template = 'home.html'
 
     return render_to_response(template, context, context_instance=RequestContext(request))

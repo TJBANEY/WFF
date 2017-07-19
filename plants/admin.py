@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from plants.models import Plant, MaterialSource, PlantEvent, Region
+from plants.models import Plant, MaterialSource, PlantEvent, Region, UserPlant
 
 
 class PlantAdmin(admin.ModelAdmin):
@@ -18,7 +18,11 @@ class PlantEventAdmin(admin.ModelAdmin):
 class RegionAdmin(admin.ModelAdmin):
 	model = Region
 
+class UserPlantAdmin(admin.ModelAdmin):
+	model = UserPlant
+
 admin.site.register(Plant, PlantAdmin)
 admin.site.register(MaterialSource, SourceAdmin)
 admin.site.register(PlantEvent, PlantEventAdmin)
 admin.site.register(Region, RegionAdmin)
+admin.site.register(UserPlant, UserPlantAdmin)

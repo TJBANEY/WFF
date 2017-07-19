@@ -31,10 +31,10 @@
         <div class="row">
             <h1 style="text-align: center; margin-bottom: 0px;">REGISTER HERE</h1>
             {% include 'account/snippets/progress_bar.html' %}
-            <form method="POST" style="text-align: center;">
+            <form method="POST" action="/account/register/payment/" style="text-align: center;">
                 {% csrf_token %}
-                <div class="10 columns" style="height: 300px; border: 1px solid black; background-color: #f5f4f4; position: relative;">
-                    <div class="four columns"
+                <div class="col-10" style="height: 300px; border: 1px solid black; background-color: #f5f4f4; position: relative;">
+                    <div class="col-4"
                          style="height: inherit; border-right: 1px solid black; margin: 0; padding: 85px 30px;">
                         <div class="arrow-right"></div>
                         <div class="arrow-right-border"></div>
@@ -46,7 +46,7 @@
                             Pay with PayPal
                         </div>
                     </div>
-                    <div class="six columns" style="height: inherit; text-align: center; padding: 60px 0 0 50px">
+                    <div class="col-6" style="height: inherit; text-align: center; padding: 60px 0 0 50px">
                         <div>
                             <input type="text" style="width: 60%; float: left; margin-bottom: 20px;">
                             <div style="width: 35%; margin-top: 11px; margin-left: 15px; float: left;">

@@ -2,22 +2,13 @@ import logging
 from django.contrib.sites.models import Site
 
 def detail_context(request):
-
-    # AJAX requests will almost never need this context data, so avoid the extra processing
-    if request.is_ajax():
-        return {}
-
     a_context = {}
 
     # CHECK FOR ADMIN USER
-    active_user = None
-    try:
-        if request.user.is_superuser:
-            active_user = request.user
-    except Exception as e:
-        logging.error(e)
-
-    a_context['active_user'] = active_user
+    if request.user.is_active:
+        a_context['user'] = request.user
+    else:
+        a_context['user'] = None
 
     # NAV LINKS
     # desktop_links = PrimaryNavigation.get_published_objects()
