@@ -42,54 +42,50 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
-\
+
     <script src="/static/angular/app.js"></script>
 
     {% block extra-head %}
 
     {% endblock %}
-
 </head>
 
 <body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %} ng-app="PlantApp" ng-controller="plantHome">
-
-
-{% block header %}
-    <div class="container">
+  <div class="doc-wrapper">
+    {% block header %}
+      <div class="container">
         <header class="col-12"
-                style="min-height: 1px; padding-top: 20px; padding-bottom: 20px;">
-            <div class="row">
-                <div class="col-2">
-                    <img src="/static/images/wallflowerlogo.png" class="twelve columns" alt="" style="width: 100%;">
-                </div>
-                <div class="col-10" style="padding: 25px 15px;">
-                    <a style="margin-right: 10px; font-size: 20px; float: right;" href=""
-                       class="link twelve columns tc white">About Us</a>
-                    <a style="margin-right: 10px; font-size: 20px; float: right;" href=""
-                       class="link twelve columns tc white">Calendar</a>
-                    <a style="margin-right: 10px; font-size: 20px; float: right;" href=""
-                       class="link twelve columns tc white">Harvest</a>
-                    <a style="margin-right: 10px; font-size: 20px; float: right;" href=""
-                       class="link twelve columns tc white">Contact</a>
-                    <a style="margin-right: 10px; font-size: 20px; float: right;" href="/account/register"
-                       class="link twelve columns tc white">Register</a>
-                </div>
-            </div>
-        </header>
+                  style="min-height: 1px; padding-top: 20px; padding-bottom: 20px;">
+              <div class="row">
+                  <div class="col-2">
+                      <img src="/static/images/wallflowerlogo.png" class="twelve columns" alt="" style="width: 100%;">
+                  </div>
+                  <div class="col-10" style="padding: 25px 15px;">
+                      <a style="margin-right: 10px; font-size: 20px; float: right;" href=""
+                         class="link twelve columns tc white">About Us</a>
+                      <a style="margin-right: 10px; font-size: 20px; float: right;" href=""
+                         class="link twelve columns tc white">Calendar</a>
+                      <a style="margin-right: 10px; font-size: 20px; float: right;" href=""
+                         class="link twelve columns tc white">Harvest</a>
+                      <a style="margin-right: 10px; font-size: 20px; float: right;" href=""
+                         class="link twelve columns tc white">Contact</a>
+                      <a style="margin-right: 10px; font-size: 20px; float: right;" href="/account/register"
+                         class="link twelve columns tc white">Register</a>
+                  </div>
+              </div>
+          </header>
+      </div>
+    {% endblock %}
+    <div id='content-wrapper'>
+        {% block content %}
+        {% endblock %}
+
+        {% block extra-content %}
+        {% endblock %}
     </div>
-{% endblock %}
+  </div>
 
-
-<div id='content-wrapper'>
-    {% block content %}
-    {% endblock %}
-
-    {% block extra-content %}
-    {% endblock %}
-</div>
-
-
-<footer class="col-12" style="min-height: 1px; text-align: center; padding: 50px 15px;">
+  <footer class="col-12" style="min-height: 1px; text-align: center; padding: 50px 15px;">
     <div class="col-12">
         <p class="copyright" style="margin: 0;">&copy; 2017 Fire Fly Tech Labs</p>
     </div>
@@ -101,7 +97,7 @@
     <div class="col-12" style="margin: 0;">
         <p class="location" style="margin: 0;">Pea Ridge, AR</p>
     </div>
-</footer>
+  </footer>
 
 
 <!-- SCRIPTS -->
