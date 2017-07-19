@@ -55,32 +55,7 @@
   <div class="doc-wrapper">
     {% block header %}
       <div class="container">
-        <header class="col-12"
-                  style="min-height: 1px; padding-top: 20px; padding-bottom: 20px;">
-              <div class="row">
-                  <div class="col-2">
-                      <img src="/static/images/wallflowerlogo.png" class="twelve columns" alt="" style="width: 100%;">
-                  </div>
-                  <div class="col-10" style="padding: 25px 15px;">
-                      <a style="margin-right: 10px; font-size: 20px; float: right;" href=""
-                         class="link twelve columns tc white">About Us</a>
-                      <a style="margin-right: 10px; font-size: 20px; float: right;" href=""
-                         class="link twelve columns tc white">Calendar</a>
-                      <a style="margin-right: 10px; font-size: 20px; float: right;" href=""
-                         class="link twelve columns tc white">Harvest</a>
-                      <a style="margin-right: 10px; font-size: 20px; float: right;" href=""
-                         class="link twelve columns tc white">Contact</a>
-                      <a style="margin-right: 10px; font-size: 20px; float: right;" href="/account/register"
-                         class="link twelve columns tc white">Register</a>
-                  </div>
-              </div>
-          </header>
-      </div>
-
-{% block header %}
-    <div class="container">
-        <header class="col-12"
-                style="min-height: 1px; padding-top: 20px; padding-bottom: 20px;">
+        <header class="col-12" style="min-height: 1px; padding-top: 20px; padding-bottom: 20px;">
             <div class="row">
                 <div class="col-2">
                     <img src="/static/images/wallflowerlogo.png" class="twelve columns" alt="" style="width: 100%;">
@@ -109,12 +84,8 @@
             </div>
         </header>
     </div>
-{% endblock %}
-
-
-<div id='content-wrapper'>
-    {% block content %}
     {% endblock %}
+
     <div id='content-wrapper'>
         {% block content %}
         {% endblock %}
