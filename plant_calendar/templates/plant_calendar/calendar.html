@@ -15,12 +15,11 @@
 
                 $.ajax({
                     method: 'GET',
-                    url: '/api/v1/events/',
+                    url: '/api/v1/users/{{ user_id }}/events/',
                     data: {csrfmiddlewaretoken: '{{ csrf_token }}'},
                     success: function (response) {
-
-                        for (var item in response.results) {
-                            var event = response.results[item];
+                        for (var item in response) {
+                            var event = response[item];
 
                             var event_details = {
                                 title: event.name,
@@ -47,6 +46,7 @@
 
             var calendar = $('#calendar');
             var events = getEvents();
+            console.log(events);
 
             setTimeout(function () {
                 calendar.fullCalendar({
@@ -62,7 +62,7 @@
                     },
                     events: events
                 });
-            }, 200);
+            }, 300);
 
         });
     </script>
@@ -138,6 +138,43 @@
                        style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
                 </div>
 
+            </div>
+            <div class="plant-add-edit col" style="border: 1px solid red;">
+                <div class="row">
+                    <div class="col filters" style="border: 1px solid violet; height: 300px">
+                        <form action="/plants/filtered_plants/" method="POST">
+                            <ul style="list-style: none;">
+                                <li>
+                                    Plant Name
+                                    <select name="plant_name" id="plant-name">
+                                        <option value="tomato">Tomato</option>
+                                        <option value="potato">Potato</option>
+                                        <option value="rose">Rose</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    Plant Type
+                                    <select name="plant_type" id="type">
+                                        <option value="flower">Flower</option>
+                                        <option value="vegetable">Vegetable</option>
+                                        <option value="fruit">Fruit</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    Harvest Start
+                                    <input type="date" name="start">
+                                </li>
+                                <li>
+                                    Harvest End
+                                    <input type="date" name="end">
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                    <div class="col results" style="border: 1px solid lime; height: 300px">
+
+                    </div>
+                </div>
             </div>
         </div>
 

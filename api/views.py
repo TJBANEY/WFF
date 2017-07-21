@@ -1,23 +1,11 @@
-import json
-
-from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
-
-from account.models import Account
-from rest_framework.renderers import JSONRenderer
-
-# from rest_framework.views import APIView
 from rest_framework.response import Response
-# from rest_framework import status
 from rest_framework.decorators import detail_route
-from rest_framework import mixins
-
-from rest_framework import generics
+from rest_framework import viewsets
 
 from plants.models import Plant, PlantEvent, UserPlant
-from .serializers import PlantSerializer, PlantEventSerializer, UserSerializer
+from account.models import Account
 
-from rest_framework import viewsets
+from .serializers import PlantSerializer, PlantEventSerializer, UserSerializer, UserPlantSerializer
 
 
 class PlantViewSet(viewsets.ModelViewSet):
@@ -31,10 +19,24 @@ class PlantViewSet(viewsets.ModelViewSet):
 			plant.plantevent_set.all(), many=True)
 		return Response(serializer.data)
 
+	@detail_route(methods=['post'])
+	def filtered_plants(self, request, pk=None):
+		harvest_start = request.POST['start']
+		harvest_end = request.POST['end']
+		name = request.POST['plant_name']
+		type = request.POST['plant_type']
+
+		plants = self.queryset.filter(botanical_name=name, plant_type=type,
+									  harvest_time_start__gte=harvest_start,
+									  harvest_time_end__lte=harvest_end)
+
+		serializer = PlantSerializer(plants, many=True)
+		return Response(serializer.data)
 
 class PlantEventViewSet(viewsets.ModelViewSet):
 	queryset = PlantEvent.objects.all()
 	serializer_class = PlantEventSerializer
+
 
 class UserViewSet(viewsets.ModelViewSet):
 	queryset = Account.objects.all()
@@ -47,6 +49,11 @@ class UserViewSet(viewsets.ModelViewSet):
 		user_plants = UserPlant.objects.filter(user=user).values_list('plant', flat=True)
 
 		serializer = PlantEventSerializer(
-			PlantEvent.objects.filter(plant__id__in=user_plants), many=True
+			PlantEvent.objects.filter(plant__id__in=user_plants)
 		)
 		return Response(serializer.data)
+
+
+class UserPlantViewSet(viewsets.ModelViewSet):
+	queryset = UserPlant.objects.all()
+	serializer_class = UserPlantSerializer

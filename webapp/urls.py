@@ -17,7 +17,8 @@ admin.autodiscover()
 router = routers.SimpleRouter()
 router.register(r'plants', PlantViewSet),
 router.register(r'events', PlantEventViewSet),
-router.register(r'users', UserViewSet)
+router.register(r'users', UserViewSet),
+router.register(r'user-plants', UserPlantViewSet)
 
 urlpatterns = [
 	url(r'^$', webapp_views.view_home, name='home'),
