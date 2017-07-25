@@ -21,14 +21,12 @@ class PlantViewSet(viewsets.ModelViewSet):
 
 	@detail_route(methods=['post'])
 	def filtered_plants(self, request, pk=None):
-		harvest_start = request.POST['start']
-		harvest_end = request.POST['end']
-		name = request.POST['plant_name']
-		type = request.POST['plant_type']
+		# harvest_start = request.GET['start']
+		# harvest_end = request.GET['end']
+		name = request.GET['plant_name']
+		# type = request.GET['plant_type']
 
-		plants = self.queryset.filter(botanical_name=name, plant_type=type,
-									  harvest_time_start__gte=harvest_start,
-									  harvest_time_end__lte=harvest_end)
+		plants = self.queryset.filter(botanical_name=name)
 
 		serializer = PlantSerializer(plants, many=True)
 		return Response(serializer.data)
