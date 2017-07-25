@@ -19,6 +19,10 @@ body {}
 button {
   var(--primaryColor)
 }
+
+#parallaxImg {
+  bottom: 4rem;
+}
 /*========================
          Skin
 =========================*/
