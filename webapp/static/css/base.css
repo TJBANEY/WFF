@@ -1,3 +1,6 @@
+/*========================
+        Global Resets
+=========================*/
 html {
   font-size: 16px;
 }
@@ -14,15 +17,20 @@ body {}
 }
 
 /*========================
-         Layout
+         Structure
 =========================*/
-button {
-  var(--primaryColor)
-}
 
 #parallaxImg {
   bottom: 4rem;
 }
+
+#parallaxBottomWrapper {
+  max-height: 400px;
+}
+
 /*========================
          Skin
 =========================*/
+button {
+  var(--primaryColor)
+}
