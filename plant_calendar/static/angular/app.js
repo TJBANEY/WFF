@@ -32,8 +32,30 @@ angular.module('PlantApp.controllers').controller('plantHome', function ($window
 
     $scope.angular_test_two = 'SUCCESSFUL';
 
-    $scope.testAngular = function(){
+    var filters = {
+        harvest_start: '',
+        harvest_end: ''
+    };
+
+    $scope.filters = angular.copy(filters);
+
+    $scope.testAngular = function () {
         console.log('TEST SUCCESSFUL');
+    };
+
+    $scope.explorePlants = function (filters) {
+        console.log(filters);
+
+        $http({
+            method: 'GET',
+            url: '/api/v1/plants/filtered_plants?name=tomato&harvest_start=' + filters.harvest_start
+        }).then(function success(response){
+            console.log(response);
+            $scope.plants = response.data
+        }, function error(response){
+            console.log('Error')
+        });
+
     };
 
     $scope.plant_events = [

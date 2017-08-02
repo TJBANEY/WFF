@@ -44,8 +44,6 @@ INSTALLED_APPS = (
     'reversion',
     'classytags',
     'mptt',
-    'inplaceeditform',
-    'inplaceeditform_extra_fields',
     'rest_framework',
     # My Applications
     'webapp',

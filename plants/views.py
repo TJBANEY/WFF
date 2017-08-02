@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+def explore_plants(request):
+
+	context = {}
+
+	return render(request, 'plants/explore.html', context)

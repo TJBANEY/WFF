@@ -1,6 +1,10 @@
 angular.module('PlantApp.controllers').controller('plantHome', function ($window, $route, $rootScope, $location, $scope, $http) {
     console.log('Plant Home Init');
 
+    $scope.explorePlants = function(){
+      console.log('Exploring');
+    };
+
     $window.plant_events = [
         {
             title: 'Prune Grapevines',
