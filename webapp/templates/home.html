@@ -30,14 +30,6 @@
 {% block header %}
 
   <style>
-      .parallax-container {
-        height: 570px;
-        width: 100%;
-      }
-
-      .parallaxBottomWrapper {
-        height: 400px;
-      }
 
       .parallax-flowers {
           background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url('/static/images/tulips.jpg') no-repeat center;
@@ -70,6 +62,9 @@
 {% block content %}
 
 <div class="parallax-container parallaxTopWrapper">
+  <div class="signIn right" style="padding: 0.5rem 1rem;">
+    <p style="display: inline;"><a href="" style="color: white;font-size: 20px;">Register</a></p><p style="display: inline;margin:0 1rem;color: white;">/</p><p style="display: inline;"><a href="" style="color: white;font-size: 20px;">Sign In</a></p>
+  </div>
   <div class="parallax">
     <img class="parallax-flowers" src="/static/images/tulips.jpg">
   </div>
@@ -124,7 +119,7 @@
     </div>
   </div>
 </div>
-<div class="parallax-container parallaxBottomWrapper">
+<div class="parallax-container" id="parallaxBottomWrapper">
   <div class="parallax">
     <img id="parallaxImg" class="parallax-seeds" src="/static/images/growing-business.jpg">
   </div>
