@@ -7,7 +7,7 @@ from plants.models import Plant, MaterialSource, PlantEvent, Region, UserPlant
 class PlantAdmin(admin.ModelAdmin):
 	model = Plant
 
-	list_display = ('botanical_name', 'plant_type', 'bloom_color')
+	list_display = ('id', 'usda_code', 'scientific_name', 'botanical_name', 'plant_type', 'bloom_color')
 
 class SourceAdmin(admin.ModelAdmin):
 	model = MaterialSource

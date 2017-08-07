@@ -92,28 +92,30 @@ EVENT_TYPES = (
 )
 
 class Plant(models.Model):
-	botanical_name = models.CharField(max_length=500, null=True, blank=True)
+	usda_code = models.CharField(max_length=100, null=True, blank=True)
+	scientific_name = models.CharField(max_length=500, null=True, blank=True)
+	botanical_name = models.CharField(unique=True, max_length=500, null=True, blank=True)
 	plant_type = models.CharField(max_length=255, choices=PLANT_TYPES, default='FL')
 	bloom_color = models.CharField(max_length=255, null=True, blank=True)
 	best_use = models.CharField(max_length=255, choices=USE_TYPES, default='LA')
 	stem_length = models.FloatField(default=1)
 	stem_length_units = models.CharField(max_length=255, choices=LENGTH_UNITS, default='IN')
 	hardiness_zone = models.CharField(max_length=255, choices=HARD_ZONES, default='1A')
-	bloom_time = models.DateField(auto_now_add=True)
-	availability = models.CharField(max_length=255, choices=PLANT_AVAILABILITY)
-	source = models.ManyToManyField('MaterialSource')
+	bloom_time = models.DateField(null=True, blank=True)
+	availability = models.CharField(max_length=255, choices=PLANT_AVAILABILITY, default='SD')
+	source = models.ManyToManyField('MaterialSource', null=True, blank=True)
 	seed_prep = models.CharField(max_length=255, null=True, blank=True)
-	germination = models.CharField(max_length=255, choices=GERM_CHOICES)
+	germination = models.CharField(max_length=255, choices=GERM_CHOICES, default='NL')
 	seedling_image = FileBrowseField(max_length=300, null=True, blank=True)
 	light_req = models.TextField(max_length=10000, help_text='Light Requirements Following Germination', null=True, blank=True)
 	temp_req = models.TextField(max_length=10000, help_text='Temperature Requirements for Germination and Root Development', null=True, blank=True)
-	harvest_time_start = models.DateField(auto_now_add=True)
-	harvest_time_end = models.DateField(auto_now_add=True)
+	harvest_time_start = models.DateField(null=True, blank=True)
+	harvest_time_end = models.DateField(null=True, blank=True)
 	cond_methods = models.CharField(max_length=255, help_text='Conditioning Methods', null=True, blank=True)
 	tips_and_tricks = models.TextField(max_length=10000, null=True, blank=True)
 
 	def __str__(self):
-		return self.botanical_name
+		return 'Plant '
 
 class PlantEvent(models.Model):
 	event_type = models.CharField(max_length=255, choices=EVENT_TYPES, null=True, blank=True)

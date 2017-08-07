@@ -15,6 +15,9 @@ class PlantViewSet(viewsets.ModelViewSet):
 	queryset = Plant.objects.all()
 	serializer_class = PlantSerializer
 
+	def create(self, request):
+		pass
+
 	@detail_route(methods=['get'])
 	def events(self, request, pk=None):
 		plant = self.get_object()

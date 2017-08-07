@@ -45,6 +45,7 @@ class PlantSerializer(serializers.ModelSerializer):
 	class Meta:
 		fields = (
 			'id',
+			'scientific_name',
 			'botanical_name',
 			'plant_type',
 			'bloom_color',
