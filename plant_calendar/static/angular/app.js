@@ -49,10 +49,10 @@ angular.module('PlantApp.controllers').controller('plantHome', function ($window
         $http({
             method: 'GET',
             url: '/api/v1/plants/filtered_plants?name=tomato&harvest_start=' + filters.harvest_start
-        }).then(function success(response){
+        }).then(function success(response) {
             console.log(response);
             $scope.plants = response.data
-        }, function error(response){
+        }, function error(response) {
             console.log('Error')
         });
 
@@ -72,5 +72,20 @@ angular.module('PlantApp.controllers').controller('plantHome', function ($window
             end: '2017-07-12',
             textColor: '#fff'
         }
-    ]
+    ];
+
+    $scope.retrievePlants = function () {
+        $http({
+            method: 'GET',
+            url: '/api/v1/plants/?name=tomato'
+        }).then(function success(response) {
+            // console.log(response.data.results);
+            $scope.plants = response.data.results;
+        }, function error(response) {
+            console.log('Error')
+        });
+    };
+    $scope.retrievePlants();
+
+    $scope.plants = [1, 2, 3, 4]
 });

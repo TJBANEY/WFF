@@ -115,7 +115,15 @@ class Plant(models.Model):
 	tips_and_tricks = models.TextField(max_length=10000, null=True, blank=True)
 
 	def __str__(self):
-		return 'Plant '
+		return 'Plant'
+
+class PlantImage(models.Model):
+	plant = models.ForeignKey(Plant)
+	image = models.ImageField(upload_to="images", max_length=300, null=True, blank=True)
+	image_url = models.URLField(null=True, blank=True)
+
+	def __str__(self):
+		return 'Image for {}'.format(self.plant.botanical_name)
 
 class PlantEvent(models.Model):
 	event_type = models.CharField(max_length=255, choices=EVENT_TYPES, null=True, blank=True)
