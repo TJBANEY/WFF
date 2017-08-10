@@ -20,6 +20,12 @@ body {}
          Structure
 =========================*/
 
+/*________________________________Home Page____________________________*/
+/*________________________________Home Page____________________________*/
+/*________________________________Home Page____________________________*/
+
+
+/*________________________________Home Page____________________________*/
 #parallaxImg {
   bottom: 4rem;
 }
@@ -28,9 +34,17 @@ body {}
   max-height: 400px;
 }
 
+.calendarIcon,
+.plantIcon,
+.checkoutIcon { width: 100%; padding: 2rem;}
+
 /*========================
          Skin
 =========================*/
 button {
   var(--primaryColor)
+}
+
+.homeContentSecondWrapperSkin {
+  background-color: #EAEAEA;
 }
