@@ -1,7 +1,7 @@
 import datetime
 import os
 
-import scrapy
+# import scrapy
 import urllib3
 
 from django.shortcuts import render
