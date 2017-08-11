@@ -36,7 +36,19 @@ body {}
 
 .calendarIcon,
 .plantIcon,
-.checkoutIcon { width: 100%; padding: 2rem;}
+.checkoutIcon {
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
+  display: none;
+}
+
+.contentSide { width: 60%; }
+
+.contentIcons {
+  text-align: center;
+  width: 40%;
+}
 
 /*========================
          Skin
