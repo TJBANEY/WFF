@@ -7,30 +7,17 @@
     <script type='text/javascript' src='/static/js/jquery.flexslider-min.js'></script>
     <script type='text/javascript'>
 
-        // $(document).ready(function () {
-        //     $('.flexslider').flexslider({
-        //         animation: 'fade',
-        //         prevText: '',
-        //         nextText: '',
-        //         touch: false,
-        //         pauseOnHover: true,
-        //         keyboard: false
-        //     });
-        //
-        // });
-
         $(document).ready(function(){
           $('.parallax').parallax();
         });
 
     </script>
-    
+
 {% endblock %}
 
 {% block header %}
 
   <style>
-
       .parallax-flowers {
           background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url('/static/images/tulips.jpg') no-repeat center;
       }
@@ -41,88 +28,86 @@
       }
   </style>
 
-  <!-- {% if logged_in %}
-      <a style="margin-right: 10px; font-size: 20px; float: right; color: white;"
-         href="/account/sign-out">
-          Sign Out
-      </a>
-  {% else %}
-      <a style="margin-right: 10px; font-size: 20px; float: right; color: white;"
-         href="/account/register" class="link twelve columns tc white">
-          Register
-      </a>
-      <a style="margin-right: 10px; font-size: 20px; float: right; color: white;"
-         href="/account/sign-in">
-          Sign In
-      </a>
-  {% endif %} -->
-
 {% endblock %}
 
 {% block content %}
 
 <div class="parallax-container parallaxTopWrapper">
-  <div class="signIn right" style="padding: 0.5rem 1rem;">
-    <p style="display: inline;"><a href="/account/register.html" style="color: white;font-size: 20px;">Register</a></p><p style="display: inline;margin:0 1rem;color: white;">/</p><p style="display: inline;"><a href="/account/sign-in" style="color: white;font-size: 20px;">Sign In</a></p>
-  </div>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">Logo</a>
+      <!-- <div class="signIn right" style="padding: 0.5rem 1rem;">
+        <p style="display: inline;"><a href="/account/register.html" style="color: white;font-size: 20px;">Register</a></p><p style="display: inline;margin:0 1rem;color: white;">/</p><p style="display: inline;"><a href="/account/sign-in" style="color: white;font-size: 20px;">Sign In</a></p>
+      </div> -->
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/account/sign-in">Sign In</a></li>
+        <li><a href="/account/register.html">Register</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Calendar</a></li>
+        <li><a href="#">Harvest</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+      <li><a href="/account/sign-in">Sign In</a></li>
+      <li><a href="/account/register.html">Register</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Calendar</a></li>
+      <li><a href="#">Harvest</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    </div>
+  </nav>
   <div class="parallax">
     <img class="parallax-flowers" src="/static/images/tulips.jpg">
   </div>
 </div>
-<div class="section white">
-  <div>
-    <div class="container" style="padding: 0px 15px;">
-      <div class="col-12" style="text-align: center;">
-        <p style="font-size: 38px;">Our Dashboard</p>
-          <div class="row">
-            <div class="col-xs-12 col-md-4" style="min-height: 1px; padding-bottom: 20px;">
-              <div>
-               <img src="/static/images/calendar-icon.png" alt=""
-                    style="width: 60%; height: initial; margin-bottom: 15px;">
-               <p>
-                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                   incididunt
-                   ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                   ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                   reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-               </p>
-              </div>
-            </div>
-            <div class="col-xs-12 col-md-4" style="min-height: 1px; padding-bottom: 20px;">
-            <div>
-              <img src="/static/images/birds-of-paradise.png" alt=""
-              style="width: 60%; height: initial; margin-bottom: 15px;">
-              <p>
-               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-               incididunt
-               ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-               ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              </p>
-            </div>
-          </div>
-          <div class="col-xs-12 col-md-4" style="min-height: 1px; padding-bottom: 20px; padding-top: 20px;">
-            <div>
-              <img src="/static/images/cart.png" alt=""
-                  style="width: 50%; height: initial; margin-bottom: 15px;">
-              <p>
-                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                 incididunt
-                 ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                 ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                 reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+
+<div class="row">
+  <div class="col s12 homeContentFirstWrapper">
+    <div class="contentIcons col hide-on-med-and-down md3">
+      <img class="calendarIcon" src="/static/images/calendar-icon.png" alt="">
+    </div>
+    <div class="contentSide col sm12 md12 lg9">
+      <h1>Calendar</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo dolorem, ullam aut blanditiis? Magnam minus deleniti reiciendis ea aliquid sint fuga saepe officiis impedit, reprehenderit. Ab ad nisi odio magnam.</p>
     </div>
   </div>
 </div>
+
+<div class="row">
+  <div class="col s12 homeContentSecondWrapper homeContentSecondWrapperSkin">
+    <div class="contentSide col sm12 md12 lg9">
+      <h1>Plants</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim veniam, aliquid explicabo quo quod architecto, officiis similique recusandae impedit quidem, reprehenderit. Repellat id corporis, molestiae, quisquam velit maxime quod cumque.</p>
+    </div>
+    <div class="contentIcons col hide-on-med-and-down md3">
+      <img class="plantIcon" src="/static/images/birds-of-paradise.png" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12 homeContentThirdWrapper">
+    <div class="contentIcons col hide-on-med-and-down md3">
+      <img class="checkoutIcon" src="/static/images/cart.png" alt="">
+    </div>
+    <div class="contentSide col sm12 md12 lg9">
+      <h1>Checkout</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit nisi provident omnis perspiciatis beatae voluptatum eum quis, atque ad sequi. Aliquid, natus fuga minus velit itaque sit ipsum, quibusdam perferendis.</p>
+    </div>
+  </div>
+</div>
+
 <div class="parallax-container" id="parallaxBottomWrapper">
   <div class="parallax">
     <img id="parallaxImg" class="parallax-seeds" src="/static/images/growing-business.jpg">
   </div>
 </div>
 
+<script>
+$( document ).ready(function(){
+  $(".button-collapse").sideNav();
+})
+</script>
 {% endblock %}

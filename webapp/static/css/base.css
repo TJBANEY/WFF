@@ -20,6 +20,12 @@ body {}
          Structure
 =========================*/
 
+/*________________________________Home Page____________________________*/
+/*________________________________Home Page____________________________*/
+/*________________________________Home Page____________________________*/
+
+
+/*________________________________Home Page____________________________*/
 #parallaxImg {
   bottom: 4rem;
 }
@@ -27,10 +33,33 @@ body {}
 #parallaxBottomWrapper {
   max-height: 400px;
 }
+.homeContentFirstWrapper h1,
+.homeContentSecondWrapper h1,
+.homeContentThirdWrapper h1 {text-align: center;}
+
+.calendarIcon,
+.plantIcon,
+.checkoutIcon {
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
+  display: none;
+}
+
+.contentSide { width: 100%; }
+
+.contentIcons {
+  text-align: center;
+  width: 40%;
+}
 
 /*========================
          Skin
 =========================*/
 button {
   var(--primaryColor)
+}
+
+.homeContentSecondWrapperSkin {
+  background-color: #EAEAEA;
 }
