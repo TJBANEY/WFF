@@ -18,10 +18,8 @@
   .contentIcons,
   .contentSide { display: block; }
 
-  .contentIcons {
-    
-  }
-
+  .contentIcons { width: 30% }
+  .contentSide { width: 70%; }
 
   .calendarIcon,
   .plantIcon,
