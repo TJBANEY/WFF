@@ -13,7 +13,7 @@ body {}
 :root {
   --primaryColor: #8CD4BA;
   --secondaryColor: #AADFCC;
-  --navhoverColor: #86CAB1;
+  --navhoverColor: #EAEAEA;
 }
 
 /*========================
@@ -33,9 +33,11 @@ body {}
 #parallaxBottomWrapper {
   max-height: 400px;
 }
+.nav-wrapper { background-color: var(--primaryColor);}
+.side-nav li:hover { background-color: var(--navhoverColor); }
 .homeContentFirstWrapper h1,
 .homeContentSecondWrapper h1,
-.homeContentThirdWrapper h1 {text-align: center;}
+.homeContentThirdWrapper h1 { text-align: center; }
 
 .calendarIcon,
 .plantIcon,
