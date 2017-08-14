@@ -4,31 +4,28 @@ from django.db import models
 
 from account.models import Account
 from filebrowser.fields import FileBrowseField
+from selenium import webdriver
 
 # Create your models here.
 
 PLANT_TYPES = (
-	('FL', 'Flower'),
-	('VG', 'Vegetable'),
+	('NA', '---'),
+	('HB', 'Herb'),
 	('SH', 'Shrub'),
 	('TR', 'Tree'),
+	('GR', 'Grass')
 )
 
 USE_TYPES = (
+	('NA', '---'),
 	('LA', 'Large Arrangement'),
 	('SA', 'Small Arrangement'),
 	('BF', 'Body Flower / Corsage'),
 	('LO', 'Landscape Only'),
 )
 
-LENGTH_UNITS = (
-	('IN', 'Inches'),
-	('FT', 'Feet'),
-	('CM', 'Centimeters'),
-	('MT', 'Meters')
-)
-
 HARD_ZONES = (
+	('NA', '--'),
 	('1A', '1A'),
 	('1B', '1B'),
 	('2A', '2A'),
@@ -58,12 +55,14 @@ HARD_ZONES = (
 )
 
 PLANT_AVAILABILITY = (
+	('NA', '----'),
 	('SD', 'Seed'),
 	('PL', 'Plug'),
 	('PP', 'Potted Plant'),
 )
 
 GERM_CHOICES = (
+	('NA', '-----'),
 	('NL', 'Needs Light'),
 	('ND', 'Needs Darkness'),
 	('NA', 'Neither')
@@ -93,22 +92,24 @@ EVENT_TYPES = (
 	('OT', 'Other'),
 )
 
-
 class Plant(models.Model):
 	usda_code = models.CharField(max_length=100, null=True, blank=True)
 	scientific_name = models.CharField(max_length=500, null=True, blank=True)
 	botanical_name = models.CharField(unique=True, max_length=500, null=True, blank=True)
-	plant_type = models.CharField(max_length=255, choices=PLANT_TYPES, default='FL')
-	bloom_color = models.CharField(max_length=255, null=True, blank=True)
-	best_use = models.CharField(max_length=255, choices=USE_TYPES, default='LA')
-	stem_length = models.FloatField(default=1)
-	stem_length_units = models.CharField(max_length=255, choices=LENGTH_UNITS, default='IN')
-	hardiness_zone = models.CharField(max_length=255, choices=HARD_ZONES, default='1A')
+	perennial = models.BooleanField(default=False)
+	biennial = models.BooleanField(default=False)
+	annual = models.BooleanField(default=False)
+	growth_habit = models.CharField(max_length=255, default='NA')
+	foliage_color = models.CharField(max_length=255, null=True, blank=True)
+	flower_color = models.CharField(max_length=255, null=True, blank=True)
+	best_use = models.CharField(max_length=255, choices=USE_TYPES, default='NA')
+	stem_length = models.FloatField(default=1, help_text='Always in centimeters')
+	hardiness_zone = models.CharField(max_length=255, choices=HARD_ZONES, default='NA')
 	bloom_time = models.DateField(null=True, blank=True)
-	availability = models.CharField(max_length=255, choices=PLANT_AVAILABILITY, default='SD')
-	source = models.ManyToManyField('MaterialSource', null=True, blank=True)
+	availability = models.CharField(max_length=255, choices=PLANT_AVAILABILITY, default='NA')
+	source = models.ManyToManyField('MaterialSource')
 	seed_prep = models.CharField(max_length=255, null=True, blank=True)
-	germination = models.CharField(max_length=255, choices=GERM_CHOICES, default='NL')
+	germination = models.CharField(max_length=255, choices=GERM_CHOICES, default='NA')
 	seedling_image = FileBrowseField(max_length=300, null=True, blank=True)
 	light_req = models.TextField(max_length=10000, help_text='Light Requirements Following Germination', null=True,
 								 blank=True)
