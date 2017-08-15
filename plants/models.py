@@ -4,7 +4,7 @@ from django.db import models
 
 from account.models import Account
 from filebrowser.fields import FileBrowseField
-from selenium import webdriver
+# from selenium import webdriver
 
 # Create your models here.
 
