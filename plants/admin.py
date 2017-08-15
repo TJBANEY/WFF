@@ -8,7 +8,9 @@ class PlantAdmin(admin.ModelAdmin):
 	model = Plant
 
 	search_fields = ('botanical_name', 'scientific_name')
-	list_display = ('id', 'usda_code', 'scientific_name', 'botanical_name', 'plant_type', 'bloom_color')
+	list_display = ('id', 'usda_code', 'scientific_name', 'botanical_name', 'growth_habit', 'perennial',
+					'annual', 'biennial', 'foliage_color', 'flower_color', 'best_use', 'stem_length', 'hardiness_zone',
+					'bloom_time', 'availability', 'seed_prep')
 
 class SourceAdmin(admin.ModelAdmin):
 	model = MaterialSource

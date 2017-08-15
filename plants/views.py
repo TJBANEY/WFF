@@ -1,4 +1,5 @@
 import datetime
+import logging
 import os
 
 # import scrapy
@@ -101,3 +102,159 @@ def crawl_usda(request):
 	data_length = Plant.objects.all().count()
 
 	return HttpResponse('Works There Were 0 Plants, Now There are {}'.format(data_length))
+
+def crawl_characteristics(request):
+	all_plants = Plant.objects.all()
+
+	for plant in all_plants[:1]:
+		plant_url = "https://plants.usda.gov/java/charProfile?symbol=ABGR4"
+		r = requests.get(plant_url)
+		html = r.text
+		page = BeautifulSoup(html, 'html.parser')
+
+		try:
+			chr_table = page.table.findAll("table")[1].findAll("table")[2].findAll("table")
+			table_one = chr_table[1].findAll("tr")
+
+			# Begin extracting characteristics
+			flower_color = table_one[8].findAll("td")[1].get_text()
+			foliage_color = table_one[10].findAll("td")[1].get_text()
+
+			plant.flower_color = flower_color
+			plant.foliage_color = foliage_color
+
+			print(flower_color)
+			print(foliage_color)
+		except Exception as e:
+			print(e)
+			# print('No page found for .'.format(plant.usda_code))
+			pass
+
+	return HttpResponse('Done')
+
+def clean_up_genus_species():
+	plants = Plant.objects.all()
+
+	count = 1
+	for plant in plants:
+		genus = plant.scientific_name.split()[0].capitalize()
+
+		if len(plant.scientific_name.split()) > 1:
+			split_species = list(plant.scientific_name.split()[1])
+
+			# Check for weird miniature x, or period by check ASCII value
+			prohibited = [46, 215]
+			for char in split_species:
+				if ord(char) in prohibited:
+					split_species.remove(char)
+				if ord(char) in [41, 40]:
+					split_species = [""]
+					break
+
+			species = "".join(split_species).capitalize()
+			if len(species) <= 2:
+				species = ""
+		else:
+			species = ""
+
+		plant.scientific_name = '{} {}'.format(genus, species)
+		plant.save()
+		print('{} out of {} complete'.format(count, plants.count()))
+		count += 1
+
+def growth_habit_crawl(request):
+	# Data will be drawn from the "Encyclopedia of life" website
+	# double check for permissions, and make a donation.
+
+	# Error Occuring at about 320, don't forget about "320 - 600"
+	for plant in Plant.objects.filter(growth_habit="NA").order_by("-scientific_name")[600:]:
+		print("----------------------------")
+		search_compatible_name = plant.scientific_name.replace(" ", "+")
+		plant_url = "http://eol.org/search?q={}&search=Go".format(search_compatible_name)
+		r = requests.get(plant_url)
+		html = r.text
+		print("Crawling for {} at url {}".format(plant.scientific_name, plant_url))
+
+		try:
+			page = BeautifulSoup(html, 'html.parser')
+
+			search_page = False
+
+			headers = page.findAll("h1")
+			for item in headers:
+				if item.get_text().lower() == "search results":
+					search_page = True
+					break
+
+			if search_page:
+				results = page.find("div", {"class": "filtered_search"}).find("ul")
+				plant_url = results.findAll("li", {"class": "taxon"})[0].findAll("a")[0]["href"]
+
+				print("Hit Search Page")
+				plant_url = "http://eol.org{}".format(plant_url)
+				print("Crawling {}".format(plant_url))
+
+				r = requests.get(plant_url)
+				html = r.text
+				page = BeautifulSoup(html, 'html.parser')
+
+			data_box = page.find("div", {"class": "data_div"})
+			data_fields = data_box.findAll("span")
+
+			for field in data_fields:
+
+				# Get Plant Type
+				if field.get_text().lower().replace("\n", "") == "growth habit":
+					print("Growth Field Found")
+
+					growth_field = field.parent.find_next_siblings("td")[1]
+					growth_list = [item for item in growth_field.childGenerator()]
+
+					growth_type = growth_list[0].replace("\n", "")
+
+					print(growth_type)
+
+					plant.growth_habit = growth_type
+
+					print("Success, Growth Type for {} Saved".format(plant.scientific_name))
+
+				# Get Plant Life Span
+				if field.get_text().lower().replace("\n", "") == "life cycle habit":
+					print("Life Cycle Found")
+
+					cycle_field = field.parent.find_next_siblings("td")[1]
+					cycle_list = [item for item in cycle_field.childGenerator()]
+
+					cycle_type_one = cycle_list[0].replace("\n", "")
+
+					if cycle_type_one == "annual":
+						plant.annual = True
+					elif cycle_type_one == "perennial":
+						plant.perennial = True
+					elif cycle_type_one == "biennial":
+						plant.biennial = True
+
+					if len(cycle_list) > 1:
+
+						cycle_type_two = cycle_list[1].get_text().replace("\n", "")
+
+						if cycle_type_two == "annual":
+							plant.annual = True
+						elif cycle_type_two == "perennial":
+							plant.perennial = True
+						elif cycle_type_two == "biennial":
+							plant.biennial = True
+
+					print(cycle_type_one)
+					print("Success, Life Cycle for {} Saved".format(plant.scientific_name))
+					print("--------------------------\n")
+
+				plant.save()
+
+		except Exception as e:
+			print("Something went wrong, moving on ...")
+			print(e)
+			print("--------------------------------\n")
+			pass
+
+	return HttpResponse("Done")
