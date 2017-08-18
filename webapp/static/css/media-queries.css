@@ -9,7 +9,10 @@
 
 /*===== Home =====*/
 
-
+/*===== Sign In =====*/
+@media (min-width: 600px) {
+  .logoImg { width: 75%; }
+}
 
 /*____________________________  992px  ____________________________*/
 
@@ -23,9 +26,7 @@
 
   .calendarIcon,
   .plantIcon,
-  .checkoutIcon {
-    display: inline-block;
-  }
+  .checkoutIcon { display: inline-block; }
 }
 
 

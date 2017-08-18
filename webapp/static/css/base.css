@@ -21,7 +21,6 @@ body {}
 =========================*/
 
 /*________________________________Home Page____________________________*/
-/*________________________________Home Page____________________________*/
 
 
 /*________________________________Home Page____________________________*/
@@ -47,8 +46,13 @@ body {}
   display: none;
 }
 
-.contentSide { width: 100%; }
+.docWrapper {
+  margin-top: 1rem;
+  height: calc(100vh - 211px);
+  /*overflow: auto;*/
+}
 
+.contentSide { width: 100%; }
 .contentIcons {
   text-align: center;
   width: 40%;
@@ -130,6 +134,24 @@ button {
 .progress-bar .separator .progress-line.active { background-color: #01cc01 !important; }
 .active .progress-bubble { border: 3px solid black; }
 
+
+/*========================
+          Skin
+=========================*/
+
+/*_______________________________ Sign In Page ___________________________*/
+
+/*========================
+        Structure
+=========================*/
+
+.logoWrapper {
+  text-align: center;
+  padding: 0!important;
+}
+
+.logoImg { width: 100%; }
+.signInSubmit { margin: 0 10px; }
 
 /*========================
           Skin
