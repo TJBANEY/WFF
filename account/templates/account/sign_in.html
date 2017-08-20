@@ -9,28 +9,28 @@
   </style>
 
   <div class="row">
-    <form action="/account/sign-in/" method="POST">
+    <form action="/account/sign-in/" method="POST" class="signInForm">
       {% csrf_token %}
       {% if form.errors.main %}
           <span style="margin-left: 15px; color: red">{{ form.errors.main }}</span>
       {% endif %}
-      <div class="col s12 {% if form.errors.email %}error{% endif %}">
-          <label class="col s12" for="">
+      <div class="col s12 m6 {% if form.errors.email %}error{% endif %}">
+          <label class="" for="">
               Email {% if form.errors.email %}
                   <span style="margin-left: 15px; color: red">{{ form.errors.email }}</span>
               {% endif %}
               {{ form.email }}
           </label>
       </div>
-      <div class="col s12 {% if form.errors.password %}error{% endif %}">
-          <label class="col s12" for="">
+      <div class="col s12 m6 {% if form.errors.password %}error{% endif %}">
+          <label class="" for="">
               Password {% if form.errors.password %}
                   <span style="margin-left: 15px; color: red">{{ form.errors.password }}</span>
               {% endif %}
               {{ form.password }}
           </label>
       </div>
-      <div class="col s12">
+      <div class="">
         <button class="signInSubmit" type="submit">Sign In</button>
       </div>
     </form>

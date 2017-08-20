@@ -11,7 +11,11 @@
 
 /*===== Sign In =====*/
 @media (min-width: 600px) {
-  .logoImg { width: 75%; }
+  .logoImg {
+    width: 75%;
+    max-height: 200px;
+    max-width: 390px;
+  }
 }
 
 /*____________________________  992px  ____________________________*/

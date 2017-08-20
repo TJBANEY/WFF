@@ -45,7 +45,7 @@ body {}
   display: none;
 }
 
-.docWrapper { height: calc(100vh - 210px); }
+.docWrapper { min-height: calc(100vh - 210px); }
 
 .contentSide { width: 100%; }
 .contentIcons {
@@ -147,7 +147,9 @@ button {
 }
 
 .logoImg { width: 100%; }
+.signInForm { max-width: 600px; margin: 0 auto; }
 .signInSubmit { margin: 0 10px; }
+
 
 /*========================
           Skin
