@@ -71,35 +71,38 @@
 {% block content %}
     <style>
         #calendar table {
-            margin-top: 0;
+          margin-top: 0;
         }
 
-        .fc-toolbar.fc-header-toolbar {
-            margin-top: 50px;
-            margin-bottom: 0;
-        }
+        /*.fc-toolbar.fc-header-toolbar {
+          margin-top: 50px;
+          margin-bottom: 0;
+        }*/
 
         body {
-            background: white;
+          background: white;
         }
 
         footer {
-            border-top: 1px solid black;
+          border-top: 1px solid black;
         }
 
         .fa {
-            text-shadow: 0 0 1px #000;
+          text-shadow: 0 0 1px #000;
         }
 
         .fa-plus-circle {
-            cursor: pointer;
-        }
+          cursor: pointer;
+				}
+				.hidden {
+					display: none;
+				}
 
     </style>
 
     {% verbatim %}
-    <div style="background-color: white; padding: 0 0 100px 0; border-top: 1px solid black;">
-        <div class="container">
+    <div>
+        <!-- <div class="container">
             <div class="row dashboard-actions"
                  style="margin-bottom: 0; padding: 0 15px; font-size: 18px; color: white; font-weight: 600">
                 <div class="col" style="height: 80px; background: #1bc974; position: relative" ng-click="testAngular()">
@@ -180,27 +183,20 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="container">
 
-            <div class="row">
-                <div class="col-sm m-b-30">
-                    <div id="calendar"></div>
-                    <div dev-calendar="{height: 400, editable: true}" ng-model="events" changed="eventChanged"></div>
-                </div>
-            </div>
-
+					<div class="row">
+						<div class="col-sm m-b-30">
+							<div id="calendar"></div>
+							<!-- <div dev-calendar="{height: 400, editable: true}" ng-model="events" changed="eventChanged"></div> -->
+						</div>
+					</div>
 
         </div>
 
     </div>
-
-    <style>
-        .hidden {
-            display: none;
-        }
-    </style>
 
     <!-- <div class="overlay hidden" style="position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 1; background: black; opacity: .5"></div>
     <div class="plant-popup hidden" style="width: 60%; height: 500px; background: white; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10;">

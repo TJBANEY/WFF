@@ -60,7 +60,7 @@ body {}
 =========================*/
 
 button {
-  var(--primaryColor)
+  background-color: var(--primaryColor);
 }
 
 .homeContentSecondWrapperSkin {
