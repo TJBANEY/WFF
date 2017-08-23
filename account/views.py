@@ -1,15 +1,15 @@
 import logging
 
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 
-# Create your views here.
+
 from account.forms import RegisterForm, LoginForm
 from account.models import Account
 from plants.models import Plant
-
 
 def register(request):
 	if request.method == 'POST':
@@ -40,9 +40,10 @@ def register(request):
 
 				account.save()
 
-				login(request, account_user)
+				user = authenticate(username=email[:30], password=password)
+				login(request, user)
 
-				return HttpResponseRedirect('register/plants')
+				return HttpResponseRedirect('/plants/explore')
 
 			except Exception as e:
 				logging.error(e)
@@ -115,3 +116,16 @@ def sign_out(request):
 	logout(request)
 
 	return HttpResponseRedirect('/')
+
+@login_required
+def my_garden(request):
+	try:
+		account = Account.objects.get(logon_credentials=request.user)
+	except Account.DoesNotExist:
+		return HttpResponseRedirect('/sign-in')
+
+	context = {
+
+	}
+
+	return render(request, "account/my_garden.html", context)

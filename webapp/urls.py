@@ -8,7 +8,7 @@ from api.views import *
 
 from . import views as webapp_views
 
-admin.site.site_header = 'Site Header'
+admin.site.site_header = 'Wall Flower Farm'
 admin.site.index_title = 'Site Index Title'
 admin.site.site_title = 'Site Title'
 

@@ -12,6 +12,7 @@ class Account(models.Model):
 	address2 = models.CharField(max_length=255, null=True, blank=True)
 	city = models.CharField(max_length=255, null=True, blank=True)
 	state = models.CharField(max_length=255, null=True, blank=True)
+	zip = models.IntegerField(null=True, blank=True)
 
 	created_on = models.DateTimeField(auto_now_add=True)
 	modified_on = models.DateTimeField(auto_now_add=True)
