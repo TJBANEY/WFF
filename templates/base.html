@@ -54,90 +54,67 @@
 </head>
 
 
-<body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %} ng-app="PlantApp"
-                          ng-controller="plantHome">
-<div class="doc-wrapper">
-    <div class="parallax-container parallaxTopWrapper" style="min-height: 1px; height: initial;">
-        <nav>
-            <div class="nav-wrapper">
-                <div class="container">
-                    <a href="#!" class="brand-logo">Logo</a>
-                    <!-- <div class="signIn right" style="padding: 0.5rem 1rem;">
-                      <p style="display: inline;"><a href="/account/register.html" style="color: white;font-size: 20px;">Register</a></p><p style="display: inline;margin:0 1rem;color: white;">/</p><p style="display: inline;"><a href="/account/sign-in" style="color: white;font-size: 20px;">Sign In</a></p>
-                    </div> -->
-                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                    <ul class="right hide-on-med-and-down">
-                        <li><a href="/account/sign-in">Sign In</a></li>
-                        <li><a href="/account/register.html">Register</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Calendar</a></li>
-                        <li><a href="#">Harvest</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                    <ul class="side-nav" id="mobile-demo">
-                        <li><a href="/account/sign-in">Sign In</a></li>
-                        <li><a href="/account/register.html">Register</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Calendar</a></li>
-                        <li><a href="#">Harvest</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %} ng-app="PlantApp" ng-controller="plantHome">
+    {% block header %}
+  <div class="docWrapper">
+    <!-- <div class="container headerWrapper">
+      <header class="row">
+        <div class="col s12">
+          <div class="col s2"></div>
+          <div class="col s8 logoWrapper">
+            <img src="/static/images/wallflowerlogo.png" alt="" class="logoImg">
+          </div>
+          <div class="col s2"></div>
+        </div>
+      </header>
+    </div> -->
+    {% endblock %}
 
-        {% block parallax_hero %}
-        {% endblock %}
+    <div id='contentWrapper'>
+      {% block content %}
+      {% endblock %}
+
+      {% block extra-content %}
+      {% endblock %}
     </div>
+  </div>
 
-    <div id='content-wrapper'>
-        {% block content %}
-        {% endblock %}
-
-        {% block extra-content %}
-        {% endblock %}
-    </div>
-</div>
-
-<footer class="page-footer grey lighten-2">
+  <footer class="page-footer ">
     <div class="container">
 
-        <div class="row">
-            <div class="col s12 m3">
-                <ul class="center">
-                    <li><a href=""><img class="home_link" src="/static/images/favicon.png" alt="favicon"></a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                </ul>
-            </div>
-
-            <div class="col s12 m5">
-                <ul class="center bottom">
-                    <a class="btn waves-effect waves-light">Follow</a>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                </ul>
-            </div>
-
-            <div class="col s12 m4">
-                <ul class="center bottom">
-                    <h5>Contact Us</h5>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                </ul>
-            </div>
-
+      <div class="row">
+        <div class="col s12 m3">
+          <ul class="center">
+            <li><a href=""><img class="home_link" src="/static/images/favicon.png" alt="favicon"></a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+          </ul>
         </div>
+
+        <div class="col s12 m5">
+          <ul class="center bottom">
+            <a class="btn waves-effect waves-light">Follow</a>
+            <!-- <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li> -->
+          </ul>
+        </div>
+
+        <div class="col s12 m4">
+          <ul class="center bottom">
+            <h5>Contact Us</h5>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+          </ul>
+        </div>
+
+      </div>
 
     </div>
 
     <div class="footer-copyright">
-        <div class="container">
-            <p class="copyright">&copy; 2017 Fire Fly Tech Labs. Pea Ridge, AR</p>
-        </div>
+      <div class="container">
+        <p class="copyright">&copy; 2017 Fire Fly Tech Labs. Pea Ridge, AR</p>
+      </div>
     </div>
 
-</footer>
+  </footer>
 
 
 <!-- SCRIPTS -->

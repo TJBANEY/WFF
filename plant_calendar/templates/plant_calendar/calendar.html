@@ -71,37 +71,41 @@
 {% block content %}
     <style>
         #calendar table {
-            margin-top: 0;
+          margin-top: 0;
         }
 
-        .fc-toolbar.fc-header-toolbar {
-            margin-top: 50px;
-            margin-bottom: 0;
-        }
+        /*.fc-toolbar.fc-header-toolbar {
+          margin-top: 50px;
+          margin-bottom: 0;
+        }*/
 
         body {
-            background: white;
+          background: white;
         }
 
         footer {
-            border-top: 1px solid black;
+          border-top: 1px solid black;
         }
 
         .fa {
-            text-shadow: 0 0 1px #000;
+          text-shadow: 0 0 1px #000;
         }
 
         .fa-plus-circle {
-            cursor: pointer;
-        }
+          cursor: pointer;
+				}
+				.hidden {
+					display: none;
+				}
 
     </style>
 
     {% verbatim %}
-    <div style="background-color: white; padding: 0 0 100px 0; border-top: 1px solid black;">
-        <div class="container">
-            <div class="row dashboard-actions" style="margin-bottom: 0; font-size: 18px; color: white; font-weight: 600">
-                <div class="col s3" style="height: 80px; background: #1bc974; position: relative" ng-click="testAngular()">
+    <div>
+        <!-- <div class="container">
+            <div class="row dashboard-actions"
+                 style="margin-bottom: 0; padding: 0 15px; font-size: 18px; color: white; font-weight: 600">
+                <div class="col" style="height: 80px; background: #1bc974; position: relative" ng-click="testAngular()">
                     <div style="height: inherit; padding: 28px 0; display: inline-block;">
                         ADD/EDIT PLANTS
                         <i class="fa fa-leaf" aria-hidden="true"></i>
@@ -110,7 +114,7 @@
                        style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
                 </div>
 
-                <div class="col s3" style="height: 80px; background: #e64759;; position: relative">
+                <div class="col" style="height: 80px; background: #e64759;; position: relative">
                     <div style="height: inherit; padding: 28px 0; display: inline-block;">
                         FIND SUPPLIES
                         <i class="fa fa-wrench" aria-hidden="true"></i>
@@ -119,7 +123,7 @@
                        style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
                 </div>
 
-                <div class="col s3" style="height: 80px; background: #9f86ff; position: relative">
+                <div class="col" style="height: 80px; background: #9f86ff; position: relative">
                     <div style="height: inherit; padding: 28px 0; display: inline-block;">
                         SET REMINDER
                         <i class="fa fa-clock-o" aria-hidden="true"></i>
@@ -128,7 +132,7 @@
                        style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
                 </div>
 
-                <div class="col s3" style="height: 80px; background: #efe12d;; position: relative">
+                <div class="col" style="height: 80px; background: #efe12d;; position: relative">
                     <div style="height: inherit; padding: 28px 0; display: inline-block;">
                         EDIT PROFILE
                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -138,27 +142,61 @@
                 </div>
 
             </div>
-        </div>
+            <div class="plant-add-edit col" style="border: 1px solid red;">
+                <div class="row">
+                    <div class="col filters" style="border: 1px solid violet; height: 300px">
+                        <form action="/api/v1/plants/filtered_plants/" method="GET">
+                            {% endverbatim %}
+                                {% csrf_token %}
+                            {% verbatim %}
+                            <ul style="list-style: none;">
+                                <li>
+                                    Plant Name
+                                    <select name="plant_name" id="plant-name">
+                                        <option value="tomato">Tomato</option>
+                                        <option value="potato">Potato</option>
+                                        <option value="rose">Rose</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    Plant Type
+                                    <select name="plant_type" id="type">
+                                        <option value="flower">Flower</option>
+                                        <option value="vegetable">Vegetable</option>
+                                        <option value="fruit">Fruit</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    Harvest Start
+                                    <input type="date" name="start">
+                                </li>
+                                <li>
+                                    Harvest End
+                                    <input type="date" name="end">
+                                </li>
+                                <button type="submit">FIND PLANTS</button>
+                            </ul>
+                        </form>
+                    </div>
+                    <div class="col results" style="border: 1px solid lime; height: 300px">
+
+                    </div>
+                </div>
+            </div>
+        </div> -->
 
         <div class="container">
 
-            <div class="row">
-                <div class="col-sm m-b-30">
-                    <div id="calendar"></div>
-                    <div dev-calendar="{height: 400, editable: true}" ng-model="events" changed="eventChanged"></div>
-                </div>
-            </div>
-
+					<div class="row">
+						<div class="col-sm m-b-30">
+							<div id="calendar"></div>
+							<!-- <div dev-calendar="{height: 400, editable: true}" ng-model="events" changed="eventChanged"></div> -->
+						</div>
+					</div>
 
         </div>
 
     </div>
-
-    <style>
-        .hidden {
-            display: none;
-        }
-    </style>
 
     <!-- <div class="overlay hidden" style="position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 1; background: black; opacity: .5"></div>
     <div class="plant-popup hidden" style="width: 60%; height: 500px; background: white; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10;">

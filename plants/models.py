@@ -5,7 +5,7 @@ from django.utils.text import slugify
 
 from account.models import Account
 from filebrowser.fields import FileBrowseField
-from selenium import webdriver
+# from selenium import webdriver
 
 # Create your models here.
 
