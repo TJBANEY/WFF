@@ -1,6 +1,7 @@
 import csv
 
 from django.db import models
+from django.utils.text import slugify
 
 from account.models import Account
 from filebrowser.fields import FileBrowseField
@@ -95,7 +96,7 @@ EVENT_TYPES = (
 class Plant(models.Model):
 	usda_code = models.CharField(max_length=100, null=True, blank=True)
 	scientific_name = models.CharField(max_length=500, null=True, blank=True)
-	botanical_name = models.CharField(unique=True, max_length=500, null=True, blank=True)
+	botanical_name = models.CharField(max_length=500, null=True, blank=True)
 	perennial = models.BooleanField(default=False)
 	biennial = models.BooleanField(default=False)
 	annual = models.BooleanField(default=False)
@@ -107,7 +108,7 @@ class Plant(models.Model):
 	hardiness_zone = models.CharField(max_length=255, choices=HARD_ZONES, default='NA')
 	bloom_time = models.DateField(null=True, blank=True)
 	availability = models.CharField(max_length=255, choices=PLANT_AVAILABILITY, default='NA')
-	source = models.ManyToManyField('MaterialSource')
+	source = models.ManyToManyField('MaterialSource', blank=True)
 	seed_prep = models.CharField(max_length=255, null=True, blank=True)
 	germination = models.CharField(max_length=255, choices=GERM_CHOICES, default='NA')
 	seedling_image = FileBrowseField(max_length=300, null=True, blank=True)
@@ -121,12 +122,26 @@ class Plant(models.Model):
 	cond_methods = models.CharField(max_length=255, help_text='Conditioning Methods', null=True, blank=True)
 	tips_and_tricks = models.TextField(max_length=10000, null=True, blank=True)
 
+	slug = models.SlugField(null=True, blank=True)
+
+	is_published = models.BooleanField(default=False)
+
+	def save(self, *args, **kwargs):
+		self.slug = slugify(self.botanical_name)
+
+		super(Plant, self).save(*args, **kwargs)
+
 	def __str__(self):
 		return 'Plant'
 
+	class Meta:
+		verbose_name = "Plant"
+		verbose_name_plural = "Plants"
+		ordering = ("scientific_name",)
+
 
 class PlantImage(models.Model):
-	plant = models.ForeignKey(Plant)
+	plant = models.ForeignKey(Plant, related_name="images")
 	image = models.ImageField(upload_to="images", max_length=300, null=True, blank=True)
 	image_url = models.URLField(null=True, blank=True)
 

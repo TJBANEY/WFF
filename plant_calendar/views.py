@@ -11,12 +11,12 @@ from plants.models import PlantEvent
 
 @login_required(login_url='/account/sign-in')
 def calendar_home(request):
-	all_events = PlantEvent.objects.all()[0]
-	fmt_date = all_events.event_start.strftime("%-m/%d/%y")
+	all_events = PlantEvent.objects.all()
+	# fmt_date = all_events.event_start.strftime("%-m/%d/%y")
 
 	plant_event = {
 		'event': all_events,
-		'fmt_date': fmt_date
+		# 'fmt_date': fmt_date
 	}
 
 	context = {

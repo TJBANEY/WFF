@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col s12" style="height: 600px; border: 1px solid orange;">
+                <div class="row">
+                    <div class="col s12" style="text-align: center;">{{ plant.botanical_name }}</div>
+                    <div class="col s4"
+                         style="background: url('/media/{{ plant.images.all.0.image }}') no-repeat center; background-size: cover; height: 350px;">
+                    </div>
+                    <div class="col s8" style="height: 350px;">
+                    </div>
+                    <div class="col s12" style="text-align: center;">
+                        <form action="/plants/{{ plant.slug }}" method="POST">
+                            {% csrf_token %}
+                            <button class="btn btn-info" type="submit">ADD PLANT</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

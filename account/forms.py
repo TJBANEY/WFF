@@ -52,7 +52,7 @@ class RegisterForm(forms.ModelForm):
 
 	class Meta:
 		model = Account
-		fields = ['first_name', 'last_name', 'logon_credentials', 'phone', 'address', 'address2', 'city', 'state']
+		fields = ['first_name', 'last_name', 'logon_credentials', 'phone', 'address', 'address2', 'city', 'state', 'zip']
 
 	def clean(self):
 		cleaned_data = self.cleaned_data

@@ -49,7 +49,7 @@ class PlantSerializer(serializers.ModelSerializer):
 			'botanical_name',
 			'growth_habit',
 			'flower_color',
-			'foliage_color'
+			'foliage_color',
 			'best_use',
 			'stem_length',
 			'hardiness_zone',

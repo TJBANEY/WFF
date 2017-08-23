@@ -18,7 +18,7 @@
     <!-- CSS -->
     <!-- <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css"> -->
-          <!-- Compiled and minified CSS -->
+    <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
     <link rel='stylesheet' href='/static/fullcalendar/dist/fullcalendar.css'/>
     <link type='text/css' rel='stylesheet' href='/static/css/base.css'>
@@ -54,73 +54,90 @@
 </head>
 
 
-<body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %} ng-app="PlantApp" ng-controller="plantHome">
-  <div class="doc-wrapper">
-    {% block header %}
-    <div class="container">
-      <header class="col-12" style="min-height: 1px; padding-top: 20px; padding-bottom: 20px;">
-        <div class="row">
-          <div class="col-2">
-            <img src="/static/images/wallflowerlogo.png" class="twelve columns" alt="" style="width: 100%;">
-          </div>
-          <div class="col-10" style="padding: 25px 15px;">
+<body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %} ng-app="PlantApp"
+                          ng-controller="plantHome">
+<div class="doc-wrapper">
+    <div class="parallax-container parallaxTopWrapper" style="min-height: 1px; height: initial;">
+        <nav>
+            <div class="nav-wrapper">
+                <div class="container">
+                    <a href="#!" class="brand-logo">Logo</a>
+                    <!-- <div class="signIn right" style="padding: 0.5rem 1rem;">
+                      <p style="display: inline;"><a href="/account/register.html" style="color: white;font-size: 20px;">Register</a></p><p style="display: inline;margin:0 1rem;color: white;">/</p><p style="display: inline;"><a href="/account/sign-in" style="color: white;font-size: 20px;">Sign In</a></p>
+                    </div> -->
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="/account/sign-in">Sign In</a></li>
+                        <li><a href="/account/register.html">Register</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Calendar</a></li>
+                        <li><a href="#">Harvest</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a href="/account/sign-in">Sign In</a></li>
+                        <li><a href="/account/register.html">Register</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Calendar</a></li>
+                        <li><a href="#">Harvest</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-
-
-          </div>
-        </div>
-      </header>
+        {% block parallax_hero %}
+        {% endblock %}
     </div>
-    {% endblock %}
 
     <div id='content-wrapper'>
-      {% block content %}
-      {% endblock %}
+        {% block content %}
+        {% endblock %}
 
-      {% block extra-content %}
-      {% endblock %}
+        {% block extra-content %}
+        {% endblock %}
     </div>
-  </div>
+</div>
 
-  <footer class="page-footer grey lighten-2">
+<footer class="page-footer grey lighten-2">
     <div class="container">
 
-      <div class="row">
-        <div class="col s12 m3">
-          <ul class="center">
-            <li><a href=""><img class="home_link" src="/static/images/favicon.png" alt="favicon"></a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-          </ul>
-        </div>
+        <div class="row">
+            <div class="col s12 m3">
+                <ul class="center">
+                    <li><a href=""><img class="home_link" src="/static/images/favicon.png" alt="favicon"></a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                </ul>
+            </div>
 
-        <div class="col s12 m5">
-          <ul class="center bottom">
-            <a class="btn waves-effect waves-light">Follow</a>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-          </ul>
-        </div>
+            <div class="col s12 m5">
+                <ul class="center bottom">
+                    <a class="btn waves-effect waves-light">Follow</a>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                </ul>
+            </div>
 
-        <div class="col s12 m4">
-          <ul class="center bottom">
-            <h5>Contact Us</h5>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-          </ul>
-        </div>
+            <div class="col s12 m4">
+                <ul class="center bottom">
+                    <h5>Contact Us</h5>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                </ul>
+            </div>
 
-      </div>
+        </div>
 
     </div>
 
     <div class="footer-copyright">
-      <div class="container">
-        <p class="copyright">&copy; 2017 Fire Fly Tech Labs. Pea Ridge, AR</p>
-      </div>
+        <div class="container">
+            <p class="copyright">&copy; 2017 Fire Fly Tech Labs. Pea Ridge, AR</p>
+        </div>
     </div>
 
-  </footer>
+</footer>
 
 
 <!-- SCRIPTS -->

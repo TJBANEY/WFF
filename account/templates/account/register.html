@@ -10,83 +10,90 @@
 
     <div class="container">
         <div class="row">
-            <h1 style="text-align: center; margin-bottom: 0px;">REGISTER HERE</h1>
-            {% include 'account/snippets/progress_bar.html' %}
+            <h1 style="text-align: center; margin-bottom: 0px;">Registration</h1>
+
             <form method="POST" action="/account/register" class="col-12">
                 <div class="row">
                     {% csrf_token %}
-                    <div class="col-6 {% if form.errors.first_name %}error{% endif %}">
+                    <div class="col s12 m6 {% if form.errors.first_name %}error{% endif %}">
                         <label>
                             First Name {% if form.errors.first_name %}
                             <span style="margin-left: 15px; color: red">{{ form.errors.first_name.0 }}</span>{% endif %}
                             {{ form.first_name }}
                         </label>
                     </div>
-                    <div class="col-6 {% if form.errors.last_name %}error{% endif %}">
+                    <div class="col s12 m6 {% if form.errors.last_name %}error{% endif %}">
                         <label>
                             Last Name {% if form.errors.last_name %}
                             <span style="margin-left: 15px; color: red">{{ form.errors.last_name.0 }}</span>{% endif %}
                             {{ form.last_name }}
                         </label>
                     </div>
-                    <div class="col-6 {% if form.errors.email %}error{% endif %}">
+                    <div class="col s12 m6 {% if form.errors.email %}error{% endif %}">
                         <label>
                             Email {% if form.errors.email %}
                             <span style="margin-left: 15px; color: red">{{ form.errors.email.0 }}</span>{% endif %}
                             {{ form.email }}
                         </label>
                     </div>
-                    <div class="col-6 {% if form.errors.phone %}error{% endif %}">
+                    <div class="col s12 m6 {% if form.errors.phone %}error{% endif %}">
                         <label>
                             Phone {% if form.errors.phone %}
                             <span style="margin-left: 15px; color: red">{{ form.errors.phone.0 }}</span>{% endif %}
                             {{ form.phone }}
                         </label>
                     </div>
-                    <div class="col-6 {% if form.errors.password %}error{% endif %}">
+                    <div class="col s12 m6 {% if form.errors.password %}error{% endif %}">
                         <label>
                             Password {% if form.errors.password %}
                             <span style="margin-left: 15px; color: red">{{ form.errors.password.0 }}</span>{% endif %}
                             {{ form.password }}
                         </label>
                     </div>
-                    <div class="col-6 {% if form.errors.conf_password %}error{% endif %}">
+                    <div class="col s12 m6 {% if form.errors.conf_password %}error{% endif %}">
                         <label>
                             Confirm Password {% if form.errors.password %}
                             <span style="margin-left: 15px; color: red">{{ form.errors.password.0 }}</span>{% endif %}
                             {{ form.password_verify }}
                         </label>
                     </div>
-                    <div class="col-6 {% if form.errors.address %}error{% endif %}">
+                    <div class="col s12 {% if form.errors.address %}error{% endif %}">
                         <label>
                             Address {% if form.errors.address %}
                             <span style="margin-left: 15px; color: red">{{ form.errors.address.0 }}</span>{% endif %}
                             {{ form.address }}
                         </label>
                     </div>
-                    <div class="col-6 {% if form.errors.address2 %}error{% endif %}">
+                    <div class="col s12 {% if form.errors.address2 %}error{% endif %}">
                         <label>
                             Address 2 {% if form.errors.address2 %}
                             <span style="margin-left: 15px; color: red">{{ form.errors.address2.0 }}</span>{% endif %}
                             {{ form.address2 }}
                         </label>
                     </div>
-                    <div class="col-6 {% if form.errors.city %}error{% endif %}">
+                    <div class="col s12 m4 {% if form.errors.city %}error{% endif %}">
                         <label>
                             City {% if form.errors.city %}
                             <span style="margin-left: 15px; color: red">{{ form.errors.city.0 }}</span>{% endif %}
                             {{ form.city }}
                         </label>
                     </div>
-                    <div class="col-6 {% if form.errors.state %}error{% endif %}">
+                    <div class="col s12 m4 {% if form.errors.state %}error{% endif %}">
                         <label>
                             State {% if form.errors.state %}
                             <span style="margin-left: 15px; color: red">{{ form.errors.state.0 }}</span>{% endif %}
                             {{ form.state }}
                         </label>
                     </div>
-                    <div class="col-12" style="padding-left: 2%; margin: 15px 0 15px 0;">
-                        <button type="submit" style="float: right; border: 1px solid red;">NEXT</button>
+                    <div class="col s12 m4 {% if form.errors.zip %}error{% endif %}">
+                        <label>
+                            Zip {% if form.errors.zip %}
+                            <span style="margin-left: 15px; color: red">{{ form.errors.zip.0 }}</span>{% endif %}
+                            {{ form.zip }}
+                        </label>
+                    </div>
+                    <div class="col s12" style="padding-left: 2%; margin: 15px 0 15px 0;">
+                        <button class="btn" type="submit" style="float: right;">NEXT</button>
                     </div>
                 </div>
             </form>

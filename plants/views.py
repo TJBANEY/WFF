@@ -1,31 +1,59 @@
 import datetime
-import logging
 import os
-
-# import scrapy
-import urllib3
+import requests
 
 from django.shortcuts import render
-from django.http import HttpResponse
-from bs4 import BeautifulSoup
-import requests
+from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.db import IntegrityError
 from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
 
-from plants.models import Plant, PlantImage
+from bs4 import BeautifulSoup
 
+from account.models import Account
+from plants.models import Plant, PlantImage, UserPlant
+
+
+def plant_info(request, plant_slug):
+	x = 5
+
+	try:
+		account = Account.objects.get(logon_credentials=request.user)
+	except Account.DoesNotExist:
+		raise Http404
+
+	try:
+		plant = Plant.objects.get(slug=plant_slug)
+	except Plant.DoesNotExist:
+		raise Http404
+
+	if request.method == 'POST':
+		new_user_plant = UserPlant()
+		new_user_plant.plant = plant
+		new_user_plant.user = account
+		new_user_plant.save()
+
+		return HttpResponseRedirect('/plants/explore')
+
+	context = {
+		"plant": plant
+	}
+
+	return render(request, "plants/plant_info.html", context)
 
 def explore_plants(request):
 	p_images = PlantImage.objects.all()
+	all_plants = Plant.objects.filter(is_published=True)
 
 	context = {
-		'p_images': p_images
+		'p_images': p_images,
+		'plants': all_plants
 	}
 
 	return render(request, 'plants/explore.html', context)
 
 def crawl_plant_images(request):
-	all_plants = Plant.objects.all()
+	all_plants = Plant.objects.filter(is_published=True)
 	count = 1
 
 	for plant in all_plants:
@@ -132,6 +160,29 @@ def crawl_characteristics(request):
 
 	return HttpResponse('Done')
 
+def clean_up_botanical_name(request):
+	plants = Plant.objects.all()
+
+	for plant in plants:
+		name = plant.botanical_name.split()
+
+		new_name = ''
+
+		for index, word in enumerate(name):
+			if (index + 1) == len(name):
+				new_name += '{}'.format(word.capitalize())
+			else:
+				new_name += '{} '.format(word.capitalize())
+
+		try:
+			plant.botanical_name = new_name
+			plant.save()
+		except IntegrityError as e:
+			plant.delete()
+
+	return HttpResponse("Clean Up Done")
+
+
 def clean_up_genus_species():
 	plants = Plant.objects.all()
 
@@ -167,7 +218,7 @@ def growth_habit_crawl(request):
 	# double check for permissions, and make a donation.
 
 	# Error Occuring at about 320, don't forget about "320 - 600"
-	for plant in Plant.objects.filter(growth_habit="NA").order_by("-scientific_name")[600:]:
+	for plant in Plant.objects.filter(perennial=False, biennial=False, annual=False, growth_habit="NA").order_by("-scientific_name")[4500:]:
 		print("----------------------------")
 		search_compatible_name = plant.scientific_name.replace(" ", "+")
 		plant_url = "http://eol.org/search?q={}&search=Go".format(search_compatible_name)
@@ -258,3 +309,4 @@ def growth_habit_crawl(request):
 			pass
 
 	return HttpResponse("Done")
+

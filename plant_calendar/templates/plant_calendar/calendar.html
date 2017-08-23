@@ -100,9 +100,8 @@
     {% verbatim %}
     <div style="background-color: white; padding: 0 0 100px 0; border-top: 1px solid black;">
         <div class="container">
-            <div class="row dashboard-actions"
-                 style="margin-bottom: 0; padding: 0 15px; font-size: 18px; color: white; font-weight: 600">
-                <div class="col" style="height: 80px; background: #1bc974; position: relative" ng-click="testAngular()">
+            <div class="row dashboard-actions" style="margin-bottom: 0; font-size: 18px; color: white; font-weight: 600">
+                <div class="col s3" style="height: 80px; background: #1bc974; position: relative" ng-click="testAngular()">
                     <div style="height: inherit; padding: 28px 0; display: inline-block;">
                         ADD/EDIT PLANTS
                         <i class="fa fa-leaf" aria-hidden="true"></i>
@@ -111,7 +110,7 @@
                        style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
                 </div>
 
-                <div class="col" style="height: 80px; background: #e64759;; position: relative">
+                <div class="col s3" style="height: 80px; background: #e64759;; position: relative">
                     <div style="height: inherit; padding: 28px 0; display: inline-block;">
                         FIND SUPPLIES
                         <i class="fa fa-wrench" aria-hidden="true"></i>
@@ -120,7 +119,7 @@
                        style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
                 </div>
 
-                <div class="col" style="height: 80px; background: #9f86ff; position: relative">
+                <div class="col s3" style="height: 80px; background: #9f86ff; position: relative">
                     <div style="height: inherit; padding: 28px 0; display: inline-block;">
                         SET REMINDER
                         <i class="fa fa-clock-o" aria-hidden="true"></i>
@@ -129,7 +128,7 @@
                        style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
                 </div>
 
-                <div class="col" style="height: 80px; background: #efe12d;; position: relative">
+                <div class="col s3" style="height: 80px; background: #efe12d;; position: relative">
                     <div style="height: inherit; padding: 28px 0; display: inline-block;">
                         EDIT PROFILE
                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -138,47 +137,6 @@
                        style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
                 </div>
 
-            </div>
-            <div class="plant-add-edit col" style="border: 1px solid red;">
-                <div class="row">
-                    <div class="col filters" style="border: 1px solid violet; height: 300px">
-                        <form action="/api/v1/plants/filtered_plants/" method="GET">
-                            {% endverbatim %}
-                                {% csrf_token %}
-                            {% verbatim %}
-                            <ul style="list-style: none;">
-                                <li>
-                                    Plant Name
-                                    <select name="plant_name" id="plant-name">
-                                        <option value="tomato">Tomato</option>
-                                        <option value="potato">Potato</option>
-                                        <option value="rose">Rose</option>
-                                    </select>
-                                </li>
-                                <li>
-                                    Plant Type
-                                    <select name="plant_type" id="type">
-                                        <option value="flower">Flower</option>
-                                        <option value="vegetable">Vegetable</option>
-                                        <option value="fruit">Fruit</option>
-                                    </select>
-                                </li>
-                                <li>
-                                    Harvest Start
-                                    <input type="date" name="start">
-                                </li>
-                                <li>
-                                    Harvest End
-                                    <input type="date" name="end">
-                                </li>
-                                <button type="submit">FIND PLANTS</button>
-                            </ul>
-                        </form>
-                    </div>
-                    <div class="col results" style="border: 1px solid lime; height: 300px">
-
-                    </div>
-                </div>
             </div>
         </div>
 

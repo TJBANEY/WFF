@@ -1,6 +1,7 @@
 from django.conf.urls import url
-from .views import explore_plants, crawl_usda, crawl_plant_images, crawl_characteristics, growth_habit_crawl
+from .views import explore_plants, crawl_plant_images, plant_info
 
 urlpatterns = [
-	url(r'^explore', growth_habit_crawl, name='explore_plants')
+	url(r'^explore', explore_plants, name='explore_plants'),
+	url(r'^(?P<plant_slug>.*)/?$', plant_info, name='plant_info')
 ]
