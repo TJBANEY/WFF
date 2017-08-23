@@ -18,7 +18,7 @@
     <!-- CSS -->
     <!-- <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css"> -->
-    <!-- Compiled and minified CSS -->
+          <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
     <link rel='stylesheet' href='/static/fullcalendar/dist/fullcalendar.css'/>
     <link type='text/css' rel='stylesheet' href='/static/css/base.css'>
@@ -55,7 +55,7 @@
 
 
 <body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %} ng-app="PlantApp" ng-controller="plantHome">
-    {% block header %}
+  {% block header %}
   <div class="docWrapper">
     {% if user.is_authenticated%} 
       
@@ -72,8 +72,7 @@
       </header>
     </div>
     {% endif %}
-
-    {% endblock %}
+  {% endblock %}
 
     <div id='contentWrapper'>
       {% block content %}
@@ -91,6 +90,20 @@
         <div class="col s12 m3">
           <ul class="center">
             <li><a href=""><img class="home_link" src="/static/images/favicon.png" alt="favicon"></a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+          </ul>
+        </div>
+
+        <div class="col s12 m5">
+          <ul class="center bottom">
+            <a class="btn waves-effect waves-light">Follow</a>
+            <!-- <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li> -->
+          </ul>
+        </div>
+
+        <div class="col s12 m4">
+          <ul class="center bottom">
+            <h5>Contact Us</h5>
             <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
           </ul>
         </div>
