@@ -15,24 +15,53 @@
 
 {% endblock %}
 
-<style>
-    .parallax-flowers {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url('/static/images/tulips.jpg') no-repeat center;
-    }
+{% block header %}
 
-    .parallax-seeds {
-        background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .4)), url('/static/images/growing-business.jpg') no-repeat center;
-        height: 90vh;
-    }
-</style>
+    <style>
+        .parallax-flowers {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url('/static/images/tulips.jpg') no-repeat center;
+        }
 
-{% block parallax_hero %}
-    <div class="parallax">
-        <img class="parallax-flowers" src="/static/images/tulips.jpg">
-    </div>
+        .parallax-seeds {
+            background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .4)), url('/static/images/growing-business.jpg') no-repeat center;
+            height: 90vh;
+        }
+    </style>
+
 {% endblock %}
 
 {% block content %}
+
+    <div class="parallax-container parallaxTopWrapper">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">Logo</a>
+                <!-- <div class="signIn right" style="padding: 0.5rem 1rem;">
+                  <p style="display: inline;"><a href="/account/register.html" style="color: white;font-size: 20px;">Register</a></p><p style="display: inline;margin:0 1rem;color: white;">/</p><p style="display: inline;"><a href="/account/sign-in" style="color: white;font-size: 20px;">Sign In</a></p>
+                </div> -->
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="/account/sign-in">Sign In</a></li>
+                    <li><a href="/account/register.html">Register</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Calendar</a></li>
+                    <li><a href="#">Harvest</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="/account/sign-in">Sign In</a></li>
+                    <li><a href="/account/register.html">Register</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Calendar</a></li>
+                    <li><a href="#">Harvest</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="parallax">
+            <img class="parallax-flowers" src="/static/images/tulips.jpg">
+        </div>
+    </div>
 
     <div class="row">
         <div class="col s12 homeContentFirstWrapper">

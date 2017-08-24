@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
 
@@ -18,7 +17,7 @@
     <!-- CSS -->
     <!-- <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css"> -->
-    <!-- Compiled and minified CSS -->
+          <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
     <link rel='stylesheet' href='/static/fullcalendar/dist/fullcalendar.css'/>
     <link type='text/css' rel='stylesheet' href='/static/css/base.css'>
@@ -54,74 +53,70 @@
 </head>
 
 
-<body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %} ng-app="PlantApp"
-                          ng-controller="plantHome">
-{% block header %}
-    <div class="docWrapper">
-    <!-- <div class="container headerWrapper">
-      <header class="row">
-        <div class="col s12">
-          <div class="col s2"></div>
-          <div class="col s8 logoWrapper">
-            <img src="/static/images/wallflowerlogo.png" alt="" class="logoImg">
+<body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %} ng-app="PlantApp" ng-controller="plantHome">
+  <div class="doc-wrapper">
+    {% block header %}
+    <div class="container">
+      <header class="col-12" style="min-height: 1px; padding-top: 20px; padding-bottom: 20px;">
+        <div class="row">
+          <div class="col-2">
+            <img src="/static/images/wallflowerlogo.png" class="twelve columns" alt="" style="width: 100%;">
           </div>
-          <div class="col s2"></div>
+          <div class="col-10" style="padding: 25px 15px;">
+
+
+
+          </div>
         </div>
       </header>
-    </div> -->
-{% endblock %}
-
-<div id='contentWrapper'>
-    {% block parallax_hero %}
-        <div class="parallax">
-            <img class="parallax-flowers" src="/static/images/tulips.jpg">
-        </div>
+    </div>
     {% endblock %}
 
-    {% block content %}
-    {% endblock %}
+    <div id='content-wrapper'>
+      {% block content %}
+      {% endblock %}
 
-    {% block extra-content %}
-    {% endblock %}
-</div>
-</div>
+      {% block extra-content %}
+      {% endblock %}
+    </div>
+  </div>
 
-<footer class="page-footer ">
+  <footer class="page-footer ">
     <div class="container">
 
-        <div class="row">
-            <div class="col s12 m3">
-                <ul class="center">
-                    <li><a href=""><img class="home_link" src="/static/images/favicon.png" alt="favicon"></a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                </ul>
-            </div>
-
-            <div class="col s12 m5">
-                <ul class="center bottom">
-                    <a class="btn waves-effect waves-light">Follow</a>
-                    <!-- <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li> -->
-                </ul>
-            </div>
-
-            <div class="col s12 m4">
-                <ul class="center bottom">
-                    <h5>Contact Us</h5>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                </ul>
-            </div>
-
+      <div class="row">
+        <div class="col s12 m3">
+          <ul class="center">
+            <li><a href=""><img class="home_link" src="/static/images/favicon.png" alt="favicon"></a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+          </ul>
         </div>
+
+        <div class="col s12 m5">
+          <ul class="center bottom">
+            <a class="btn waves-effect waves-light">Follow</a>
+            <!-- <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li> -->
+          </ul>
+        </div>
+
+        <div class="col s12 m4">
+          <ul class="center bottom">
+            <h5>Contact Us</h5>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+          </ul>
+        </div>
+
+      </div>
 
     </div>
 
     <div class="footer-copyright">
-        <div class="container">
-            <p class="copyright">&copy; 2017 Fire Fly Tech Labs. Pea Ridge, AR</p>
-        </div>
+      <div class="container">
+        <p class="copyright">&copy; 2017 Fire Fly Tech Labs. Pea Ridge, AR</p>
+      </div>
     </div>
 
-</footer>
+  </footer>
 
 
 <!-- SCRIPTS -->
