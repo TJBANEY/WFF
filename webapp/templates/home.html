@@ -15,20 +15,16 @@
 
 {% endblock %}
 
-{% block header %}
+<style>
+    .parallax-flowers {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url('/static/images/tulips.jpg') no-repeat center;
+    }
 
-    <style>
-        .parallax-flowers {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url('/static/images/tulips.jpg') no-repeat center;
-        }
-
-        .parallax-seeds {
-            background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .4)), url('/static/images/growing-business.jpg') no-repeat center;
-            height: 90vh;
-        }
-    </style>
-
-{% endblock %}
+    .parallax-seeds {
+        background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, .4)), url('/static/images/growing-business.jpg') no-repeat center;
+        height: 90vh;
+    }
+</style>
 
 {% block parallax_hero %}
     <div class="parallax">

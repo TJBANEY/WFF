@@ -54,9 +54,10 @@
 </head>
 
 
-<body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %} ng-app="PlantApp" ng-controller="plantHome">
-    {% block header %}
-  <div class="docWrapper">
+<body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %} ng-app="PlantApp"
+                          ng-controller="plantHome">
+{% block header %}
+    <div class="docWrapper">
     <!-- <div class="container headerWrapper">
       <header class="row">
         <div class="col s12">
@@ -68,53 +69,59 @@
         </div>
       </header>
     </div> -->
+{% endblock %}
+
+<div id='contentWrapper'>
+    {% block parallax_hero %}
+        <div class="parallax">
+            <img class="parallax-flowers" src="/static/images/tulips.jpg">
+        </div>
     {% endblock %}
 
-    <div id='contentWrapper'>
-      {% block content %}
-      {% endblock %}
+    {% block content %}
+    {% endblock %}
 
-      {% block extra-content %}
-      {% endblock %}
-    </div>
-  </div>
+    {% block extra-content %}
+    {% endblock %}
+</div>
+</div>
 
-  <footer class="page-footer ">
+<footer class="page-footer ">
     <div class="container">
 
-      <div class="row">
-        <div class="col s12 m3">
-          <ul class="center">
-            <li><a href=""><img class="home_link" src="/static/images/favicon.png" alt="favicon"></a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-          </ul>
-        </div>
+        <div class="row">
+            <div class="col s12 m3">
+                <ul class="center">
+                    <li><a href=""><img class="home_link" src="/static/images/favicon.png" alt="favicon"></a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                </ul>
+            </div>
 
-        <div class="col s12 m5">
-          <ul class="center bottom">
-            <a class="btn waves-effect waves-light">Follow</a>
-            <!-- <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li> -->
-          </ul>
-        </div>
+            <div class="col s12 m5">
+                <ul class="center bottom">
+                    <a class="btn waves-effect waves-light">Follow</a>
+                    <!-- <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li> -->
+                </ul>
+            </div>
 
-        <div class="col s12 m4">
-          <ul class="center bottom">
-            <h5>Contact Us</h5>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-          </ul>
-        </div>
+            <div class="col s12 m4">
+                <ul class="center bottom">
+                    <h5>Contact Us</h5>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                </ul>
+            </div>
 
-      </div>
+        </div>
 
     </div>
 
     <div class="footer-copyright">
-      <div class="container">
-        <p class="copyright">&copy; 2017 Fire Fly Tech Labs. Pea Ridge, AR</p>
-      </div>
+        <div class="container">
+            <p class="copyright">&copy; 2017 Fire Fly Tech Labs. Pea Ridge, AR</p>
+        </div>
     </div>
 
-  </footer>
+</footer>
 
 
 <!-- SCRIPTS -->
