@@ -54,6 +54,7 @@ body {}
 }
 
 .page-footer { background-color: var(--primaryColor); }
+.copyright > i { margin-right: 0.3rem; margin-top: 0.2rem; }
 
 /*========================
          Skin
