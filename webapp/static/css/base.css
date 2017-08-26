@@ -11,9 +11,13 @@ body {}
         Root Variables
 =========================*/
 :root {
-  --primaryColor: #8CD4BA;
+  --primaryColor: #02a29c;
   --secondaryColor: #AADFCC;
   --navhoverColor: #EAEAEA;
+
+  /* --primaryColor: #8CD4BA;
+  --secondaryColor: #AADFCC;
+  --navhoverColor: #EAEAEA; */
 }
 
 /*========================
@@ -35,6 +39,8 @@ body {}
 .homeContentFirstWrapper h1,
 .homeContentSecondWrapper h1,
 .homeContentThirdWrapper h1 { text-align: center; }
+
+#navHomeLink { color: #fff; }
 
 .calendarIcon,
 .plantIcon,

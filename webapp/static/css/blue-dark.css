@@ -19,7 +19,9 @@
 }
 /*Just change your choise color here its theme Colors*/
 body {
-  background: #2f323e;
+  /* background: #2f323e; */
+  background: #d5f7f0;
+ 
 }
 /*Top Header Part*/
 .logo i {
@@ -123,11 +125,11 @@ body {
 .fc th.fc-wed,
 .fc th.fc-fri,
 .fc-button {
-  background-color: #2cabe3 !important;
+  background-color: #8cd4ba !important;
 }
 .table tbody tr.advance-table-row.active,
 .fc-button {
-  border-color: #2cabe3;
+  border-color: transparent;
 }
 .manage-users .tabs-style-iconbox nav {
   background: #2cabe3;
