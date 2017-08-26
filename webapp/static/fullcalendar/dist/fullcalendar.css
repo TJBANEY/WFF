@@ -46,7 +46,7 @@ body .fc { /* extra precedence to overcome jqui */
 }
 
 .fc-unthemed .fc-popover .fc-header .fc-close {
-	color: #666;
+	/* color: #666; */
 }
 
 .fc-unthemed td.fc-today {
@@ -85,10 +85,11 @@ body .fc { /* extra precedence to overcome jqui */
 	display: inline-block;
 	height: 1em;
 	line-height: 1em;
-	font-size: 1em;
+	font-size: 1.5em;
 	text-align: center;
 	overflow: hidden;
 	font-family: "Courier New", Courier, monospace;
+	color: #fff;
 
 	/* don't allow browser text-selection */
 	-webkit-touch-callout: none;
@@ -214,7 +215,7 @@ NOTE: use percentage font sizes or else old IE chokes
 */
 
 .fc-state-default {
-	background-color: #f5f5f5;
+	/* background-color: #f5f5f5;
 	background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
 	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
 	background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
@@ -225,15 +226,15 @@ NOTE: use percentage font sizes or else old IE chokes
 	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 	color: #333;
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); */
 }
 
 .fc-state-hover,
 .fc-state-down,
 .fc-state-active,
 .fc-state-disabled {
-	color: #333333;
-	background-color: #e6e6e6;
+	/* color: #333333;
+	background-color: #e6e6e6; */
 }
 
 .fc-state-hover {
@@ -248,9 +249,9 @@ NOTE: use percentage font sizes or else old IE chokes
 
 .fc-state-down,
 .fc-state-active {
-	background-color: #cccccc;
+	/* background-color: #cccccc;
 	background-image: none;
-	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); */
 }
 
 .fc-state-disabled {
@@ -266,6 +267,7 @@ NOTE: use percentage font sizes or else old IE chokes
 
 .fc-button-group {
 	display: inline-block;
+	width: 100%;
 }
 
 /*
@@ -274,13 +276,23 @@ previous button's border...
 */
 
 .fc .fc-button-group > * { /* extra precedence b/c buttons have margin set to zero */
-	float: left;
-	margin: 0 0 0 -1px;
+	/* float: left;
+	margin: 0 0 0 -1px; */
 }
 
-.fc .fc-button-group > :first-child { /* same */
+/* .fc .fc-button-group > :first-child { 
 	margin-left: 0;
+} */
+
+.fc-prev-button { float: left; }
+
+.fc-next-button { float: right; }
+.fc-right > .fc-today-button { 
+	width: 70px;
+	position: relative;
+	top: 35px; 
 }
+/* .fc-button-group button {  } */
 
 
 /* Popover
@@ -820,10 +832,13 @@ a.fc-more:hover {
 
 .fc-toolbar {
 	text-align: center;
+	width: 100%;
 }
 
 .fc-toolbar.fc-header-toolbar {
 	margin-bottom: 1em;
+	margin-top: 0.5rem;
+	padding: 2rem 0.5rem 1rem;
 }
 
 .fc-toolbar.fc-footer-toolbar {
@@ -831,11 +846,13 @@ a.fc-more:hover {
 }
 
 .fc-toolbar .fc-left {
-	float: left;
+	/* float: left; */
 }
 
 .fc-toolbar .fc-right {
 	float: right;
+	width: 100%;
+	margin-top: -20px;
 }
 
 .fc-toolbar .fc-center {
@@ -844,19 +861,20 @@ a.fc-more:hover {
 
 /* the things within each left/right/center section */
 .fc .fc-toolbar > * > * { /* extra precedence to override button border margins */
-	float: left;
-	margin-left: .75em;
+	/* float: left; */
+	/* width: 100%; */
 }
 
 /* the first thing within each left/center/right section */
 .fc .fc-toolbar > * > :first-child { /* extra precedence to override button border margins */
-	margin-left: 0;
+	/* margin-left: 0; */
 }
 	
 /* title text */
 
 .fc-toolbar h2 {
 	margin: 0;
+	font-size: 2.4em;
 }
 
 /* button layering (for border precedence) */
@@ -1410,4 +1428,9 @@ be a descendant of the grid when it is being dragged.
 
 .fc-unthemed .fc-list-empty { /* theme will provide own background */
 	background-color: #eee;
+}
+
+/* Hide button flash */
+div {
+	/* -webkit-tap-highlight-color: rgba(0,0,0,0); */
 }
