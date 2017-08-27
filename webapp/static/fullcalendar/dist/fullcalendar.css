@@ -836,9 +836,9 @@ a.fc-more:hover {
 }
 
 .fc-toolbar.fc-header-toolbar {
-	margin-bottom: 1em;
+	margin-bottom: 0em;
 	margin-top: 0.5rem;
-	padding: 2rem 0.5rem 1rem;
+	padding: 1rem 0.5rem 0rem;
 }
 
 .fc-toolbar.fc-footer-toolbar {

@@ -51,7 +51,11 @@ body {}
   display: none;
 }
 
-.docWrapper { min-height: calc(100vh - 210px); }
+.docWrapper { 
+  min-height: calc(100vh - 145px); 
+  display: flex;
+  flex-direction: column;
+}
 
 .contentSide { width: 100%; }
 .contentIcons {
@@ -59,7 +63,13 @@ body {}
   width: 40%;
 }
 
-.page-footer { background-color: var(--primaryColor); }
+footer { border: none!important; }
+.page-footer { 
+  background-color: var(--primaryColor); 
+  padding: 0;
+}
+.footerSpacing { margin-bottom: 0; }
+.copyright { margin: 0; }
 .copyright > i { margin-right: 0.3rem; margin-top: 0.2rem; }
 
 /*========================
@@ -154,7 +164,11 @@ button {
 }
 
 .logoImg { width: 100%; }
-.signInForm { max-width: 600px; margin: 0 auto; }
+.contentSpacing { margin-bottom: 0; }
+.signInForm { 
+  max-width: 800px; 
+  margin: 2rem auto; 
+}
 .signInSubmit { margin: 0 10px; }
 
 

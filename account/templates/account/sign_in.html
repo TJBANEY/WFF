@@ -8,7 +8,7 @@
     }
   </style>
 
-  <div class="row">
+  <div class="row contentSpacing">
     <form action="/account/sign-in/" method="POST" class="signInForm">
       {% csrf_token %}
       {% if form.errors.main %}
