@@ -42,12 +42,13 @@
                     <li class="tab col s6"><a class="active" href="#test2">Tasks</a></li>
                 </ul>
             </div>
+           
             <div id="test1" class="col s12" style="min-height: 1px;">
                 <div class="row">
+                {% comment %} {% for plant in plants %}  {% endcomment %}
                     <div class="col s12 m4" style="padding: 10px; height: 250px;">
-                        <div style="height: 100%; width: 100%; background: grey;">
-
-                        </div>
+                        <img src="" alt="">{{plant}}</img>
+                        <p>lorem stus aqui sed et al</p>
                     </div>
                     <div class="col s12 m4" style="padding: 10px; height: 250px;">
                         <div style="height: 100%; width: 100%; background: grey;">
@@ -74,11 +75,14 @@
 
                         </div>
                     </div>
+                {% comment %} {% endfor %} {% endcomment %}
                 </div>
             </div>
+            
             <div id="test2" class="col s12" style="min-height: 1px; display: none;">
-                blah
-            </div>
+                <p>lorem stus aqui sed et al</p>
+                <button>remove</button>
+            </div> 
         </div>
     </div>
 {% endblock %}
