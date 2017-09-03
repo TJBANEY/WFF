@@ -80,6 +80,22 @@ body .fc { /* extra precedence to overcome jqui */
 
 /* Icons (inline elements with styled text that mock arrow icons)
 --------------------------------------------------------------------------------------------------*/
+.legend { 
+	display: inline-flex;
+    width: 98%;
+    margin: auto;
+    margin-bottom: 0rem;
+    position: absolute;
+    top: 11rem;
+}
+
+.legendIcons { 
+	margin: auto; 
+	color: black;
+}
+
+.legendIcons:hover { color: var(--primaryColor); } 
+.legendIcons:focus > i { color: var(--primaryColor); }
 
 .fc-icon {
 	display: inline-block;
@@ -837,8 +853,8 @@ a.fc-more:hover {
 }
 
 .fc-toolbar.fc-header-toolbar {
-	margin-bottom: 0em;
-	margin-top: 0.5rem;
+	margin-bottom: 2.5em;
+	margin-top: 0rem;
 	padding: 1rem 0.5rem 0rem;
 }
 
