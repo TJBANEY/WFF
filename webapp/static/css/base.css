@@ -169,7 +169,12 @@ button {
   max-width: 800px; 
   margin: 2rem auto; 
 }
-.signInSubmit { margin: 0 10px; }
+
+.signInSubmit { 
+  margin: 0 10px; 
+  border: none;
+  color: white;
+}
 
 
 /*========================
