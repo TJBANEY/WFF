@@ -81,17 +81,26 @@ body .fc { /* extra precedence to overcome jqui */
 /* Icons (inline elements with styled text that mock arrow icons)
 --------------------------------------------------------------------------------------------------*/
 .btn-floating i { width: 100%; }
+
 .legend { 
 	display: inline-flex;
-    width: 98%;
-    margin: auto;
-    margin-bottom: 0rem;
     position: absolute;
-    top: 11rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	margin-left: auto;
+	margin-right: auto;
+    margin-bottom: 0rem;
+	top: 11rem;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	overflow-x: scroll;
+
+	/* background-color: #FF2600; */
 }
 
 .legendIcons { 
-	margin: auto; 
+	margin: 0 1rem; 
 	color: black;
 }
 
