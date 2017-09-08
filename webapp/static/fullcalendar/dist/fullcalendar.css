@@ -96,13 +96,14 @@ body .fc { /* extra precedence to overcome jqui */
 	right: 0;
 	overflow: hidden;
 	overflow-x: scroll;
-
 	/* background-color: #FF2600; */
 }
+
 
 .legendIcons { 
 	margin: 0 1rem; 
 	color: black;
+	font-family: 'Marck Script', cursive;
 }
 
 .legendIcons:hover { color: var(--primaryColor); } 

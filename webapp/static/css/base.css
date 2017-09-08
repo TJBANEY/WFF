@@ -5,7 +5,7 @@ html {
   font-size: 16px;
 }
 
-body {}
+/* body { font-family: 'Mark Script', cursive; } */
 
 /*========================
         Root Variables
@@ -40,7 +40,7 @@ body {}
 .homeContentSecondWrapper h1,
 .homeContentThirdWrapper h1 { text-align: center; }
 
-#navHomeLink { color: #fff; }
+#navHomeLink { color: #fff;}
 
 .calendarIcon,
 .plantIcon,
