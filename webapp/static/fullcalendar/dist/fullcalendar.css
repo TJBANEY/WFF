@@ -101,7 +101,7 @@ body .fc { /* extra precedence to overcome jqui */
 
 
 .legendIcons { 
-	margin: 0 1rem; 
+	margin: 0 1rem 0.8rem 1rem; 
 	color: black;
 	font-family: 'Marck Script', cursive;
 }
