@@ -186,18 +186,38 @@ button {
 /*========================
           Structure
 =========================*/
+.spcB {
+  margin-bottom: 0;
+}
 
 .infoAction {
-  margin: 0.5rem 0;
+  margin: 1rem 0;
   border-radius: 3px;
-  background-color: #EAEAEA; 
+  background-color: #b7e2e0; 
 }
 
 .infoAction p { 
-  margin: 0.5rem; 
-  padding: 0; 
+  margin: 0.8rem 0; 
+  text-align: center; 
+}
+
+.btn-floating {
+  height: 35px;
+  width: 35px;
+  background-color: red; 
+}
+
+.btn-floating i {
+  line-height: 35px;
 }
 
 /*========================
           Skin
 =========================*/
+.bgGreen {
+  background-color: #069994;
+}
+
+.bgGrey {
+  background-color: #EAEAEA;
+}

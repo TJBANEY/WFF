@@ -35,7 +35,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="row">
+        <div class="row spcB">
             <div class="col s12">
                 <ul class="tabs">
                     <li class="tab col s6"><a href="#test1">Plants</a></li>
@@ -43,8 +43,11 @@
                 </ul>
             </div>
 
-            <div class="infoAction col s12">
-                <p>this needs if statement</p>
+            <div class="infoAction col s12 valign-wrapper">
+                <p class="col s12">This needs if statement</p>
+                <a class="btn btn-floating right-align bgGreen">
+                    <i class="material-icons">add</i>
+                </a>
             </div>
             
             <div id="test1" class="col s12" style="min-height: 1px;">
@@ -80,15 +83,39 @@
 
                         </div>
                     </div>
-                {% comment %} {% endfor %} {% endcomment %}
+                    {% comment %} {% endfor %} {% endcomment %}
                 </div>
             </div>
             
-            <div id="taskWrapper" class="col s12 valign-wrapper">
+            <div id="taskWrapper" class="col s12 valign-wrapper bgGrey">
                 <p class="col s12 task">lorem stus aqui sed et al</p>
                 <!-- <button class="col s5 ">remove</button> -->
-                <a class=" btn btn-floating"><i class="material-icons">remove</i></a>
+                <a class=" btn btn-floating">
+                    <i class="material-icons">remove</i>
+                </a>
             </div> 
+
+            <div class="col s12 valign-wrapper bgGrey">
+                <p class="col s12 task">lorem stus aqui sed et al</p>
+                <a class=" btn btn-floating">
+                    <i class="material-icons">remove</i>
+                </a>
+            </div>
+
+            <div class="col s12 valign-wrapper bgGrey">
+                <p class="col s12 task">lorem stus aqui sed et al</p>
+                <a class=" btn btn-floating">
+                    <i class="material-icons">remove</i>
+                </a>
+            </div>
+
+            <div class="col s12 valign-wrapper bgGrey">
+                <p class="col s12 task">lorem stus aqui sed et al</p>
+                <a class=" btn btn-floating">
+                    <i class="material-icons">remove</i>
+                </a>
+            </div>
+                    
         </div>
     </div>
 {% endblock %}
