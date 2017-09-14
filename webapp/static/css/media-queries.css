@@ -7,16 +7,23 @@
 
 /*____________________________  600px  ____________________________*/
 
+@media (min-width: 600px) {
 /*===== Home =====*/
 
 /*===== Sign In =====*/
-@media (min-width: 600px) {
+
   .logoImg {
     width: 75%;
     max-height: 200px;
     max-width: 390px;
   }
+
+  /*===== My Garden =====*/
+  .valign-wrapper:last-of-type {
+    margin-bottom: 1.5rem;
+  }
 }
+
 
 /*____________________________  992px  ____________________________*/
 
