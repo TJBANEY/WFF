@@ -85,10 +85,8 @@ body .fc { /* extra precedence to overcome jqui */
 .legend { 
 	display: inline-flex;
     position: absolute;
-	padding-left: 1rem;
-	padding-right: 1rem;
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 1rem;
+	margin-right: 1rem;
 	/* margin-top: 0.5rem; ipad or larger */
 	max-width: 680px;
 	top: 11rem;
