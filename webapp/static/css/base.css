@@ -186,15 +186,13 @@ button {
 /*========================
           Structure
 =========================*/
+#test2 {margin-bottom: 1rem;}
+
 .spcB {
   margin-bottom: 0;
 }
 
-.infoAction {
-  margin: 1rem 0;
-  border-radius: 3px;
-  background-color: #b7e2e0; 
-}
+.infoAction { margin: 1rem 0; }
 
 .infoAction p { 
   margin: 0.8rem 0; 
@@ -220,5 +218,13 @@ Skin
 
 .bgGrey {
   background-color: #EAEAEA;
+}
+
+.addTask,
+.addPlant {
+  font-size: 14pt;
+  border: none;
+  line-height: 2;
+  color: white;
 }
 

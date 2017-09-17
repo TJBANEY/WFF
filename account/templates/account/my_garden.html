@@ -45,13 +45,14 @@
             
             <div id="test1" class="col s12" style="min-height: 1px;">
                 <div class="infoAction col s12 valign-wrapper">   
-                    <p class="col s12">This needs if statement</p>
-                    <a class="btn btn-floating right-align bgGreen">
+                    <button class="col s12 addPlant">Add Plant</button>
+                    <!-- <a class="btn btn-floating right-align bgGreen">
                         <i class="material-icons">add</i>
-                    </a>
+                    </a> -->
                 </div>
                 <div class="row">
-                {% comment %} {% for plant in plants %}  {% endcomment %}
+                    {% comment %} {% for plant in plants %}  {% endcomment %}
+                     
                     <div class="col s12 m4" style="padding: 10px; height: 250px;">
                         {% comment %} <img src="" alt="">{{plant}}</img> {% endcomment %}
                         <div style="height: 100%; width: 100%; background: grey;">
@@ -89,14 +90,14 @@
 
             <div id="test2" class="col s12" style="min-height: 1px;">
                 <div class="infoAction col s12 valign-wrapper">   
-                    <p class="col s12">This doesn't</p>
-                    <a class="btn btn-floating right-align bgGreen">
+                    <button class="col s12 addTask">Add Task</button>
+                    <!-- <a class="btn btn-floating right-align bgGreen">
                         <i class="material-icons">add</i>
-                    </a>
+                    </a> -->
                 </div>
                 
                 {% comment %} {% for plant in plants %}  {% endcomment %}
-                    
+                
                 <div id="taskWrapper" class="col s12 valign-wrapper bgGrey">
                     
                     <p class="col s12 task">lorem stus aqui sed et al</p>
@@ -106,7 +107,6 @@
                     </a>
                 </div>
                     
-    
                 <div class="col s12 valign-wrapper bgGrey">
                     <p class="col s12 task">lorem stus aqui sed et al</p>
                     <a class=" btn btn-floating">
