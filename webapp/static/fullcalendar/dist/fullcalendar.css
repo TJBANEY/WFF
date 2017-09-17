@@ -85,17 +85,29 @@ body .fc { /* extra precedence to overcome jqui */
 .legend { 
 	display: inline-flex;
     position: absolute;
-	margin-left: 1rem;
-	margin-right: 1rem;
-	/* margin-top: 0.5rem; ipad or larger */
-	max-width: 680px;
+	margin: 0 1rem;
+	padding: 0 1rem;
 	top: 11rem;
 	left: 0;
 	right: 0;
 	overflow: hidden;
 	overflow-x: scroll;
-	/* background-color: #FF2600; */
 }
+
+/*__________ 414px - 992px _________*/
+
+@media (min-width: 414px) {
+	.legend { margin: 0 auto;}
+}
+
+@media (min-width: 600px) {
+	.legend { margin: 0.5rem auto; max-width: 620px;}
+}
+
+@media (min-width: 992px) {
+	.legend {max-width: 680px;}
+}
+/*__________ 414px - 992px _________*/
 
 
 .legendIcons { 
@@ -1462,3 +1474,4 @@ be a descendant of the grid when it is being dragged.
 div {
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
+
