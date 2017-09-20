@@ -42,96 +42,69 @@
                     <li class="tab col s6"><a class="active" href="#test2">Tasks</a></li>
                 </ul>
             </div>
-            
+
             <div id="test1" class="col s12" style="min-height: 1px;">
-                <div class="infoAction col s12 valign-wrapper">   
+                <div class="infoAction col s12 valign-wrapper">
                     <button class="col s12 addPlant">Add Plant</button>
                     <!-- <a class="btn btn-floating right-align bgGreen">
                         <i class="material-icons">add</i>
                     </a> -->
                 </div>
                 <div class="row">
-                    {% comment %} {% for plant in plants %}  {% endcomment %}
-                     
-                    <div class="col s12 m4" style="padding: 10px; height: 250px;">
-                        {% comment %} <img src="" alt="">{{plant}}</img> {% endcomment %}
-                        <div style="height: 100%; width: 100%; background: grey;">
+                    {% for user_plant in account.plants.all %}
+                        <div class="col s12 m4" style="padding: 10px; height: 250px;">
+                            <div style="height: 100%; width: 100%; background: url('{{ user_plant.plant.photo }}') no-repeat center; background-size: cover;">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col s12 m4" style="padding: 10px; height: 250px;">
-                        <div style="height: 100%; width: 100%; background: grey;">
-
-                        </div>
-                    </div>
-                    <div class="col s12 m4" style="padding: 10px; height: 250px;">
-                        <div style="height: 100%; width: 100%; background: grey;">
-
-                        </div>
-                    </div>
-                    <div class="col s12 m4" style="padding: 10px; height: 250px;">
-                        <div style="height: 100%; width: 100%; background: grey;">
-
-                        </div>
-                    </div>
-                    <div class="col s12 m4" style="padding: 10px; height: 250px;">
-                        <div style="height: 100%; width: 100%; background: grey;">
-
-                        </div>
-                    </div>
-                    <div class="col s12 m4" style="padding: 10px; height: 250px;">
-                        <div style="height: 100%; width: 100%; background: grey;">
-
-                        </div>
-                    </div>
-                    {% comment %} {% endfor %} {% endcomment %}
+                    {% endfor %}
                 </div>
             </div>
 
 
             <div id="test2" class="col s12" style="min-height: 1px;">
-                <div class="infoAction col s12 valign-wrapper">   
+                <div class="infoAction col s12 valign-wrapper">
                     <button class="col s12 addTask">Add Task</button>
                     <!-- <a class="btn btn-floating right-align bgGreen">
                         <i class="material-icons">add</i>
                     </a> -->
                 </div>
-                
+
                 {% comment %} {% for plant in plants %}  {% endcomment %}
-                
+
                 <div id="taskWrapper" class="col s12 valign-wrapper bgGrey">
-                    
+
                     <p class="col s12 task">lorem stus aqui sed et al</p>
                     <!-- <button class="col s5 ">remove</button> -->
                     <a class=" btn btn-floating">
                         <i class="material-icons">remove</i>
                     </a>
                 </div>
-                    
+
                 <div class="col s12 valign-wrapper bgGrey">
                     <p class="col s12 task">lorem stus aqui sed et al</p>
                     <a class=" btn btn-floating">
                         <i class="material-icons">remove</i>
                     </a>
                 </div>
-    
+
                 <div class="col s12 valign-wrapper bgGrey">
                     <p class="col s12 task">lorem stus aqui sed et al</p>
                     <a class=" btn btn-floating">
                         <i class="material-icons">remove</i>
                     </a>
                 </div>
-    
+
                 <div class="col s12 valign-wrapper bgGrey">
                     <p class="col s12 task">lorem stus aqui sed et al</p>
                     <a class=" btn btn-floating">
                         <i class="material-icons">remove</i>
                     </a>
                 </div>
-                
+
                 {% comment %} {% endfor %} {% endcomment %}
-                
+
             </div>
-                    
+
         </div>
     </div>
 {% endblock %}

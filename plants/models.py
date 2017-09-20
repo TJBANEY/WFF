@@ -132,7 +132,17 @@ class Plant(models.Model):
 		super(Plant, self).save(*args, **kwargs)
 
 	def __str__(self):
-		return 'Plant'
+		if self.botanical_name:
+			return self.botanical_name
+		else:
+			return self.scientific_name
+
+	def photo(self):
+		photos = self.images.all()
+		if photos:
+			return photos[0].image.url
+		else:
+			return None
 
 	class Meta:
 		verbose_name = "Plant"
@@ -201,7 +211,7 @@ class PestIssue(models.Model):
 
 
 class UserPlant(models.Model):
-	user = models.ForeignKey(Account)
+	user = models.ForeignKey(Account, related_name='plants')
 	plant = models.ForeignKey(Plant)
 
 	def __str__(self):
@@ -209,6 +219,21 @@ class UserPlant(models.Model):
 
 	class Meta:
 		unique_together = ("user", "plant")
+
+class PlantTask(models.Model):
+	user_plant = models.ForeignKey(UserPlant)
+	description = models.CharField(max_length=255)
+
+	create_date = models.DateTimeField(auto_now_add=True)
+
+	def __str__(self):
+		return 'Plant Task {} {}'.format(self.user_plant.user.first_name, self.user_plant.user.last_name)
+
+	class Meta:
+		verbose_name = "Plant Task"
+		verbose_name_plural = "Plant Tasks"
+		ordering = ('user_plant', 'create_date')
+
 
 
 def dump(qs, outfile_path):

@@ -15,7 +15,6 @@ from plants.models import Plant, PlantImage, UserPlant
 
 
 def plant_info(request, plant_slug):
-	x = 5
 
 	try:
 		account = Account.objects.get(logon_credentials=request.user)
@@ -30,7 +29,7 @@ def plant_info(request, plant_slug):
 	if request.method == 'POST':
 		new_user_plant = UserPlant()
 		new_user_plant.plant = plant
-		new_user_plant.user = account
+		# new_user_plant.user = account
 		new_user_plant.save()
 
 		return HttpResponseRedirect('/plants/explore')

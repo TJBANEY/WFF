@@ -122,10 +122,11 @@ def my_garden(request):
 	try:
 		account = Account.objects.get(logon_credentials=request.user)
 	except Account.DoesNotExist:
-		return HttpResponseRedirect('/sign-in')
+		return HttpResponseRedirect('/account/sign-in')
 
 	context = {
-
+		'account': account,
+		'user_plants': account.plants.all(),
 	}
 
 	return render(request, "account/my_garden.html", context)
