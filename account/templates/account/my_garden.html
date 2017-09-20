@@ -22,10 +22,10 @@
             <div class="container" style="color: white; padding: 15px;">
                 <div class="row" style="margin-bottom: 0;">
                     <div class="col s3" style="text-align: left;">
-                        27 Plants
+                        {{ account.plants.all|length }} Plants
                     </div>
                     <div class="col s3" style="text-align: center;">
-                        54 Tasks
+                        {{ account.get_all_tasks|length }} Tasks
                     </div>
                     <div class="col s6" style="text-align: right;">
                         Member Since Sept. 20th, 2017
@@ -69,39 +69,16 @@
                     </a> -->
                 </div>
 
-                {% comment %} {% for plant in plants %}  {% endcomment %}
+                {% for task in account.get_all_tasks %}
+                    <div id="taskWrapper" class="col s12 valign-wrapper bgGrey">
 
-                <div id="taskWrapper" class="col s12 valign-wrapper bgGrey">
-
-                    <p class="col s12 task">lorem stus aqui sed et al</p>
-                    <!-- <button class="col s5 ">remove</button> -->
-                    <a class=" btn btn-floating">
-                        <i class="material-icons">remove</i>
-                    </a>
-                </div>
-
-                <div class="col s12 valign-wrapper bgGrey">
-                    <p class="col s12 task">lorem stus aqui sed et al</p>
-                    <a class=" btn btn-floating">
-                        <i class="material-icons">remove</i>
-                    </a>
-                </div>
-
-                <div class="col s12 valign-wrapper bgGrey">
-                    <p class="col s12 task">lorem stus aqui sed et al</p>
-                    <a class=" btn btn-floating">
-                        <i class="material-icons">remove</i>
-                    </a>
-                </div>
-
-                <div class="col s12 valign-wrapper bgGrey">
-                    <p class="col s12 task">lorem stus aqui sed et al</p>
-                    <a class=" btn btn-floating">
-                        <i class="material-icons">remove</i>
-                    </a>
-                </div>
-
-                {% comment %} {% endfor %} {% endcomment %}
+                        <p class="col s12 task">{{ task.description }}</p>
+                        <!-- <button class="col s5 ">remove</button> -->
+                        <a class=" btn btn-floating">
+                            <i class="material-icons">remove</i>
+                        </a>
+                    </div>
+                {% endfor %}
 
             </div>
 

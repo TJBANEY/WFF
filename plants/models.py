@@ -221,7 +221,7 @@ class UserPlant(models.Model):
 		unique_together = ("user", "plant")
 
 class PlantTask(models.Model):
-	user_plant = models.ForeignKey(UserPlant)
+	user_plant = models.ForeignKey(UserPlant, related_name='tasks')
 	description = models.CharField(max_length=255)
 
 	create_date = models.DateTimeField(auto_now_add=True)
@@ -232,8 +232,7 @@ class PlantTask(models.Model):
 	class Meta:
 		verbose_name = "Plant Task"
 		verbose_name_plural = "Plant Tasks"
-		ordering = ('user_plant', 'create_date')
-
+		ordering = ('create_date',)
 
 
 def dump(qs, outfile_path):
