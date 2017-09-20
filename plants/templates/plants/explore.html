@@ -58,9 +58,6 @@
                 </div>
 
                 <div class="col hide-on-small-only m3" style="height: 700px; border: 3px solid #02a29c;">
-                    <div style="text-align: center;">
-                        <button class="btn btn-primary">EXPLORE</button>
-                    </div>
 
                     <!-- FILTER BY GROWTH TYPE -->
                     <label for="">
@@ -95,12 +92,16 @@
                             <option value="vine">Vine</option>
                         </select>
                     </label>
+
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <button class="btn btn-primary">EXPLORE</button>
+                    </div>
                 </div>
                 <div class="col s12 m9" style="min-height: 1px; border: 1px solid lime; padding-top: 20px;">
                     <div class="row">
                         {% for plant in plants %}
 
-                            <div class="col xs12 s6 m6 l4 xl4" style="text-align: center; min-height: 1px;">
+                            <div class="col s12 m6 l4 " style="text-align: center; min-height: 1px;">
                                 <div style="border: 1px solid #252525; padding-bottom: 30px; margin-bottom: 10px;">
                                     <div style="height: 250px; background: url('/media/{{ plant.images.all.0.image }}') no-repeat center; background-size: cover;">
                                     </div>
