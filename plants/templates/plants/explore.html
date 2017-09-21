@@ -2,11 +2,11 @@
 
 {% block content %}
     <div class="row">
-        <div class="col s12" style="border: 1px solid blue; padding: 0;">
+        <div class="col s12" style="padding: 0;">
             <div class="row">
-                <div class="col hide-on-small-only m12" style="height: 3rem; border: 1px solid mediumpurple;"></div>
+                <div class="col hide-on-small-only m12" style="height: 3rem;"></div>
                 <div class="col show-on-small hide-on-med-and-up s12"
-                     style="min-height: 400px; border: 1px solid mediumpurple; padding-bottom: 8px;">
+                     style="min-height: 400px; padding-bottom: 8px;">
                     <i class="fa fa-sort-desc" aria-hidden="true" style="float: right; font-size: 24px;"></i>
 
                     <!-- FILTER BY GROWTH TYPE -->
@@ -97,12 +97,12 @@
                         <button class="btn btn-primary">EXPLORE</button>
                     </div>
                 </div>
-                <div class="col s12 m9" style="min-height: 1px; border: 1px solid lime; padding-top: 20px;">
+                <div class="col s12 m9" style="min-height: 1px; border: none;">
                     <div class="row">
                         {% for plant in plants %}
 
-                            <div class="col s12 m6 l4 " style="text-align: center; min-height: 1px;">
-                                <div style="border: 1px solid #252525; padding-bottom: 30px; margin-bottom: 10px;">
+                            <div class="col s12 m6 l4" style="text-align: center; min-height: 1px; padding: 0; margin-bottom: 1rem; border-top: 30px solid #26a69a; border-bottom: 5px solid #26a69a; border-right: 5px solid #26a69a; border-left: 5px solid #26a69a;">
+                                <div style="padding-bottom: 30px; margin-bottom: 10px;">
                                     <div style="height: 250px; background: url('/media/{{ plant.images.all.0.image }}') no-repeat center; background-size: cover;">
                                     </div>
                                     <p>{{ plant.botanical_name }}</p>
