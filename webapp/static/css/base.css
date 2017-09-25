@@ -228,3 +228,27 @@ Skin
   color: white;
 }
 
+/*________________________________Plant Explore____________________________*/
+
+/*========================
+          Structure
+=========================*/
+
+#plantContainer { 
+  margin-left: 1rem; 
+  text-align: center; 
+  margin-right: 5px; 
+  min-height: 1px; 
+  padding: 0; 
+  margin-bottom: 1rem; 
+  border-top: 5px solid #26a69a; 
+  border-bottom: 5px solid #26a69a; 
+  border-right: 5px solid #26a69a; 
+  border-left: 5px solid #26a69a; 
+}
+
+/*========================
+          Skin
+=========================*/
+
+
