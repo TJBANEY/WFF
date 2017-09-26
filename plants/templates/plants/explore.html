@@ -57,7 +57,7 @@
                     </ul> -->
                 </div>
 
-                <div class="col hide-on-small-only m3" style="height: 700px; border: 3px solid #02a29c;">
+                <aside class="col hide-on-small-only m3" style="height: 700px; border: 3px solid #02a29c; margin-right: -5px; margin-left: 5px;">
 
                     <!-- FILTER BY GROWTH TYPE -->
                     <label for="">
@@ -96,12 +96,12 @@
                     <div style="text-align: center; margin-top: 1rem;">
                         <button class="btn btn-primary">EXPLORE</button>
                     </div>
-                </div>
+                </aside>
                 <div class="col s12 m9" style="min-height: 1px; border: none; padding: 0px;">
                     <div class="row">
                         {% for plant in plants %}
 
-                            <div class="col s12 m6 l3 plantContainer plantContainerSkin" id="plantContainer">
+                            {% comment %} <div class="col s12 m4 l3 plantContainer plantContainerSkin" id="plantContainer">
                                 <div style="padding-bottom: 10px; margin-bottom: 10px;">
                                     <div style="height: 250px; background: url('/media/{{ plant.images.all.0.image }}') no-repeat center; background-size: cover;">
                                     </div>
@@ -110,6 +110,17 @@
                                         <button class="btn btn-info" style="border-radius: 10px;">INFO</button>
                                     </a>
                                 </div>
+                            </div> {% endcomment %}
+
+                            <div class="plantContainer plantContainerSkin" id="plantContainer">
+                                <div class="example" style="">
+                                    <div style="height: 250px; background: url('/media/{{ plant.images.all.0.image }}') no-repeat center; background-size: cover;">
+                                    </div>
+                                    <p>{{ plant.botanical_name }}</p>
+                                    <a href="/plants/{{ plant.slug }}">
+                                        <button class="btn btn-info" style="border-radius: 10px;">INFO</button>
+                                    </a>
+                                </div> 
                             </div>
                         {% endfor %}
                     </div>

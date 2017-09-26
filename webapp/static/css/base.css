@@ -234,10 +234,10 @@ Skin
           Structure
 =========================*/
 
-#plantContainer { 
-  margin-left: 1rem; 
+#plantContainer {
+  min-width: 220px;
+  margin: 0 auto; 
   text-align: center; 
-  margin-right: 5px; 
   min-height: 1px; 
   padding: 0; 
   margin-bottom: 1rem; 
@@ -245,6 +245,17 @@ Skin
   border-bottom: 5px solid #26a69a; 
   border-right: 5px solid #26a69a; 
   border-left: 5px solid #26a69a; 
+  justify-content: center;
+}
+
+@media (min-width: 600px) {
+  #plantContainer { margin-left: 1rem; display: inline-flex;}
+}
+
+.example { 
+  min-width: 220px; 
+  padding-bottom: 10px; 
+  margin-bottom: 10px; 
 }
 
 /*========================
