@@ -43,10 +43,10 @@
     <script src='/static/fullcalendar/dist/fullcalendar.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
+{#    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>#}
+{#    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>#}
 
-    <script src="/static/angular/app.js"></script>
+{#    <script src="/static/angular/app.js"></script>#}
 
     {% block extra-head %}
 
@@ -54,7 +54,7 @@
 </head>
 
 
-<body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %} ng-app="PlantApp" ng-controller="plantHome">
+<body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %}>
   <div class="docWrapper">
     {% block header %}
 

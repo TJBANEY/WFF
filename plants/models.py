@@ -147,7 +147,7 @@ class Plant(models.Model):
 	class Meta:
 		verbose_name = "Plant"
 		verbose_name_plural = "Plants"
-		ordering = ("scientific_name",)
+		ordering = ("botanical_name",)
 
 
 class PlantImage(models.Model):

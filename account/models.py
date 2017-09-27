@@ -25,6 +25,18 @@ class Account(models.Model):
 		tasks = PlantTask.objects.filter(user_plant__in=user_plants).order_by('create_date')
 		return tasks
 
+	@staticmethod
+	def current_user(request):
+		if request.user.is_authenticated:
+			try:
+				current_user = Account.objects.get(logon_credentials=request.user)
+				return current_user
+			except Account.DoesNotExist:
+				return None
+		else:
+			return None
+
+
 	class Meta:
 		verbose_name = 'Account'
 		verbose_name_plural = 'Accounts'

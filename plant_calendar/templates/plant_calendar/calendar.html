@@ -10,55 +10,56 @@
         $(document).ready(function () {
             console.log('Calendar Initiated');
 
-            function getEvents() {
-                var evnts = [];
-
-                $.ajax({
-                    method: 'GET',
-                    url: '/api/v1/users/{{ user_id }}/events/',
-                    data: {csrfmiddlewaretoken: '{{ csrf_token }}'},
-                    success: function (response) {
-                        for (var item in response) {
-                            var event = response[item];
-
-                            var event_details = {
-                                title: event.name,
-                                start: event.event_start,
-                                end: event.event_end,
-                                color: '#' + event.color,
-                                textColor: '#ffffff',
-                                info: event.details
-                            };
-
-                            evnts.push(event_details);
-                            console.log(events);
-                        }
-
-                        return evnts;
-                    },
-                    error: function (response) {
-                        console.log(response)
-                    }
-                });
-
-                return evnts
-            }
+{#            function getEvents() {#}
+{#                var evnts = [];#}
+{##}
+{#                $.ajax({#}
+{#                    method: 'GET',#}
+{#                    url: '/api/v1/users/{{ user_id }}/events/',#}
+{#                    data: {csrfmiddlewaretoken: '{{ csrf_token }}'},#}
+{#                    success: function (response) {#}
+{#                        for (var item in response) {#}
+{#                            var event = response[item];#}
+{##}
+{#                            var event_details = {#}
+{#                                title: event.name,#}
+{#                                start: event.event_start,#}
+{#                                end: event.event_end,#}
+{#                                color: '#' + event.color,#}
+{#                                textColor: '#ffffff',#}
+{#                                info: event.details#}
+{#                            };#}
+{##}
+{#                            evnts.push(event_details);#}
+{#                            console.log(events);#}
+{#                        }#}
+{##}
+{#                        return evnts;#}
+{#                    },#}
+{#                    error: function (response) {#}
+{#                        console.log(response)#}
+{#                    }#}
+{#                });#}
+{##}
+{#                return evnts#}
+{#            }#}
 
             var calendar = $('#calendar');
-            var events = getEvents();
+            var events_string = '{{ events|safe }}';
+            var events = JSON.parse(events_string);
             console.log(events);
 
             setTimeout(function () {
                 calendar.fullCalendar({
                     eventClick: function (calEvent, jsEvent, view) {
-                        $('.overlay').show();
-                        $('.plant-popup').show(500);
-                        alert(calEvent.info)
+{#                        $('.overlay').show();#}
+{#                        $('.plant-popup').show(500);#}
+{#                        alert(calEvent.info)#}
                     },
                     dayClick: function (day) {
-                        console.log('=========');
-                        console.log(day._d);
-                        console.log('=========');
+{#                        console.log('=========');#}
+{#                        console.log(day._d);#}
+{#                        console.log('=========');#}
                     },
                     events: events
                 });
@@ -100,7 +101,6 @@
 
     </style>
 
-    {% verbatim %}
     <div>
         <!-- <div class="container">
             <div class="row dashboard-actions"
@@ -146,9 +146,7 @@
                 <div class="row">
                     <div class="col filters" style="border: 1px solid violet; height: 300px">
                         <form action="/api/v1/plants/filtered_plants/" method="GET">
-                            {% endverbatim %}
                                 {% csrf_token %}
-                            {% verbatim %}
                             <ul style="list-style: none;">
                                 <li>
                                     Plant Name
@@ -190,24 +188,9 @@
             <div class="row" style="margin-bottom: 10px;">
                 <div class="col-sm m-b-30">
                     <div class="legend">
-
-                        <a href="#" class="legendIcons">tomato</a>
-                        <a href="#" class="legendIcons">lilly</a>
-                        <a href="#" class="legendIcons">daffodile</a>
-                        <a href="#" class="legendIcons">rose</a>
-                        <a href="#" class="legendIcons">iris</a>
-                        <a href="#" class="legendIcons">tulip</a>
-                        <a href="#" class="legendIcons">test</a>
-                        <a href="#" class="legendIcons">test</a>
-                        <a href="#" class="legendIcons">test</a>
-                        <a href="#" class="legendIcons">test</a>
-                        <a href="#" class="legendIcons">test</a>
-                        <a href="#" class="legendIcons">test</a>
-                        <a href="#" class="legendIcons">test</a>
-                        <a href="#" class="legendIcons">test</a>
-                        <a href="#" class="legendIcons">test</a>
-                        <a href="#" class="legendIcons">test</a>
-
+                        {% for a_plant in account_plants %}
+                            <a href="/calendar/{{ a_plant.plant.slug }}/" class="legendIcons">{{ a_plant.plant.botanical_name }}</a>
+                        {% endfor %}
                     </div>
                     <div id="calendar"></div>
                     <!-- <div dev-calendar="{height: 400, editable: true}" ng-model="events" changed="eventChanged"></div> -->
@@ -221,5 +204,4 @@
     <!-- <div class="overlay hidden" style="position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 1; background: black; opacity: .5"></div>
     <div class="plant-popup hidden" style="width: 60%; height: 500px; background: white; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10;">
     </div> -->
-    {% endverbatim %}
 {% endblock %}
