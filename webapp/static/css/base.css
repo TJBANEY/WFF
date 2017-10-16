@@ -27,13 +27,10 @@ html {
 
 
 /*________________________________Home Page____________________________*/
-#parallaxImg {
-  bottom: 1rem;
-}
+#parallaxImg { bottom: 1rem; }
 
-#parallaxBottomWrapper {
-  max-height: 400px;
-}
+#parallaxBottomWrapper { max-height: 400px; }
+
 .nav-wrapper { background-color: var(--primaryColor);}
 .side-nav li:hover { background-color: var(--navhoverColor); }
 .homeContentFirstWrapper h1,
@@ -41,7 +38,6 @@ html {
 .homeContentThirdWrapper h1 { text-align: center; }
 
 #navHomeLink { color: #fff;}
-
 .calendarIcon,
 .plantIcon,
 .checkoutIcon {

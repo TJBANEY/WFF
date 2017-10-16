@@ -10,20 +10,21 @@
 /*===== Home =====*/
 
 /*===== Sign In =====*/
+.logoImg {
+  width: 75%;
+  max-height: 200px;
+  max-width: 390px;
+}
 
-  .logoImg {
-    width: 75%;
-    max-height: 200px;
-    max-width: 390px;
-  }
-
-  #plantContainer { margin-left: 1rem; }
+#plantContainer { margin-left: 1rem; }
 }
 
 /*____________________________  992px  ____________________________*/
 
 /*===== Home =====*/
 @media (min-width: 992px) {
+  .brand-logo { margin-left: 3rem; }
+  
   .contentIcons,
   .contentSide { display: block; }
 
