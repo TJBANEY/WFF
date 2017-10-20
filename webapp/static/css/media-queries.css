@@ -23,7 +23,7 @@
 
 /*===== Home =====*/
 @media (min-width: 992px) {
-  .brand-logo { margin-left: 3rem; }
+  .brand-logo { margin-left: 3rem;}
   
   .contentIcons,
   .contentSide { display: block; }

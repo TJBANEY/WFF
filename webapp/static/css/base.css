@@ -32,6 +32,7 @@ html {
 #parallaxBottomWrapper { max-height: 400px; }
 
 .nav-wrapper { background-color: var(--primaryColor);}
+.brand-logo {font-size: 1.5rem!important;}
 .side-nav li:hover { background-color: var(--navhoverColor); }
 .homeContentFirstWrapper h1,
 .homeContentSecondWrapper h1,
