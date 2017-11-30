@@ -1,9 +1,7 @@
 /*========================
         Global Resets
 =========================*/
-html {
-  font-size: 16px;
-}
+html { font-size: 16px; }
 
 /* body { font-family: 'Mark Script', cursive; } */
 
@@ -24,15 +22,14 @@ html {
          Structure
 =========================*/
 
-
-
 /*________________________________Home Page____________________________*/
+
 #parallaxImg { bottom: 1rem; }
 
 #parallaxBottomWrapper { max-height: 400px; }
 
 .nav-wrapper { background-color: var(--primaryColor);}
-.brand-logo {font-size: 1.5rem!important;}
+.brand-logo { font-size: 1.5rem!important; }
 .side-nav li:hover { background-color: var(--navhoverColor); }
 .homeContentFirstWrapper h1,
 .homeContentSecondWrapper h1,
@@ -73,13 +70,9 @@ footer { border: none!important; }
          Skin
 =========================*/
 
-button {
-  background-color: var(--primaryColor);
-}
+button { background-color: var(--primaryColor); }
 
-.homeContentSecondWrapperSkin {
-  background-color: #EAEAEA;
-}
+.homeContentSecondWrapperSkin { background-color: #EAEAEA; }
 
 /*________________________________Register Page____________________________*/
 
@@ -183,11 +176,9 @@ button {
 /*========================
           Structure
 =========================*/
-#test2 {margin-bottom: 1rem;}
+#test2 { margin-bottom: 1rem;}
 
-.spcB {
-  margin-bottom: 0;
-}
+.spcB { margin-bottom: 0; }
 
 .infoAction { margin: 1rem 0; }
 
@@ -202,20 +193,14 @@ button {
   background-color: red; 
 }
 
-.btn-floating i {
-  line-height: 35px;
-}
+.btn-floating i { line-height: 35px; }
 
 /*========================
 Skin
 =========================*/
-.bgGreen {
-  background-color: #069994;
-}
+.bgGreen { background-color: #069994; }
 
-.bgGrey {
-  background-color: #EAEAEA;
-}
+.bgGrey { background-color: #EAEAEA; }
 
 .addTask,
 .addPlant {
@@ -245,9 +230,7 @@ Skin
   justify-content: center;
 }
 
-@media (min-width: 600px) {
-  #plantContainer { margin-left: 1rem; display: inline-flex;}
-}
+@media (min-width: 600px) { #plantContainer { margin-left: 1rem; display: inline-flex;} }
 
 .example { 
   min-width: 220px; 

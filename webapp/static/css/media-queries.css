@@ -7,16 +7,16 @@
 /*____________________________  600px  ____________________________*/
 
 @media (min-width: 600px) {
-/*===== Home =====*/
+  /*===== Home =====*/
 
-/*===== Sign In =====*/
-.logoImg {
-  width: 75%;
-  max-height: 200px;
-  max-width: 390px;
-}
+  /*===== Sign In =====*/
+  .logoImg {
+    width: 75%;
+    max-height: 200px;
+    max-width: 390px;
+  }
 
-#plantContainer { margin-left: 1rem; }
+  #plantContainer { margin-left: 1rem; }
 }
 
 /*____________________________  992px  ____________________________*/
