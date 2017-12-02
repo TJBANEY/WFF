@@ -35,7 +35,13 @@ html { font-size: 16px; }
 .homeContentSecondWrapper h1,
 .homeContentThirdWrapper h1 { text-align: center; }
 
-#navHomeLink { color: #fff;}
+#navHomeLink {
+  color: #fff;
+  display: inline-block;
+  width: 80%;
+  text-align: center;
+}
+
 .calendarIcon,
 .plantIcon,
 .checkoutIcon {
@@ -180,7 +186,7 @@ button { background-color: var(--primaryColor); }
 
 .spcB { margin-bottom: 0; }
 
-.infoAction { margin: 1rem 0; }
+.infoAction { margin: 2rem 0; }
 
 .infoAction p { 
   margin: 0.8rem 0; 

@@ -34,6 +34,8 @@
   .calendarIcon,
   .plantIcon,
   .checkoutIcon { display: inline-block; }
+
+  #navHomeLink { width: 20%; }
 }
 
 
