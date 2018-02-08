@@ -105,7 +105,7 @@ def sign_in(request):
 		if form.is_valid():
 			login(request, form.get_user())
 
-			return HttpResponseRedirect('/calendar')
+			return HttpResponseRedirect('/calendar.html')
 
 	else:
 		form = LoginForm()
