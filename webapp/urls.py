@@ -25,7 +25,6 @@ urlpatterns = [
 	url(r'^account/', include('account.urls')),
 	url(r'^plants/', include('plants.urls')),
 	url(r'^calendar/', include('plant_calendar.urls')),
-	# url(r'^info/', include('info.urls')),
 	url(r'^admin/filebrowser/', include('filebrowser.urls')),
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^api-auth/', include('rest_framework.urls',
