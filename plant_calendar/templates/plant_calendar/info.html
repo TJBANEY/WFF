@@ -1,27 +1,27 @@
 {% extends 'base.html' %} 
 {% block content %}
 
-<style>
-    .error input {
-        border: 1px solid red;
-    }
-</style>
 
 <div class="row ">
-    <h3>what grow zone are you in?</h3>
-    <select name="growzone" id="growZone">
-        <option value="default" selected>--</option>
-        <option value="zone1">Zone 1</option>
-        <option value="zone2">Zone 2</option>
-        <option value="zone3">Zone 3</option>
-        <option value="zone4">Zone 4</option>
-        <option value="zone5">Zone 5</option>
-        <option value="zone6">Zone 6</option>
-        <option value="zone7">Zone 7</option>
-        <option value="zone8">Zone 8</option>
-        <option value="zone9">Zone 9</option>
-        <option value="zone10">Zone 10</option>
-        <option value="zone11">Zone 11</option>
-    </select>
+    <form>
+        <h3>What grow zone are you in?</h3>
+        <select name="growzone" id="growZone">
+            <option value="default" selected>--</option>
+            <option value="zone1">Zone 1</option>
+            <option value="zone2">Zone 2</option>
+            <option value="zone3">Zone 3</option>
+            <option value="zone4">Zone 4</option>
+            <option value="zone5">Zone 5</option>
+            <option value="zone6">Zone 6</option>
+            <option value="zone7">Zone 7</option>
+            <option value="zone8">Zone 8</option>
+            <option value="zone9">Zone 9</option>
+            <option value="zone10">Zone 10</option>
+            <option value="zone11">Zone 11</option>
+        </select>
+
+        <label>What are you planting?</label>
+        <input type="text" id="" value=""></input>
+    </form>
 </div>
 {% endblock %}
