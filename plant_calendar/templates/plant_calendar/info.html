@@ -1,12 +1,13 @@
 {% extends 'base.html' %} 
 {% block content %}
-
-
+<style>
+    .hidden { display: none; }
+</style>
 <div class="row ">
     <form>
         <div class="step1">
             <h3>What grow zone are you in?</h3>
-            <select class="" name="growzone" id="growZone">
+            <select class="drop" name="growzone" id="growZone">
                 <option value="default" selected>--</option>
                 <option value="zone1">Zone 1</option>
                 <option value="zone2">Zone 2</option>
@@ -22,39 +23,33 @@
             </select>
         </div>
 
+        <br>
+
         <div class="start">
-            <input type="text">Next</input>
+            <button type="text">Next</button>
         </div>
 
-        <div class="step2">
+        <div class="step2 hidden">
             <label>What are you planting?</label>
             <input type="text" id="" value=""></input>
         </div>
 
-        <div class="continue">
-            <input type="text">Next</input>
+        <div class="continue hidden">
+            <button type="text">Next</button>
         </div>
 
-        <div class="step3">
+        <div class="step3 hidden">
             <label>How many plantings will you do?</label>
             <input type="text" id="" value=""></input>
         </div>
-        
-        <div class="end">
+
+        <div class="end hidden">
             <input type="submit">Result</input>
         </div>
 
     </form>
 
-    <script>
-        document.getElementsByTagName("body").onload = function () {
-            hide();
-        };
-
-        function hide() {
-            var group = document.querySelectorAll('.step2.step3.step4.continue.end');
-            group.style.display = 'none';
-        }
-    </script>
+    <script src="index.js"></script>
 </div>
+
 {% endblock %}
