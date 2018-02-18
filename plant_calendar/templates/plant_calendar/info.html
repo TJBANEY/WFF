@@ -22,7 +22,7 @@
             </select>
         </div>
 
-        <div class="next">
+        <div class="start">
             <input type="text">Next</input>
         </div>
 
@@ -31,7 +31,7 @@
             <input type="text" id="" value=""></input>
         </div>
 
-        <div class="next">
+        <div class="continue">
             <input type="text">Next</input>
         </div>
 
@@ -40,10 +40,21 @@
             <input type="text" id="" value=""></input>
         </div>
         
-        <div class="step4">
+        <div class="end">
             <input type="submit">Result</input>
         </div>
 
     </form>
+
+    <script>
+        document.getElementsByTagName("body").onload = function () {
+            hide();
+        };
+
+        function hide() {
+            var group = document.querySelectorAll('.step2.step3.step4.continue.end');
+            group.style.display = 'none';
+        }
+    </script>
 </div>
 {% endblock %}
