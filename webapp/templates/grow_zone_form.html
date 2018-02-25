@@ -1,0 +1,52 @@
+{% extends 'grow_zone_base.html' %}
+
+{% block extra-head %}
+{% endblock %}
+
+{% block content %}
+    <div class="container" style="padding: 50px 0 30px 0;">
+        <h5 style="margin-bottom: 60px; text-align: center;">Welcome to Wall Flower Farms ! Lets get started with a few
+            questions.</h5>
+
+        <div class="row grow-zone-form-one" ng-if="currentStep == 1">
+            <div class="col s6 offset-s3 homeContentFirstWrapper" style="padding: 20px; border: 1px solid black;">
+                <p>Whats your grow zone ?</p>
+                <input type="text" placeholder="Grow Zone">
+                <button style="color: white; padding: 12px 25px;" ng-click="submitGrowZone(1)">
+                    NEXT
+                </button>
+            </div>
+        </div>
+
+        <div class="row grow-zone-form-two" ng-if="currentStep == 2">
+            <div class="col s6 offset-s3 homeContentFirstWrapper" style="padding: 20px; border: 1px solid black;">
+                <p>Based on your grow zone, here are the plants you can plant soon</p>
+                <label style="margin-bottom: 20px;">
+                    <select style="display: block; margin-bottom: 20px;">
+                        <option value="">Plant 1</option>
+                        <option value="">Plant 2</option>
+                        <option value="">Plant 3</option>
+                        <option value="">Plant 4</option>
+                        <option value="">Plant 5</option>
+                        <option value="">Plant 6</option>
+                    </select>
+                </label>
+
+                <button style="color: white; padding: 12px 25px;" ng-click="submitGrowZone(2)">
+                    NEXT
+                </button>
+            </div>
+        </div>
+
+        <div class="row grow-zone-form-three" ng-if="currentStep == 3">
+            <div class="col s6 offset-s3 homeContentFirstWrapper" style="padding: 20px; border: 1px solid black;">
+                <p>How Many Plantings Per Season ?</p>
+                <input type="text" placeholder="# of Plantings">
+                <button style="color: white; padding: 12px 25px;" ng-click="submitGrowZone(3)">
+                    SUBMIT
+                </button>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

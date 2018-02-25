@@ -1,207 +1,234 @@
-{% extends 'base.html' %}
-{% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
+<link rel="stylesheet" href="/static/bulma-docs.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-{% block extra-js %}
 
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/blue-dark.css">
+<style>
+    .column {
+        text-align: center;
+    }
 
-    <script type='text/javascript'>
-        $(document).ready(function () {
-            console.log('Calendar Initiated');
+    .column .day-triangle {
+        position: absolute;
+        border-style: solid;
+        border-width: 50px 50px 0 0;
+        border-color: black transparent transparent transparent;
+        width: 0;
+        height: 0;
+        top: 0;
+        left: 0;
+    }
 
-{#            function getEvents() {#}
-{#                var evnts = [];#}
-{##}
-{#                $.ajax({#}
-{#                    method: 'GET',#}
-{#                    url: '/api/v1/users/{{ user_id }}/events/',#}
-{#                    data: {csrfmiddlewaretoken: '{{ csrf_token }}'},#}
-{#                    success: function (response) {#}
-{#                        for (var item in response) {#}
-{#                            var event = response[item];#}
-{##}
-{#                            var event_details = {#}
-{#                                title: event.name,#}
-{#                                start: event.event_start,#}
-{#                                end: event.event_end,#}
-{#                                color: '#' + event.color,#}
-{#                                textColor: '#ffffff',#}
-{#                                info: event.details#}
-{#                            };#}
-{##}
-{#                            evnts.push(event_details);#}
-{#                            console.log(events);#}
-{#                        }#}
-{##}
-{#                        return evnts;#}
-{#                    },#}
-{#                    error: function (response) {#}
-{#                        console.log(response)#}
-{#                    }#}
-{#                });#}
-{##}
-{#                return evnts#}
-{#            }#}
+    .column .day {
+        color: orange;
+        position: absolute;
+        top: 2px;
+        left: 5px;
+    }
 
-            var calendar = $('#calendar');
-            var events_string = '{{ events|safe }}';
-            var events = JSON.parse(events_string);
-            console.log(events);
-
-            setTimeout(function () {
-                calendar.fullCalendar({
-                    eventClick: function (calEvent, jsEvent, view) {
-{#                        $('.overlay').show();#}
-{#                        $('.plant-popup').show(500);#}
-{#                        alert(calEvent.info)#}
-                    },
-                    dayClick: function (day) {
-{#                        console.log('=========');#}
-{#                        console.log(day._d);#}
-{#                        console.log('=========');#}
-                    },
-                    events: events
-                });
-            }, 300);
-
-        });
-    </script>
-{% endblock %}
-
-{% block content %}
-    <style>
-        #calendar table {
-          margin-top: 0;
+    @media only screen and (max-width: 991px) {
+        .column.first .day-triangle {
+            left: 11px !important;
         }
 
-        /*.fc-toolbar.fc-header-toolbar {
-          margin-top: 50px;
-          margin-bottom: 0;
-        }*/
-
-        body {
-          background: white;
+        .column.first .day {
+            left: 15px !important;
         }
+    }
 
-        footer {
-          border-top: 1px solid black;
-        }
+    #calendar-header .column {
+        padding: 25px 15px 15px 15px;
+    }
 
-        .fa {
-          text-shadow: 0 0 1px #000;
-        }
+    #week-one .column,
+    #week-two .column,
+    #week-three .column,
+    #week-four .column,
+    #week-five .column {
+        border: 1px solid black;
+        padding: 70px 20px 90px 20px;
+        position: relative;
+    }
 
-        .fa-plus-circle {
-          cursor: pointer;
-				}
-				.hidden {
-					display: none;
-				}
+    .info {
+        background-color: #209cee;
+    }
 
-    </style>
+    .success {
+        background-color: #23d160;
+    }
 
-    <div>
-        <!-- <div class="container">
-            <div class="row dashboard-actions"
-                 style="margin-bottom: 0; padding: 0 15px; font-size: 18px; color: white; font-weight: 600">
-                <div class="col" style="height: 80px; background: #1bc974; position: relative" ng-click="testAngular()">
-                    <div style="height: inherit; padding: 28px 0; display: inline-block;">
-                        ADD/EDIT PLANTS
-                        <i class="fa fa-leaf" aria-hidden="true"></i>
-                    </div>
-                    <i class="fa fa-plus-circle fa-2x" aria-hidden="true"
-                       style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
-                </div>
+    .warning {
+        background-color: #ffdd57;
+    }
 
-                <div class="col" style="height: 80px; background: #e64759;; position: relative">
-                    <div style="height: inherit; padding: 28px 0; display: inline-block;">
-                        FIND SUPPLIES
-                        <i class="fa fa-wrench" aria-hidden="true"></i>
-                    </div>
-                    <i class="fa fa-plus-circle fa-2x" aria-hidden="true"
-                       style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
-                </div>
+    .danger {
+        background-color: #ff3860;
+    }
 
-                <div class="col" style="height: 80px; background: #9f86ff; position: relative">
-                    <div style="height: inherit; padding: 28px 0; display: inline-block;">
-                        SET REMINDER
-                        <i class="fa fa-clock-o" aria-hidden="true"></i>
-                    </div>
-                    <i class="fa fa-plus-circle fa-2x" aria-hidden="true"
-                       style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
-                </div>
+    .is-one-fifth {
+        width: 14.28% !important;
+    }
+</style>
 
-                <div class="col" style="height: 80px; background: #efe12d;; position: relative">
-                    <div style="height: inherit; padding: 28px 0; display: inline-block;">
-                        EDIT PROFILE
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                    </div>
-                    <i class="fa fa-plus-circle fa-2x" aria-hidden="true"
-                       style="position: absolute; right: 15px; top: 50%; margin-top: -18px;"></i>
-                </div>
-
+<div class="container">
+    <div id="baney-calendar">
+        <div class="columns" id="calendar-header">
+            <div class="column info">
+                Monday
             </div>
-            <div class="plant-add-edit col" style="border: 1px solid red;">
-                <div class="row">
-                    <div class="col filters" style="border: 1px solid violet; height: 300px">
-                        <form action="/api/v1/plants/filtered_plants/" method="GET">
-                                {% csrf_token %}
-                            <ul style="list-style: none;">
-                                <li>
-                                    Plant Name
-                                    <select name="plant_name" id="plant-name">
-                                        <option value="tomato">Tomato</option>
-                                        <option value="potato">Potato</option>
-                                        <option value="rose">Rose</option>
-                                    </select>
-                                </li>
-                                <li>
-                                    Plant Type
-                                    <select name="plant_type" id="type">
-                                        <option value="flower">Flower</option>
-                                        <option value="vegetable">Vegetable</option>
-                                        <option value="fruit">Fruit</option>
-                                    </select>
-                                </li>
-                                <li>
-                                    Harvest Start
-                                    <input type="date" name="start">
-                                </li>
-                                <li>
-                                    Harvest End
-                                    <input type="date" name="end">
-                                </li>
-                                <button type="submit">FIND PLANTS</button>
-                            </ul>
-                        </form>
-                    </div>
-                    <div class="col results" style="border: 1px solid lime; height: 300px">
-
-                    </div>
-                </div>
+            <div class="column success">
+                Tuesday
             </div>
-        </div> -->
-
-        <div class="container">
-
-            <div class="row" style="margin-bottom: 10px;">
-                <div class="col-sm m-b-30">
-                    <div class="legend">
-                        {% for a_plant in account_plants %}
-                            <a href="/calendar/{{ a_plant.plant.slug }}/" class="legendIcons">{{ a_plant.plant.botanical_name }}</a>
-                        {% endfor %}
-                    </div>
-                    <div id="calendar"></div>
-                    <!-- <div dev-calendar="{height: 400, editable: true}" ng-model="events" changed="eventChanged"></div> -->
-                </div>
+            <div class="column warning">
+                Wednesday
             </div>
-
+            <div class="column danger">
+                Thursday
+            </div>
+            <div class="column info">
+                Friday
+            </div>
+            <div class="column success">
+                Saturday
+            </div>
+            <div class="column warning">
+                Sunday
+            </div>
         </div>
-
+        <div class="columns" id="week-one">
+            <div class="column first">
+                <div class="day-triangle"></div>
+                <p class="day">1</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">2</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">3</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">4</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">5</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">6</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">7</p>
+            </div>
+        </div>
+        <div class="columns" id="week-two">
+            <div class="column first">
+                <div class="day-triangle"></div>
+                <p class="day">8</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">9</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">10</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">11</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">12</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">13</p>
+            </div>
+            <div class="column is-one-seventh">
+                <div class="day-triangle"></div>
+                <p class="day">14</p>
+            </div>
+        </div>
+        <div class="columns" id="week-three">
+            <div class="column first">
+                <div class="day-triangle"></div>
+                <p class="day">15</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">16</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">17</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">18</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">19</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">20</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">21</p>
+            </div>
+        </div>
+        <div class="columns" id="week-four">
+            <div class="column first">
+                <div class="day-triangle"></div>
+                <p class="day">22</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">23</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">24</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">25</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">26</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">27</p>
+            </div>
+            <div class="column">
+                <div class="day-triangle"></div>
+                <p class="day">28</p>
+            </div>
+        </div>
+        <div class="columns" id="week-five">
+            <div class="column is-one-fifth first">
+                <div class="day-triangle"></div>
+                <p class="day">29</p>
+            </div>
+            <div class="column is-one-fifth">
+                <div class="day-triangle"></div>
+                <p class="day">30</p>
+            </div>
+            <div class="column is-one-fifth">
+                <div class="day-triangle"></div>
+                <p class="day">31</p>
+            </div>
+        </div>
     </div>
-
-    <div class="overlay hidden" style="position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 1; background: black; opacity: .5"></div>
-    <div class="plant-popup hidden" style="width: 60%; height: 500px; background: white; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10;">
-    </div> 
-{% endblock %}
+</div>

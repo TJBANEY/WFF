@@ -1,0 +1,117 @@
+<html></html>{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>{% block page-title %}Welcome{% endblock %}</title>
+
+    <!-- META -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='description' content='{% block meta_description %}{% endblock %}'>
+    <meta name="keywords" content='{% block meta_tags %}{% endblock %}'>
+    <meta name='robots' content='index, follow'>
+    <meta name='Revisit-after' content='15 Days'>
+
+    <!-- FAV/SOCIAL ICONS -->
+    <link rel="SHORTCUT ICON" href="/static/images/favicon.ico">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    <link rel='stylesheet' href='/static/fullcalendar/dist/fullcalendar.css'/>
+    <link type='text/css' rel='stylesheet' href='/static/css/base.css'>
+    <link type='text/css' rel='stylesheet' href='/static/css/media-queries.css'>
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    {% comment %} <link href="https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'> {% endcomment %}
+    <link href="https://fonts.googleapis.com/css?family=Marck+Script" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- SCRIPTS -->
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script type='text/javascript' src="/static/js/menu.js"></script>
+    <script type='text/javascript' src="/static/js/user_actions.js"></script>
+    <script src='/static/moment/min/moment.min.js'></script>
+    <script src='/static/fullcalendar/dist/fullcalendar.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
+
+    <script src="/static/angular/app.js"></script>
+
+    {% block extra-head %}
+
+    {% endblock %}
+</head>
+
+
+<body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %} ng-app="PlantApp" ng-controller="plantHome">
+  <div class="docWrapper">
+    {% block header %}
+
+        <nav>
+          <div class="nav-wrapper">
+              <a class="brand-logo" id="navHomeLink">WFF</a>
+          </div>
+        </nav>
+
+    {% endblock %}
+
+    <div id='content-wrapper'>
+      {% block content %}
+      {% endblock %}
+
+      {% block extra-content %}
+      {% endblock %}
+    </div>
+
+  </div>
+
+  <footer class="page-footer ">
+    <div class="container">
+
+      <div class="row footerSpacing">
+        <div class="col s12 ">
+          <ul class="center">
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-copyright">
+      <div class="container">
+        <p class="copyright center-align"><i class="tiny material-icons">bug_report</i>Fire Fly Tech Labs. © 2017</p>
+      </div>
+    </div>
+
+  </footer>
+
+
+<!-- SCRIPTS -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+<!-- <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script> -->
+<script type='text/javascript' src="/static/js/bootstrap.min.js"></script>
+<script type='text/javascript' src="/static/js/menu.js"></script>
+<script type='text/javascript' src="/static/js/user_actions.js"></script>
+<script src='/static/moment/min/moment.min.js'></script>
+<script src='/static/fullcalendar/dist/fullcalendar.js'></script>
+
+{% block extra-js %}
+{% endblock %}
+
+</body>
+<script>
+    $(document).ready(function () {
+        $(".button-collapse").sideNav();
+    })
+</script>
+</html>
