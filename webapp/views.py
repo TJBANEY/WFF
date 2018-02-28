@@ -18,7 +18,7 @@ def view_home(request):
     else:
         context['logged_in'] = False
 
-    template = 'plant_calendar/calendar.html'
+    template = 'home.html'
 
     return render_to_response(template, context, context_instance=RequestContext(request))
 

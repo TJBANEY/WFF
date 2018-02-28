@@ -25,3 +25,4 @@ node_modules/
 # Sublime Text Related
 *.sublime-project
 *.sublime-workspace
+/settings
