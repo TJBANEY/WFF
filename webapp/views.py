@@ -9,6 +9,8 @@ from django.template import RequestContext
 
 def view_home(request):
 
+    request.session.clear()
+
     context = {}
 
     if request.user.is_active:
@@ -16,7 +18,7 @@ def view_home(request):
     else:
         context['logged_in'] = False
 
-    template = 'home.html'
+    template = 'plant_calendar/calendar.html'
 
     return render_to_response(template, context, context_instance=RequestContext(request))
 

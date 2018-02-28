@@ -1,9 +1,17 @@
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
 <link rel="stylesheet" href="/static/bulma-docs.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+{% load calendar_tags %}
 
 <style>
+
+    .month {
+        text-transform: capitalize;
+    }
+
     .column {
         text-align: center;
     }
@@ -71,8 +79,59 @@
     }
 </style>
 
+<script>
+    $(document).ready(function () {
+        var body = $('body');
+
+        body.on('click', '#prev-month', function () {
+            console.log('CLICKED');
+
+            $.ajax({
+                'method': 'POST',
+                'url': '/calendar/navigate/previous',
+                'data': {'current_month': 'prev'},
+                success: function (response) {
+                    $('#baney-calendar').html(response.responseText)
+                },
+                error: function (err) {
+                    console.log("AJAX error in request: " + JSON.stringify(err, null, 2));
+                }
+            })
+        });
+
+        body.on('click', '#next-month', function () {
+            console.log('CLICKED');
+
+            $.ajax({
+                'method': 'POST',
+                'url': '/calendar/navigate/next',
+                'data': {'direction': 'next'},
+                success: function (response) {
+                    $('#baney-calendar').html(response)
+                },
+                error: function (err) {
+                    console.log("AJAX error in request: " + JSON.stringify(err, null, 2));
+                }
+            })
+        });
+    });
+</script>
+
 <div class="container">
     <div id="baney-calendar">
+        <div class="columns" id="month-year">
+            <div class="column">
+                <i class="fa fa-caret-left" id="prev-month"
+                   style="cursor: pointer; font-size: 28px; padding: 35px 20px 20px 20px;"></i>
+            </div>
+            <div class="column" style="padding: 35px 20px 20px 20px; font-size: 30px;">
+                <span class="month">February</span> 2018
+            </div>
+            <div class="column">
+                <i class="fa fa-caret-right" id="next-month"
+                   style="cursor: pointer; font-size: 28px; padding: 35px 20px 20px 20px;"></i>
+            </div>
+        </div>
         <div class="columns" id="calendar-header">
             <div class="column info">
                 Monday
@@ -98,136 +157,167 @@
         </div>
         <div class="columns" id="week-one">
             <div class="column first">
-                <div class="day-triangle"></div>
-                <p class="day">1</p>
+                {% autoescape off %}
+                    {% first_day_of_month 0 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">2</p>
+                {% autoescape off %}
+                    {% first_day_of_month 1 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">3</p>
+                {% autoescape off %}
+                    {% first_day_of_month 2 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">4</p>
+                {% autoescape off %}
+                    {% first_day_of_month 3 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">5</p>
+                {% autoescape off %}
+                    {% first_day_of_month 4 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">6</p>
+                {% autoescape off %}
+                    {% first_day_of_month 5 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">7</p>
+                {% autoescape off %}
+                    {% first_day_of_month 6 request %}
+                {% endautoescape %}
             </div>
         </div>
         <div class="columns" id="week-two">
             <div class="column first">
-                <div class="day-triangle"></div>
-                <p class="day">8</p>
+                {% autoescape off %}
+                    {% first_day_of_month 0 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">9</p>
+                {% autoescape off %}
+                    {% first_day_of_month 1 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">10</p>
+                {% autoescape off %}
+                    {% first_day_of_month 2 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">11</p>
+                {% autoescape off %}
+                    {% first_day_of_month 3 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">12</p>
+                {% autoescape off %}
+                    {% first_day_of_month 4 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">13</p>
+                {% autoescape off %}
+                    {% first_day_of_month 5 request %}
+                {% endautoescape %}
             </div>
             <div class="column is-one-seventh">
-                <div class="day-triangle"></div>
-                <p class="day">14</p>
+                {% autoescape off %}
+                    {% first_day_of_month 6 request %}
+                {% endautoescape %}
             </div>
         </div>
         <div class="columns" id="week-three">
             <div class="column first">
-                <div class="day-triangle"></div>
-                <p class="day">15</p>
+                {% autoescape off %}
+                    {% first_day_of_month 0 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">16</p>
+                {% autoescape off %}
+                    {% first_day_of_month 1 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">17</p>
+                {% autoescape off %}
+                    {% first_day_of_month 2 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">18</p>
+                {% autoescape off %}
+                    {% first_day_of_month 3 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">19</p>
+                {% autoescape off %}
+                    {% first_day_of_month 4 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">20</p>
+                {% autoescape off %}
+                    {% first_day_of_month 5 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">21</p>
+                {% autoescape off %}
+                    {% first_day_of_month 6 request %}
+                {% endautoescape %}
             </div>
         </div>
         <div class="columns" id="week-four">
             <div class="column first">
-                <div class="day-triangle"></div>
-                <p class="day">22</p>
+                {% autoescape off %}
+                    {% first_day_of_month 0 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">23</p>
+                {% autoescape off %}
+                    {% first_day_of_month 1 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">24</p>
+                {% autoescape off %}
+                    {% first_day_of_month 2 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">25</p>
+                {% autoescape off %}
+                    {% first_day_of_month 3 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">26</p>
+                {% autoescape off %}
+                    {% first_day_of_month 4 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">27</p>
+                {% autoescape off %}
+                    {% first_day_of_month 5 request %}
+                {% endautoescape %}
             </div>
             <div class="column">
-                <div class="day-triangle"></div>
-                <p class="day">28</p>
+                {% autoescape off %}
+                    {% first_day_of_month 6 request %}
+                {% endautoescape %}
             </div>
         </div>
         <div class="columns" id="week-five">
             <div class="column is-one-fifth first">
-                <div class="day-triangle"></div>
-                <p class="day">29</p>
+                {% autoescape off %}
+                    {% first_day_of_month 0 request %}
+                {% endautoescape %}
             </div>
             <div class="column is-one-fifth">
-                <div class="day-triangle"></div>
-                <p class="day">30</p>
+                {% autoescape off %}
+                    {% first_day_of_month 1 request %}
+                {% endautoescape %}
             </div>
             <div class="column is-one-fifth">
-                <div class="day-triangle"></div>
-                <p class="day">31</p>
+                {% autoescape off %}
+                    {% first_day_of_month 2 request %}
+                {% endautoescape %}
             </div>
         </div>
     </div>
