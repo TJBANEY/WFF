@@ -39,20 +39,49 @@ def calendar_home(request, plant):
         else:
             target_plant = None
 
-    all_events = PlantEvent.objects.filter(plant=target_plant)
+    # all_events = PlantEvent.objects.filter(plant=target_plant)
+    #
+    # json_events = json.dumps([{
+    #     'title': event.name,
+    #     'start': datetime.datetime.strftime(event.event_start, '%Y-%m-%d'),
+    #     'end': datetime.datetime.strftime(event.event_end, '%Y-%m-%d')
+    # } for event in all_events])
 
-    json_events = json.dumps([{
-        'title': event.name,
-        'start': datetime.datetime.strftime(event.event_start, '%Y-%m-%d'),
-        'end': datetime.datetime.strftime(event.event_end, '%Y-%m-%d')
-    } for event in all_events])
+    months = {
+        '1': 'january',
+        '2': 'february',
+        '3': 'march',
+        '4': 'april',
+        '5': 'may',
+        '6': 'june',
+        '7': 'july',
+        '8': 'august',
+        '9': 'september',
+        '10': 'october',
+        '11': 'november',
+        '12': 'december'
+    }
 
-    # Format the QuerySet into json that FullCalendar.js can recognize
+    if request.session.get('curr_day'):
+        del request.session['curr_day']
 
-    # fmt_date = all_events.event_start.strftime("%-m/%d/%y")
+    now = datetime.datetime.now()
+    curr_month_num = request.session['curr_month_num'] if 'curr_month_num' in request.session else int(
+        now.strftime('%-m'))
+    curr_year = request.session['curr_year'] if 'curr_year' in request.session else now.year
+
+    request.session['curr_month_num'] = curr_month_num
+    request.session.modified = True
+
+    month = months[str(curr_month_num)]
+
+    year = curr_year
 
     context = {
-        'events': json_events,
+        'month': month,
+        'year': year,
+        'request': request,
+        'curr_month_num': request.session['curr_month_num'],
         'account_plants': account_plants
     }
 
