@@ -3,7 +3,7 @@ import logging
 from django.contrib import sitemaps
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, render
 from django.template import RequestContext
 
 
@@ -18,9 +18,9 @@ def view_home(request):
     else:
         context['logged_in'] = False
 
-    template = 'plant_calendar/calendar.html'
+    template = 'home.html'
 
-    return render_to_response(template, context, context_instance=RequestContext(request))
+    return render(request, template, context)
 
 class StaticViewSitemap(sitemaps.Sitemap):
     priority = 1
