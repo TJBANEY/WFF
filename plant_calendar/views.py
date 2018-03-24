@@ -12,7 +12,7 @@ from account.models import Account
 from plants.models import PlantEvent, UserPlant, Plant
 
 
-@login_required(login_url='/account/sign-in')
+# @login_required(login_url='/account/sign-in')
 def calendar_home(request, plant):
     account = Account.current_user(request)
     if plant:
