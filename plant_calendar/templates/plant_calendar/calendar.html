@@ -71,7 +71,7 @@
                 'url': '/calendar/navigate/previous',
                 'data': {'current_month': 'prev'},
                 success: function (response) {
-                    $('#baney-calendar').html(response.responseText)
+                    $('#baney-calendar').html(response)
                 },
                 error: function (err) {
                     console.log("AJAX error in request: " + JSON.stringify(err, null, 2));
