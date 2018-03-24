@@ -20,7 +20,11 @@ def first_day_of_month(weekday, request, *args, **kwargs):
     curr_year = request.session['curr_year'] if 'curr_year' in request.session else now.year
     curr_day = request.session['curr_day'] + 1 if 'curr_day' in request.session else 1
 
-    current_calendar_month = datetime.datetime.strptime("{}/{}/{}".format(curr_month_num, curr_day, curr_year),"%m/%d/%Y")
+    try:
+        current_calendar_month = datetime.datetime.strptime("{}/{}/{}".format(curr_month_num, curr_day, curr_year),"%m/%d/%Y")
+    except Exception as e:
+        return ''
+
     day_1_weekday = current_calendar_month.weekday()
 
     if day_1_weekday == weekday:

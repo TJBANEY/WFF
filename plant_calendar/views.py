@@ -14,30 +14,30 @@ from plants.models import PlantEvent, UserPlant, Plant
 
 # @login_required(login_url='/account/sign-in')
 def calendar_home(request, plant):
-    account = Account.current_user(request)
+    # account = Account.current_user(request)
     if plant:
         plant = plant.rstrip('/')
 
     # Get all plant events for the plants belonging to the user
-    account_plants = UserPlant.objects.filter(user=account)
-    acct_plant_flatlist = account_plants.values_list('plant', flat=True)
+    # account_plants = UserPlant.objects.filter(user=account)
+    # acct_plant_flatlist = account_plants.values_list('plant', flat=True)
 
-    if plant:
-        try:
-            plant = Plant.objects.get(slug=plant)
-
-            if plant.id in acct_plant_flatlist:
-                target_plant = plant
-            else:
-                raise Http404
-
-        except Plant.DoesNotExist:
-            raise Http404
-    else:
-        if account_plants:
-            target_plant = account_plants[0].plant
-        else:
-            target_plant = None
+    # if plant:
+    #     try:
+    #         plant = Plant.objects.get(slug=plant)
+    #
+    #         if plant.id in acct_plant_flatlist:
+    #             target_plant = plant
+    #         else:
+    #             raise Http404
+    #
+    #     except Plant.DoesNotExist:
+    #         raise Http404
+    # else:
+    #     if account_plants:
+    #         target_plant = account_plants[0].plant
+    #     else:
+    #         target_plant = None
 
     # all_events = PlantEvent.objects.filter(plant=target_plant)
     #
@@ -82,7 +82,6 @@ def calendar_home(request, plant):
         'year': year,
         'request': request,
         'curr_month_num': request.session['curr_month_num'],
-        'account_plants': account_plants
     }
 
     return render(request, 'plant_calendar/calendar.html', context)
