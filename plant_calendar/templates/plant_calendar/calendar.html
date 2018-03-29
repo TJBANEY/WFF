@@ -81,6 +81,17 @@
         width: 14.28% !important;
     }
 
+    .event {
+        position: absolute;
+        border: 1px solid black;
+        border-radius: 8px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: bold;
+        padding: 5px;
+    }
+
 </style>
 
 <script>
@@ -166,201 +177,70 @@
             </div>
         </div>
         <div class="columns" id="week-one">
-            <div class="column first">
-                {% autoescape off %}
-                    {% first_day_of_month 0 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 1 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 2 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 3 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 4 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 5 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 6 request %}
-                {% endautoescape %}
-            </div>
+            {% autoescape off %}
+                {% first_day_of_month 0 request first='first' %}
+                {% first_day_of_month 1 request %}
+                {% first_day_of_month 2 request %}
+                {% first_day_of_month 3 request %}
+                {% first_day_of_month 4 request %}
+                {% first_day_of_month 5 request %}
+                {% first_day_of_month 6 request %}
+            {% endautoescape %}
         </div>
         <div class="columns" id="week-two">
-            <div class="column first">
-                {% autoescape off %}
-                    {% first_day_of_month 0 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 1 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 2 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 3 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 4 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 5 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column is-one-seventh">
-                {% autoescape off %}
-                    {% first_day_of_month 6 request %}
-                {% endautoescape %}
-            </div>
+            {% autoescape off %}
+                {% first_day_of_month 0 request first='first' %}
+                {% first_day_of_month 1 request %}
+                {% first_day_of_month 2 request %}
+                {% first_day_of_month 3 request %}
+                {% first_day_of_month 4 request %}
+                {% first_day_of_month 5 request %}
+                {% first_day_of_month 6 request %}
+            {% endautoescape %}
         </div>
         <div class="columns" id="week-three">
-            <div class="column first">
-                {% autoescape off %}
-                    {% first_day_of_month 0 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 1 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 2 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 3 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 4 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 5 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 6 request %}
-                {% endautoescape %}
-            </div>
+            {% autoescape off %}
+                {% first_day_of_month 0 request first='first' %}
+                {% first_day_of_month 1 request %}
+                {% first_day_of_month 2 request %}
+                {% first_day_of_month 3 request %}
+                {% first_day_of_month 4 request %}
+                {% first_day_of_month 5 request %}
+                {% first_day_of_month 6 request %}
+            {% endautoescape %}
         </div>
         <div class="columns" id="week-four">
-            <div class="column first">
-                {% autoescape off %}
-                    {% first_day_of_month 0 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 1 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 2 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 3 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 4 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 5 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 6 request %}
-                {% endautoescape %}
-            </div>
+            {% autoescape off %}
+                {% first_day_of_month 0 request first='first' %}
+                {% first_day_of_month 1 request %}
+                {% first_day_of_month 2 request %}
+                {% first_day_of_month 3 request %}
+                {% first_day_of_month 4 request %}
+                {% first_day_of_month 5 request %}
+                {% first_day_of_month 6 request %}
+            {% endautoescape %}
         </div>
         <div class="columns" id="week-five">
-            <div class="column is-one-fifth first">
-                {% autoescape off %}
-                    {% first_day_of_month 0 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column is-one-fifth">
-                {% autoescape off %}
-                    {% first_day_of_month 1 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column is-one-fifth">
-                {% autoescape off %}
-                    {% first_day_of_month 2 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 3 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 4 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 5 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column">
-                {% autoescape off %}
-                    {% first_day_of_month 6 request %}
-                {% endautoescape %}
-            </div>
+            {% autoescape off %}
+                {% first_day_of_month 0 request first='first' %}
+                {% first_day_of_month 1 request %}
+                {% first_day_of_month 2 request %}
+                {% first_day_of_month 3 request %}
+                {% first_day_of_month 4 request %}
+                {% first_day_of_month 5 request %}
+                {% first_day_of_month 6 request %}
+            {% endautoescape %}
         </div>
         <div class="columns" id="week-six">
-            <div class="column is-one-fifth first">
-                {% autoescape off %}
-                    {% first_day_of_month 0 request %}
-                {% endautoescape %}
-            </div>
-            <div class="column is-one-fifth">
-                {% autoescape off %}
-                    {% first_day_of_month 1 request %}
-                {% endautoescape %}
-            </div>
+            {% autoescape off %}
+                {% first_day_of_month 0 request first='first' %}
+                {% first_day_of_month 1 request %}
+                {% first_day_of_month 2 request %}
+                {% first_day_of_month 3 request %}
+                {% first_day_of_month 4 request %}
+                {% first_day_of_month 5 request %}
+                {% first_day_of_month 6 request %}
+            {% endautoescape %}
         </div>
     </div>
 </div>
