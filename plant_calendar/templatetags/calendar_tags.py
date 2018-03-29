@@ -40,7 +40,7 @@ def first_day_of_month(weekday, request, *args, **kwargs):
         request.session['curr_day'] = curr_day
         request.modified = True
         event_start = curr_day - 1
-        plant_events = PlantEvent.objects.filter(event_start__day=event_start).first()
+        plant_events = PlantEvent.objects.filter(event_start__day=event_start, event_start__month=curr_month_num).first()
 
         if plant_events is not None:
             return '''<div class="column {}">
