@@ -18,8 +18,9 @@
     <!-- <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css"> -->
           <!-- Compiled and minified CSS -->
+    <link type='text/css' rel='stylesheet' href='/static/css/normalize.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
-    <link rel='stylesheet' href='/static/fullcalendar/dist/fullcalendar.css'/>
+    <!--<link rel='stylesheet' href='/static/fullcalendar/dist/fullcalendar.css'/> -->
     <link type='text/css' rel='stylesheet' href='/static/css/base.css'>
     <link type='text/css' rel='stylesheet' href='/static/css/media-queries.css'>
 
@@ -53,7 +54,6 @@
     {% endblock %}
 </head>
 
-
 <body{% if active_user %} id='active-user'{% endif %}{% block body-class %}{% endblock %}>
   <div class="docWrapper">
     {% block header %}
@@ -66,18 +66,16 @@
         </div> -->
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-            <li><a href="/account/my-garden">Profile</a></li>
             <li><a href="#">About Us</a></li>
             <li><a href="/calendar/">Calendar</a></li>
-            <li><a href="#">Harvest</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
             <li><a href="/account/my-garden">Profile</a></li>
             <li><a href="#">About Us</a></li>
             <li><a href="/calendar/">Calendar</a></li>
-            <li><a href="#">Harvest</a></li>
             <li><a href="#">Contact</a></li>
+            <li><a href="#">Logout</a></li>
         </ul>
       </div>
     </nav>
@@ -143,7 +141,7 @@
 </body>
 <script>
     $(document).ready(function () {
-        $(".button-collapse").sideNav();
+      $(".button-collapse").sideNav();
     })
 </script>
 </html>

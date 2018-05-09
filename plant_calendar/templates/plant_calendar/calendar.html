@@ -1,14 +1,17 @@
-<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
 <link rel="stylesheet" href="/static/bulma-docs.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../../webapp/static/css/base.css">
+
+
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 {% load calendar_tags %}
 
 <style>
-
     .month {
         text-transform: capitalize;
     }
@@ -43,6 +46,17 @@
         .column.first .day {
             left: 0.3rem !important;
         }
+
+        #week-one .column,
+        #week-two .column,
+        #week-three .column,
+        #week-four .column,
+        #week-five .column,
+        #week-six .column {
+            border: 1px solid black;
+            padding: 20px 20px;
+            position: relative;
+        }
     }
 
     #calendar-header .column {
@@ -56,7 +70,7 @@
     #week-five .column,
     #week-six .column {
         border: 1px solid black;
-        padding: 70px 20px 90px 20px;
+        padding: 30px 18px;
         position: relative;
     }
 
@@ -82,14 +96,13 @@
 
     .event {
         position: absolute;
-        border: 1px solid black;
         border-radius: 8px;
         top: 50%;
         left: 50%;
+        font-size: 10pt;
+        min-width: 120px;
         transform: translate(-50%, -50%);
         font-weight: bold;
-        padding: 5px;
-        color: black;
     }
 
 </style>
@@ -130,11 +143,15 @@
             })
         });
     });
+ 
+
 </script>
+
+
 
 <div class="container">
     <div id="baney-calendar" class="cal">
-        <div class="columns" id="month-year">
+        <div class="columns" id="month-year" style="display: flex;">
             <div class="column">
                 <i class="fa fa-caret-left" id="prev-month"
                    style="cursor: pointer; font-size: 28px; padding: 35px 20px 20px 20px;"></i>
@@ -153,30 +170,30 @@
             <p style="flex: 1;">C</p>
             <p style="flex: 1;">D</p>
         </div>
-        <div class="columns" id="calendar-header" style="margin-top: 0.5rem;">
+        <div class="columns" id="calendar-header" style="display: flex; margin-top: 0.5rem;">
             <div class="column info">
-                Monday
+                Mon
             </div>
             <div class="column success">
-                Tuesday
+                Tue
             </div>
             <div class="column warning">
-                Wednesday
+                Wed
             </div>
             <div class="column danger">
-                Thursday
+                Thu
             </div>
             <div class="column info">
-                Friday
+                Fri
             </div>
             <div class="column success">
-                Saturday
+                Sat
             </div>
             <div class="column warning">
-                Sunday
+                Sun
             </div>
         </div>
-        <div class="columns" id="week-one">
+        <div class="columns" id="week-one" style="display: flex;">
             {% autoescape off %}
                 {% first_day_of_month 0 request first='first' %}
                 {% first_day_of_month 1 request %}
@@ -187,7 +204,7 @@
                 {% first_day_of_month 6 request %}
             {% endautoescape %}
         </div>
-        <div class="columns" id="week-two">
+        <div class="columns" id="week-two" style="display: flex;">
             {% autoescape off %}
                 {% first_day_of_month 0 request first='first' %}
                 {% first_day_of_month 1 request %}
@@ -198,7 +215,7 @@
                 {% first_day_of_month 6 request %}
             {% endautoescape %}
         </div>
-        <div class="columns" id="week-three">
+        <div class="columns" id="week-three" style="display: flex;">
             {% autoescape off %}
                 {% first_day_of_month 0 request first='first' %}
                 {% first_day_of_month 1 request %}
@@ -209,7 +226,7 @@
                 {% first_day_of_month 6 request %}
             {% endautoescape %}
         </div>
-        <div class="columns" id="week-four">
+        <div class="columns" id="week-four" style="display: flex;">
             {% autoescape off %}
                 {% first_day_of_month 0 request first='first' %}
                 {% first_day_of_month 1 request %}
@@ -220,7 +237,7 @@
                 {% first_day_of_month 6 request %}
             {% endautoescape %}
         </div>
-        <div class="columns" id="week-five">
+        <div class="columns" id="week-five" style="display: flex;">
             {% autoescape off %}
                 {% first_day_of_month 0 request first='first' %}
                 {% first_day_of_month 1 request %}
@@ -231,7 +248,7 @@
                 {% first_day_of_month 6 request %}
             {% endautoescape %}
         </div>
-        <div class="columns" id="week-six">
+        <div class="columns" id="week-six" style="display: flex;">
             {% autoescape off %}
                 {% first_day_of_month 0 request first='first' %}
                 {% first_day_of_month 1 request %}

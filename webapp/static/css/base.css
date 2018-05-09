@@ -95,7 +95,7 @@ button { background-color: var(--primaryColor); }
   margin-bottom: 2rem;
   background: white !important;
 }
-.formBuffer { padding: 0 1rem;}
+.formBuffer { padding: 0 1rem; }
 #user-portion,
 #plant-portion,
 #financial-portion { height: 40px; }
@@ -116,6 +116,7 @@ button { background-color: var(--primaryColor); }
   width: 40px;
   position: relative;
 }
+
 #plant-portion .progress-bubble { display: inline-block; }
 #user-portion .progress-bubble { float: right; }
 #financial-portion .progress-bubble { float: left; }
@@ -125,6 +126,7 @@ button { background-color: var(--primaryColor); }
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 #user-portion .progress-bubble .fa { font-weight: bold; }
 #plant-portion .progress-bubble .fa { color: black; }
 #financial-portion .progress-bubble .fa { color: black; }
@@ -134,11 +136,13 @@ button { background-color: var(--primaryColor); }
   width: 31.8%;
   padding: 18px 0;
 }
+
 .progress-bar .separator .progress-line {
   width: 100%;
   height: 3px;
   background-color: black;
 }
+
 .progress-bar .separator .progress-line.active { background-color: #01cc01 !important; }
 .active .progress-bubble { border: 3px solid black; }
 
@@ -177,6 +181,17 @@ button { background-color: var(--primaryColor); }
           Skin
 =========================*/
 
+/*________________________________Calendar____________________________*/
+
+/*========================
+          Structure
+=========================*/
+
+
+/*========================
+          Skin
+=========================*/
+
 /*________________________________My Garden Page____________________________*/
 
 /*========================
@@ -203,8 +218,9 @@ button { background-color: var(--primaryColor); }
 .btn-floating i { line-height: 35px; }
 
 /*========================
-Skin
+        Skin
 =========================*/
+
 .bgGreen { background-color: #069994; }
 
 .bgGrey { background-color: #EAEAEA; }
@@ -218,6 +234,7 @@ Skin
 }
 
 /*________________________________Plant Explore____________________________*/
+
 
 /*========================
           Structure
@@ -237,16 +254,23 @@ Skin
   justify-content: center;
 }
 
-@media (min-width: 600px) { #plantContainer { margin-left: 1rem; display: inline-flex;} }
+/*==== Calendar ====*/
 
-.example { 
-  min-width: 220px; 
-  padding-bottom: 10px; 
-  margin-bottom: 10px; 
+
+
+/*=== Media Queries===*/
+
+@media (min-width: 600px) {
+  #plantContainer {
+    margin-left: 1rem;
+    display: inline-flex;
+  }
 }
 
 /*========================
           Skin
 =========================*/
 
+
+/*==== CalendarSkin ====*/
 
