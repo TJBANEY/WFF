@@ -44,14 +44,14 @@ def first_day_of_month(weekday, request, *args, **kwargs):
 
         if plant_events is not None:
             return '''<div class="column {}">
-                        <div class="day-triangle"></div>
+                        <div class="day"></div>
                         <p class="day">{}</p>
                         <div class='event' style='background: #{}; color: #{}'>{}</div>
                     </div>
             '''.format(first, str(curr_day), plant_events.color, plant_events.text_color, str(plant_events.name))
         else:
             return '''<div class="column {}">
-                        <div class="day-triangle"></div>
+                        <div class="day"></div>
                         <p class="day">{}</p>
                     </div>
             '''.format(first, str(curr_day))

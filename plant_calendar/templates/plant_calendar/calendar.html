@@ -16,6 +16,13 @@
         text-transform: capitalize;
     }
 
+    .columns {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: -0.75rem;
+        
+    }
+
     .column {
         text-align: center;
     }
@@ -32,35 +39,29 @@
     }
 
     .column .day {
-        color: orange;
+        color: black;
         position: absolute;
-        top: 2px;
-        left: 5px;
+        top: 35%;
+        left: -50%;
+        right: -50%;
     }
 
     @media only screen and (max-width: 991px) {
-        .column.first .day-triangle {
-            left: 0.2rem !important;
-        }
-
-        .column.first .day {
-            left: 0.3rem !important;
-        }
-
+        
         #week-one .column,
         #week-two .column,
         #week-three .column,
         #week-four .column,
         #week-five .column,
         #week-six .column {
-            border: 1px solid black;
+            border: 0px solid teal;
             padding: 20px 20px;
             position: relative;
         }
     }
 
     #calendar-header .column {
-        padding: 1.1rem 0.7rem 0.7rem 0.7rem;
+        padding: 0.7rem 0.3rem;
     }
 
     #week-one .column,
@@ -69,8 +70,8 @@
     #week-four .column,
     #week-five .column,
     #week-six .column {
-        border: 1px solid black;
-        padding: 30px 18px;
+        border: 0px solid teal;
+        padding: 30px 20px;
         position: relative;
     }
 
@@ -151,6 +152,8 @@
 
 <div class="container">
     <div id="baney-calendar" class="cal">
+
+        <!-- MONTH NAV -->
         <div class="columns" id="month-year" style="display: flex;">
             <div class="column">
                 <i class="fa fa-caret-left" id="prev-month"
@@ -164,38 +167,44 @@
                    style="cursor: pointer; font-size: 28px; padding: 35px 20px 20px 20px;"></i>
             </div>
         </div>
-        <div class="columns" style="display: flex; text-align: center;">
+
+        {% comment %} <div class="columns" style="display: flex; text-align: center;">
             <p style="flex: 1;">A</p>
             <p style="flex: 1;">B</p>
             <p style="flex: 1;">C</p>
             <p style="flex: 1;">D</p>
-        </div>
-        <div class="columns" id="calendar-header" style="display: flex; margin-top: 0.5rem;">
-            <div class="column info">
-                Mon
-            </div>
-            <div class="column success">
-                Tue
-            </div>
-            <div class="column warning">
-                Wed
-            </div>
-            <div class="column danger">
-                Thu
-            </div>
-            <div class="column info">
-                Fri
-            </div>
-            <div class="column success">
-                Sat
-            </div>
-            <div class="column warning">
+        </div> {% endcomment %}
+
+        <!-- WEEK DAYS-->
+        <div class="columns" id="calendar-header" style="display: flex; margin-top: 0.5rem; color: teal;">
+            <div class="column ">
                 Sun
             </div>
+            <div class="column ">
+                Mon
+            </div>
+            <div class="column ">
+                Tue
+            </div>
+            <div class="column ">
+                Wed
+            </div>
+            <div class="column ">
+                Thu
+            </div>
+            <div class="column ">
+                Fri
+            </div>
+            <div class="column ">
+                Sat
+            </div>
+            
         </div>
+
+        <!-- WEEK 1-->
         <div class="columns" id="week-one" style="display: flex;">
             {% autoescape off %}
-                {% first_day_of_month 0 request first='first' %}
+                {% first_day_of_month 0 request  %}
                 {% first_day_of_month 1 request %}
                 {% first_day_of_month 2 request %}
                 {% first_day_of_month 3 request %}
@@ -204,9 +213,11 @@
                 {% first_day_of_month 6 request %}
             {% endautoescape %}
         </div>
+
+        <!-- WEEK 2-->
         <div class="columns" id="week-two" style="display: flex;">
             {% autoescape off %}
-                {% first_day_of_month 0 request first='first' %}
+                {% first_day_of_month 0 request  %}
                 {% first_day_of_month 1 request %}
                 {% first_day_of_month 2 request %}
                 {% first_day_of_month 3 request %}
@@ -215,9 +226,11 @@
                 {% first_day_of_month 6 request %}
             {% endautoescape %}
         </div>
+
+        <!-- WEEK 3-->
         <div class="columns" id="week-three" style="display: flex;">
             {% autoescape off %}
-                {% first_day_of_month 0 request first='first' %}
+                {% first_day_of_month 0 request  %}
                 {% first_day_of_month 1 request %}
                 {% first_day_of_month 2 request %}
                 {% first_day_of_month 3 request %}
@@ -226,9 +239,11 @@
                 {% first_day_of_month 6 request %}
             {% endautoescape %}
         </div>
+
+        <!-- WEEK 4-->
         <div class="columns" id="week-four" style="display: flex;">
             {% autoescape off %}
-                {% first_day_of_month 0 request first='first' %}
+                {% first_day_of_month 0 request  %}
                 {% first_day_of_month 1 request %}
                 {% first_day_of_month 2 request %}
                 {% first_day_of_month 3 request %}
@@ -237,9 +252,11 @@
                 {% first_day_of_month 6 request %}
             {% endautoescape %}
         </div>
+
+        <!-- WEEK 5-->
         <div class="columns" id="week-five" style="display: flex;">
             {% autoescape off %}
-                {% first_day_of_month 0 request first='first' %}
+                {% first_day_of_month 0 request  %}
                 {% first_day_of_month 1 request %}
                 {% first_day_of_month 2 request %}
                 {% first_day_of_month 3 request %}
@@ -248,7 +265,9 @@
                 {% first_day_of_month 6 request %}
             {% endautoescape %}
         </div>
-        <div class="columns" id="week-six" style="display: flex;">
+
+        <!-- WEEK 6-->
+        {% comment %} <div class="columns" id="week-six" style="display: flex;">
             {% autoescape off %}
                 {% first_day_of_month 0 request first='first' %}
                 {% first_day_of_month 1 request %}
@@ -258,6 +277,51 @@
                 {% first_day_of_month 5 request %}
                 {% first_day_of_month 6 request %}
             {% endautoescape %}
+        </div> {% endcomment %}
+
+        <!-- EVENTS-->
+        <div class="events" style="border-top: 1px solid black;">
+            <div style="display: grid;
+                grid-template-columns: 100px auto;
+                grid-template-rows: auto;
+                grid-column-gap: 1rem; 
+                margin: 0 0;
+                border-top: 1px solid #bbb;
+                border-bottom: 1px solid #bbb;">
+                <img style="align-self: start; width: 100%;" src="https://www.longfield-gardens.com/_ccLib/image/plants/DETA5-1037.jpg" height="120" width="120" alt="image here">
+                <div style="vertical-align: top;">
+                    <h2 style="font-size: 1.8em">Event</h2>
+                    <p>This is some lorem ipsum type stuff</p>
+                </div>
+            </div>
+
+            <div style="display: grid;
+                grid-template-columns: 100px auto;
+                grid-template-rows: auto;
+                grid-column-gap: 1rem; 
+                margin: 0.5rem 0;
+                border-top: 1px solid #bbb;
+                border-bottom: 1px solid #bbb;">
+                <img style="align-self: start; width: 100%;" src="https://www.longfield-gardens.com/_ccLib/image/plants/DETA5-1037.jpg" height="120" width="120" alt="image here">
+                <div style="vertical-align: top;">
+                    <h2 style="font-size: 1.8em">Event</h2>
+                    <p>This is some lorem ipsum type stuff</p>
+                </div>
+            </div>
+
+            <div style="display: grid;
+                grid-template-columns: 100px auto;
+                grid-template-rows: auto;
+                grid-column-gap: 1rem; 
+                margin: 0.5rem 0 0 0;
+                border-top: 1px solid #bbb;
+                border-bottom: 1px solid #bbb;">
+                <img style="align-self: start; width: 100%;" src="https://www.longfield-gardens.com/_ccLib/image/plants/DETA5-1037.jpg" height="120" width="120" alt="image here">
+                <div style="vertical-align: top;">
+                    <h2 style="font-size: 1.8em">Event</h2>
+                    <p>This is some lorem ipsum type stuff</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
