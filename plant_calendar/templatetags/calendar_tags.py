@@ -50,9 +50,8 @@ def first_day_of_month(weekday, request, *args, **kwargs):
                     </div>
             '''.format(first, str(curr_day), plant_events.color, plant_events.text_color, str(plant_events.name))
         else:
-            return '''<div class="column {}">
-                        <div class="day"></div>
-                        <p class="day">{}</p>
+            return '''<div class="column {}"> 
+                        <p class="day active">{}</p>
                     </div>
             '''.format(first, str(curr_day))
     else:

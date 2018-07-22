@@ -27,24 +27,18 @@
         text-align: center;
     }
 
-    .column .day-triangle {
-        position: absolute;
-        border-style: solid;
-        border-width: 50px 50px 0 0;
-        border-color: black transparent transparent transparent;
-        width: 0;
-        height: 0;
-        top: 0;
-        left: 0;
+    .day {
+        color: black; 
     }
 
-    .column .day {
-        color: black;
-        position: absolute;
-        top: 35%;
-        left: -50%;
-        right: -50%;
-    }
+    .active {
+        margin: 0 auto;
+        max-width: 25px;
+        max-height: 30px;
+        border-radius: 50%; 
+        background-color: teal;
+        color: #fff;
+    } 
 
     @media only screen and (max-width: 991px) {
         
@@ -54,9 +48,7 @@
         #week-four .column,
         #week-five .column,
         #week-six .column {
-            border: 0px solid teal;
-            padding: 20px 20px;
-            position: relative;
+            border: 0px solid teal; 
         }
     }
 
@@ -70,9 +62,7 @@
     #week-four .column,
     #week-five .column,
     #week-six .column {
-        border: 0px solid teal;
-        padding: 30px 20px;
-        position: relative;
+        border: 0px solid teal; 
     }
 
     .info {
@@ -105,6 +95,118 @@
         transform: translate(-50%, -50%);
         font-weight: bold;
     }
+
+    .grid-1 {
+        /*padding-top: 40px;*/
+        display: grid;
+        width: 100%;
+        max-width: 750px;
+        margin: 0 auto;
+        grid-template-columns: repeat(7, 1fr);
+        /*grid-template-rows: repeat(5, 1fr);*/
+        grid-gap: 2px;
+    }
+
+    p .day { 
+        color: white;
+        font-size: 16px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* .item-1 {
+    background: #b03532;
+    }
+    .item-2 {
+    background: #33a8a5;
+    }
+    .item-3 {
+    background: #ff9069;
+    }
+    .item-4 {
+    background: #6a478f;
+    }
+    .item-5 {
+    background: #3d8bb1;
+    }
+    .item-6 {
+    background: #4464a1;
+    }
+    .item-7 {
+    background: #e03f3f;
+    }
+    .item-8 {
+    background: #59a627;
+    }
+    .item-9 {
+    background: #b03532;
+    }
+    .item-10 {
+    background: #4464a1;
+    }
+    .item-11 {
+    background: #33a8a5;
+    }
+    .item-12 {
+    background: #ff9069;
+    }
+    .item-13 {
+    background: #3d8bb1;
+    }
+    .item-14 {
+    background: #da6f2b;
+    }
+    .item-15 {
+    background: #59a627;
+    }
+    .item-16 {
+    background: #30997a;
+    }
+    .item-17 {
+    background: #6a478f;
+    }
+    .item-18 {
+    background: #da6f2b;
+    }
+    .item-19 {
+    background: #ff9069;
+    }
+    .item-20 {
+    background: #3d8bb1;
+    }
+    .item-21 {
+    background: #da6f2b;
+    }
+    .item-22 {
+    background: #59a627;
+    }
+    .item-23 {
+    background: #30997a;
+    }
+    .item-24 {
+    background: #6a478f;
+    }
+    .item-25 {
+    background: #da6f2b;
+    }
+    .item-26 {
+    background: #da6f2b;
+    }
+    .item-27 {
+    background: #da6f2b;
+    }
+    .item-28 {
+    background: #da6f2b;
+    }
+    .item-29 {
+    background: #da6f2b;
+    }
+    .item-30 {
+    background: #da6f2b;
+    }
+    .item-31 {
+    background: #da6f2b;
+    } */
 
 </style>
 
@@ -176,35 +278,69 @@
         </div> {% endcomment %}
 
         <!-- WEEK DAYS-->
-        <div class="columns" id="calendar-header" style="display: flex; margin-top: 0.5rem; color: teal;">
-            <div class="column ">
+        <div class="columns grid-1" id="calendar-header" style="display: grid; margin-top: 0.5rem; color: teal;">
+            <div class="column">
                 Sun
             </div>
-            <div class="column ">
+            <div class="column">
                 Mon
             </div>
-            <div class="column ">
+            <div class="column">
                 Tue
             </div>
-            <div class="column ">
+            <div class="column">
                 Wed
             </div>
-            <div class="column ">
+            <div class="column">
                 Thu
             </div>
-            <div class="column ">
+            <div class="column">
                 Fri
             </div>
-            <div class="column ">
+            <div class="column">
                 Sat
             </div>
             
         </div>
 
+        <!-- <section class="grid-1">
+            <div class="item-1">1</div>
+            <div class="item-2">2</div>
+            <div class="item-3">3</div>
+            <div class="item-4">4</div>
+            <div class="item-5">5</div>
+            <div class="item-6">6</div>
+            <div class="item-7">7</div>
+            <div class="item-8">8</div>
+            <div class="item-9">9</div>
+            <div class="item-10">10</div>
+            <div class="item-11">11</div>
+            <div class="item-12">12</div>
+            <div class="item-13">13</div>
+            <div class="item-14">14</div>
+            <div class="item-15">15</div>
+            <div class="item-16">16</div>
+            <div class="item-17">17</div>
+            <div class="item-18">18</div>
+            <div class="item-19">19</div>
+            <div class="item-20">20</div>
+            <div class="item-21">21</div>
+            <div class="item-22">22</div>
+            <div class="item-23">23</div>
+            <div class="item-24">24</div>
+            <div class="item-25">25</div>
+            <div class="item-26">26</div>
+            <div class="item-27">27</div>
+            <div class="item-28">28</div>
+            <div class="item-29">29</div>
+            <div class="item-30">30</div>
+            <div class="item-31">31</div>
+        </section> -->
+
         <!-- WEEK 1-->
-        <div class="columns" id="week-one" style="display: flex;">
+        <div class="grid-1" id="week-one">
             {% autoescape off %}
-                {% first_day_of_month 0 request  %}
+                {% first_day_of_month 0 request %}
                 {% first_day_of_month 1 request %}
                 {% first_day_of_month 2 request %}
                 {% first_day_of_month 3 request %}
@@ -215,7 +351,7 @@
         </div>
 
         <!-- WEEK 2-->
-        <div class="columns" id="week-two" style="display: flex;">
+        <div class="grid-1" id="week-two">
             {% autoescape off %}
                 {% first_day_of_month 0 request  %}
                 {% first_day_of_month 1 request %}
@@ -228,7 +364,7 @@
         </div>
 
         <!-- WEEK 3-->
-        <div class="columns" id="week-three" style="display: flex;">
+        <div class="grid-1" id="week-three">
             {% autoescape off %}
                 {% first_day_of_month 0 request  %}
                 {% first_day_of_month 1 request %}
@@ -241,7 +377,7 @@
         </div>
 
         <!-- WEEK 4-->
-        <div class="columns" id="week-four" style="display: flex;">
+        <div class="grid-1" id="week-four">
             {% autoescape off %}
                 {% first_day_of_month 0 request  %}
                 {% first_day_of_month 1 request %}
@@ -254,7 +390,7 @@
         </div>
 
         <!-- WEEK 5-->
-        <div class="columns" id="week-five" style="display: flex;">
+        <div class="grid-1" id="week-five">
             {% autoescape off %}
                 {% first_day_of_month 0 request  %}
                 {% first_day_of_month 1 request %}
@@ -265,19 +401,6 @@
                 {% first_day_of_month 6 request %}
             {% endautoescape %}
         </div>
-
-        <!-- WEEK 6-->
-        {% comment %} <div class="columns" id="week-six" style="display: flex;">
-            {% autoescape off %}
-                {% first_day_of_month 0 request first='first' %}
-                {% first_day_of_month 1 request %}
-                {% first_day_of_month 2 request %}
-                {% first_day_of_month 3 request %}
-                {% first_day_of_month 4 request %}
-                {% first_day_of_month 5 request %}
-                {% first_day_of_month 6 request %}
-            {% endautoescape %}
-        </div> {% endcomment %}
 
         <!-- EVENTS-->
         <div class="events" style="border-top: 1px solid black;">
